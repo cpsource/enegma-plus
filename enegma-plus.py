@@ -2,7 +2,9 @@
 """Enegma - A 3-wheel Enigma-style cipher engine with chaining."""
 
 import argparse
+import datetime
 import json
+import os
 import secrets
 import sys
 
@@ -182,7 +184,13 @@ def _enegma_raw(text, positions, wheels, reverses, reflector, plugboard, mode="e
     return "".join(output)
 
 
-def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard_str=None, wheel_select=None):
+def _trace(msg, trace=False):
+    """Print a trace message to stderr if tracing is enabled."""
+    if trace:
+        print(f"  [TRACE] {msg}", file=sys.stderr)
+
+
+def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard_str=None, wheel_select=None, trace=False):
     """Encode or decode text with per-message key indicator.
 
     Encode: generates a random message key, encrypts it at the daily key
@@ -197,27 +205,44 @@ def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard
     reverses = [make_reverse(w) for w in wheels]
     plugboard = make_plugboard(plugboard_str)
 
+    ws = wheel_select or [1, 2, 3]
+    _trace(f"Mode: {mode.upper()}", trace)
+    _trace(f"Wheels: {ws[0]}, {ws[1]}, {ws[2]}", trace)
+    _trace(f"Daily key positions: {w1}, {w2}, {w3}", trace)
+    _trace(f"Plugboard: {plugboard_str or '(none)'}", trace)
+
     if mode == "encode":
-        text = prepare_text(text)
+        prepared = prepare_text(text)
+        _trace(f"Input text: {text}", trace)
+        _trace(f"Prepared text: {prepared}", trace)
+        text = prepared
 
         # Generate random per-message key
         mk = [secrets.randbelow(26) for _ in range(3)]
         mk_letters = ''.join(chr(p + ord('A')) for p in mk)
+        _trace(f"Message key (plaintext): {mk_letters} (positions {mk[0]}, {mk[1]}, {mk[2]})", trace)
 
         # Encrypt the message key at daily key positions (no chaining for indicator)
         indicator_pos = [w1, w2, w3]
         enc_indicator = _enegma_raw(mk_letters, indicator_pos, wheels, reverses, reflector, plugboard, mode="encode")
+        _trace(f"Message key (encrypted): {enc_indicator}", trace)
 
         # Encrypt the message body at the message key positions
         body_pos = list(mk)
         enc_body = _enegma_raw(text, body_pos, wheels, reverses, reflector, plugboard, mode="encode")
+        _trace(f"Encrypted body: {enc_body}", trace)
+        _trace(f"Full output: {enc_indicator}{enc_body} ({len(enc_indicator)} indicator + {len(enc_body)} body = {len(enc_indicator) + len(enc_body)} chars)", trace)
 
         return enc_indicator + enc_body
 
     else:
+        _trace(f"Input ciphertext: {text} ({len(text)} chars)", trace)
+
         # Split indicator (first 3 chars) from body
         enc_indicator = text[:3]
         enc_body = text[3:]
+        _trace(f"Encrypted indicator: {enc_indicator}", trace)
+        _trace(f"Encrypted body: {enc_body} ({len(enc_body)} chars)", trace)
 
         # Decrypt indicator at daily key positions to recover message key
         indicator_pos = [w1, w2, w3]
@@ -225,29 +250,123 @@ def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard
 
         # Convert message key letters to positions
         mk = [ord(c) - ord('A') for c in mk_letters.upper()]
+        _trace(f"Message key (decrypted): {mk_letters} (positions {mk[0]}, {mk[1]}, {mk[2]})", trace)
 
         # Decrypt body at message key positions
         body_pos = list(mk)
         plaintext = _enegma_raw(enc_body, body_pos, wheels, reverses, reflector, plugboard, mode="decode")
+        _trace(f"Decrypted (raw): {plaintext}", trace)
 
-        return restore_text(plaintext)
+        result = restore_text(plaintext)
+        _trace(f"Decrypted (restored): {result}", trace)
+
+        return result
+
+
+def load_codebook_key(codebook_path, date_str=None):
+    """Load today's key from a codebook file. Returns (w1, w2, w3, plugboard_str, wheel_select) or None."""
+    if date_str is None:
+        date_str = datetime.date.today().isoformat()
+    with open(codebook_path) as f:
+        codebook = json.load(f)
+    day = codebook.get("days", {}).get(date_str)
+    if day is None:
+        return None, date_str
+    return {
+        "w1": day["positions"][0],
+        "w2": day["positions"][1],
+        "w3": day["positions"][2],
+        "plugboard": day["plugboard"],
+        "wheels": day["wheels"],
+    }, date_str
+
+
+def find_codebook():
+    """Search for a codebook file for the current year."""
+    year = datetime.date.today().year
+    filename = f"enegma-plus-codebook-{year}.json"
+    if os.path.exists(filename):
+        return filename
+    return None
 
 
 def main():
     parser = argparse.ArgumentParser(description="Enegma cipher engine")
     parser.add_argument("text", nargs="?", help="Text to encode/decode")
-    parser.add_argument("w1", type=int, help="Wheel 1 starting position")
-    parser.add_argument("w2", type=int, help="Wheel 2 starting position")
-    parser.add_argument("w3", type=int, help="Wheel 3 starting position")
+    parser.add_argument("w1", nargs="?", type=int, help="Wheel 1 starting position")
+    parser.add_argument("w2", nargs="?", type=int, help="Wheel 2 starting position")
+    parser.add_argument("w3", nargs="?", type=int, help="Wheel 3 starting position")
     parser.add_argument("-d", action="store_true", help="Decode mode")
     parser.add_argument("--in", dest="infile", help="Input file")
     parser.add_argument("--out", dest="outfile", help="Output file")
     parser.add_argument("--pb", dest="plugboard", help="Plugboard pairs (e.g. 'AN BY CW DI EQ FL GT HX KP MZ')")
     parser.add_argument("--wh", dest="wheels", help="Select 3 wheels from kit by number (e.g. '5 12 3')")
+    parser.add_argument("--cb", dest="codebook", nargs="?", const="auto",
+                        help="Use codebook for daily key. Optionally specify path (default: auto-detect)")
+    parser.add_argument("--date", dest="date", help="Date to use with codebook (YYYY-MM-DD, default: today)")
+    parser.add_argument("--trace", action="store_true", help="Print detailed trace of encoding/decoding steps")
     args = parser.parse_args()
 
     mode = "decode" if args.d else "encode"
+
+    # When --in is used, argparse may consume the first number as text.
+    # Detect and shift: if text looks like an int and --in is provided, treat it as w1.
+    if args.infile and args.text is not None and args.w3 is None:
+        try:
+            shifted_w1 = int(args.text)
+            args.text = None
+            args.w1, args.w2, args.w3 = shifted_w1, args.w1, args.w2
+        except ValueError:
+            pass
+
+    w1, w2, w3 = args.w1, args.w2, args.w3
+    plugboard_str = args.plugboard
     wheel_select = [int(x) for x in args.wheels.split()] if args.wheels else None
+
+    if args.codebook is not None:
+        # Codebook mode
+        if args.codebook == "auto":
+            cb_path = find_codebook()
+            if cb_path is None:
+                year = datetime.date.today().year
+                print(f"WARNING: No codebook found for {year} (expected enegma-plus-codebook-{year}.json)", file=sys.stderr)
+                print("Falling back to command-line settings.", file=sys.stderr)
+                if w1 is None or w2 is None or w3 is None:
+                    parser.error("No codebook found. Provide W1 W2 W3 on command line.")
+            else:
+                key, date_str = load_codebook_key(cb_path, args.date)
+                if key is None:
+                    print(f"WARNING: No key found for {date_str} in {cb_path}", file=sys.stderr)
+                    print("Falling back to command-line settings.", file=sys.stderr)
+                    if w1 is None or w2 is None or w3 is None:
+                        parser.error(f"No codebook key for {date_str}. Provide W1 W2 W3 on command line.")
+                else:
+                    w1, w2, w3 = key["w1"], key["w2"], key["w3"]
+                    plugboard_str = key["plugboard"]
+                    wheel_select = key["wheels"]
+                    print(f"Using codebook key for {date_str}", file=sys.stderr)
+        else:
+            # Explicit codebook path
+            if not os.path.exists(args.codebook):
+                print(f"WARNING: Codebook not found: {args.codebook}", file=sys.stderr)
+                print("Falling back to command-line settings.", file=sys.stderr)
+                if w1 is None or w2 is None or w3 is None:
+                    parser.error(f"Codebook not found. Provide W1 W2 W3 on command line.")
+            else:
+                key, date_str = load_codebook_key(args.codebook, args.date)
+                if key is None:
+                    print(f"WARNING: No key found for {date_str} in {args.codebook}", file=sys.stderr)
+                    print("Falling back to command-line settings.", file=sys.stderr)
+                    if w1 is None or w2 is None or w3 is None:
+                        parser.error(f"No codebook key for {date_str}. Provide W1 W2 W3 on command line.")
+                else:
+                    w1, w2, w3 = key["w1"], key["w2"], key["w3"]
+                    plugboard_str = key["plugboard"]
+                    wheel_select = key["wheels"]
+                    print(f"Using codebook key for {date_str}", file=sys.stderr)
+
+    if w1 is None or w2 is None or w3 is None:
+        parser.error("Provide W1 W2 W3 on command line, or use --cb for codebook mode.")
 
     if args.infile:
         with open(args.infile) as f:
@@ -257,7 +376,7 @@ def main():
     else:
         parser.error("Provide text as argument or use --in <infile>")
 
-    result = enegma(text, args.w1, args.w2, args.w3, mode=mode, plugboard_str=args.plugboard, wheel_select=wheel_select)
+    result = enegma(text, w1, w2, w3, mode=mode, plugboard_str=plugboard_str, wheel_select=wheel_select, trace=args.trace)
 
     if args.outfile:
         with open(args.outfile, "w") as f:

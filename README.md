@@ -11,7 +11,8 @@ a standard version faithful to the original Enigma design, and an enhanced
 | `enegma.py` | Standard Enigma-style engine |
 | `enegma-plus.py` | Enhanced engine with chaining, plugboard, message key, and text prep |
 | `bombe.py` | Crib-based brute force cracker (works with standard engine) |
-| `wheels.json` | CSPRNG-generated rotor wirings and reflector |
+| `make-enegma-plus-codebook.py` | Generate yearly codebooks with daily keys |
+| `wheels.json` | CSPRNG-generated rotor wirings and reflector (16 wheels) |
 | `Makefile` | `make test` runs the test suite for enegma-plus.py |
 
 ## Standard Engine (`enegma.py`)
@@ -92,7 +93,83 @@ python3 enegma-plus.py <text> W1 W2 W3 [-d] [--in FILE] [--out FILE] [--pb PAIRS
   --out   Write output to file
   --pb    Plugboard letter pairs (e.g. "AN BY CW DI EQ FL GT HX KP MZ")
   --wh    Select 3 wheels from the kit by number (e.g. "5 12 3"). Default: "1 2 3"
+  --cb    Use a codebook for daily key (see Codebooks below)
+  --date  Override today's date for codebook lookup (YYYY-MM-DD)
 ```
+
+## Codebooks
+
+A codebook contains a unique daily key for every day of the year. Both
+sender and receiver must have the same codebook. This replaces the need
+to manually specify wheel selection, positions, and plugboard on the
+command line.
+
+### Generating a codebook
+
+```bash
+python3 make-enegma-plus-codebook.py --year 2026
+```
+
+This creates `enegma-plus-codebook-2026.json` with 365 (or 366) entries,
+one per day. Each daily key is generated via CSPRNG and contains:
+
+- **wheels** — 3 wheels selected from the kit of 16 (no repeats)
+- **positions** — 3 starting positions (0-25)
+- **plugboard** — 10 letter pairs
+
+Example entry:
+```json
+"2026-01-01": {
+  "wheels": [12, 5, 10],
+  "positions": [8, 11, 20],
+  "plugboard": "SP HC XU IB NG RJ FK DZ QV AL"
+}
+```
+
+### Using a codebook
+
+```bash
+# Auto-detect codebook for current year (looks for enegma-plus-codebook-YYYY.json)
+python3 enegma-plus.py "Attack at dawn." --cb
+python3 enegma-plus.py "CIPHERTEXT" --cb -d
+
+# Specify codebook path explicitly
+python3 enegma-plus.py "Hello World" --cb enegma-plus-codebook-2026.json
+
+# Use a different date's key (e.g. to decode a message from yesterday)
+python3 enegma-plus.py "CIPHERTEXT" --cb -d --date 2026-03-03
+```
+
+When `--cb` is used, the engine automatically loads the wheel selection,
+starting positions, and plugboard for the current date (or the date
+specified with `--date`). No need to provide W1, W2, W3, `--wh`, or
+`--pb` on the command line.
+
+### Codebook not found
+
+If the codebook file is missing or has no entry for the requested date,
+the engine prints a warning and falls back to command-line settings:
+
+```bash
+# Codebook missing — falls back to manual settings
+python3 enegma-plus.py "Hello" 7 14 22 --cb nonexistent.json
+# WARNING: Codebook not found: nonexistent.json
+# Falling back to command-line settings.
+
+# Codebook missing, no manual settings — error
+python3 enegma-plus.py "Hello" --cb nonexistent.json
+# ERROR: No codebook found. Provide W1 W2 W3 on command line.
+```
+
+### Security notes
+
+- Distribute codebooks securely — anyone with the codebook can decrypt
+  all traffic for the year
+- Generate a new codebook each year
+- The per-message key (CSPRNG-generated, encrypted in the first 3
+  characters) means that even with the same daily key, each message
+  produces unique ciphertext
+- Destroy expired codebooks
 
 ## Bombe Cracker (`bombe.py`)
 
