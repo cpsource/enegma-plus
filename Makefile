@@ -136,5 +136,57 @@ print('PASS')"
 	@echo "=== Test 16: All 16 wheels are usable ==="
 	@$(PYTHON) -c "exec(\"from importlib import import_module\nep = import_module('enegma-plus')\nfor i in range(1, 17):\n ws = [i, (i%16)+1, ((i+1)%16)+1]\n enc = ep.enegma('TEST', 0, 0, 0, mode='encode', wheel_select=ws)\n dec = ep.enegma(enc, 0, 0, 0, mode='decode', wheel_select=ws)\n assert dec == 'TEST', f'FAIL: wheel {i}'\nprint('PASS (all 16 wheels verified)')\")"
 
+	@echo "=== Test 17: PRNG overlay round-trip ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+enc = ep.enegma('HELLO WORLD', 7, 14, 22, mode='encode', prng_seed=12345); \
+dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=12345); \
+assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
+print('PASS')"
+
+	@echo "=== Test 18: PRNG overlay changes ciphertext ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+import secrets; \
+mk = [0, 0, 0]; \
+wheels, reverses, reflector, plugboard = ep._load_args(); \
+body = ep._enegma_raw('HELLO', list(mk), wheels, reverses, reflector, plugboard, mode='encode'); \
+with_prng = ep.apply_prng_overlay(body, 12345); \
+assert body != with_prng, f'FAIL: PRNG overlay did not change ciphertext'; \
+print('PASS')"
+
+	@echo "=== Test 19: Wrong PRNG seed fails to decode ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+enc = ep.enegma('ATTACK AT DAWN', 7, 14, 22, mode='encode', prng_seed=12345); \
+dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=99999); \
+assert dec != 'ATTACK AT DAWN', f'FAIL: wrong seed decoded correctly'; \
+print('PASS')"
+
+	@echo "=== Test 20: PRNG overlay with plugboard and wheel selection ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+enc = ep.enegma('HELLO WORLD', 3, 18, 9, mode='encode', plugboard_str='AN BY', wheel_select=[16, 8, 11], prng_seed=42); \
+dec = ep.enegma(enc, 3, 18, 9, mode='decode', plugboard_str='AN BY', wheel_select=[16, 8, 11], prng_seed=42); \
+assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
+print('PASS')"
+
+	@echo "=== Test 21: PRNG overlay flattens frequency ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+from collections import Counter; \
+ep = import_module('enegma-plus'); \
+text = 'A' * 100; \
+enc = ep.enegma(text, 0, 0, 0, mode='encode', prng_seed=12345); \
+counts = Counter(enc); \
+total = len(enc); \
+max_freq = max(counts.values()) / total; \
+assert max_freq <= 0.15, f'FAIL: max frequency {max_freq:.2%} exceeds 15%'; \
+print(f'PASS (max frequency: {max_freq:.2%})')"
+
 	@echo ""
 	@echo "All tests passed."

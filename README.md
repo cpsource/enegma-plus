@@ -318,6 +318,7 @@ using distinct wheels is stronger.
 - [README-revocation.md](README-revocation.md) — Codebook revocation, versioning, and shorter rotation periods
 - [README-crypto.md](README-crypto.md) — Additional cryptographic concepts: key derivation, padding, authenticated encryption, and more
 - [README-frequency.md](README-frequency.md) — Frequency-aware plugboard pairing to resist statistical analysis
+- [README-prng-overlay.md](README-prng-overlay.md) — PRNG stream overlay to flatten ciphertext frequency distribution
 
 ## Wheel Configuration
 

@@ -3,10 +3,61 @@
 
 import argparse
 import datetime
+import hashlib
 import json
 import os
 import secrets
+import struct
 import sys
+
+
+def chacha20_prng(seed, count):
+    """Generate `count` values (0-25) from a SHA-256 hash chain CSPRNG.
+
+    Uses HKDF-like expansion: each 32-byte hash block yields 32 values mod 26.
+    Deterministic from the seed — both sender and receiver produce the same stream.
+    """
+    values = []
+    block = struct.pack('>Q', seed)  # 8-byte big-endian seed
+    while len(values) < count:
+        block = hashlib.sha256(block).digest()
+        for byte in block:
+            values.append(byte % 26)
+            if len(values) >= count:
+                break
+    return values
+
+
+def apply_prng_overlay(text, seed):
+    """Add PRNG stream mod 26 to each alphabetic character."""
+    stream = chacha20_prng(seed, sum(1 for c in text if c.isalpha()))
+    result = []
+    idx = 0
+    for c in text:
+        if c.isalpha():
+            val = ord(c.upper()) - ord('A')
+            fuzzed = (val + stream[idx]) % 26
+            result.append(chr(fuzzed + ord('A')))
+            idx += 1
+        else:
+            result.append(c)
+    return ''.join(result)
+
+
+def remove_prng_overlay(text, seed):
+    """Subtract PRNG stream mod 26 from each alphabetic character."""
+    stream = chacha20_prng(seed, sum(1 for c in text if c.isalpha()))
+    result = []
+    idx = 0
+    for c in text:
+        if c.isalpha():
+            val = ord(c.upper()) - ord('A')
+            unfuzzed = (val - stream[idx]) % 26
+            result.append(chr(unfuzzed + ord('A')))
+            idx += 1
+        else:
+            result.append(c)
+    return ''.join(result)
 
 
 DIGITS = {
@@ -190,7 +241,7 @@ def _trace(msg, trace=False):
         print(f"  [TRACE] {msg}", file=sys.stderr)
 
 
-def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard_str=None, wheel_select=None, trace=False):
+def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard_str=None, wheel_select=None, trace=False, prng_seed=None):
     """Encode or decode text with per-message key indicator.
 
     Encode: generates a random message key, encrypts it at the daily key
@@ -232,12 +283,21 @@ def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard
         body_pos = list(mk)
         enc_body = _enegma_raw(text, body_pos, wheels, reverses, reflector, plugboard, mode="encode")
         _trace(f"Encrypted body: {enc_body}", trace)
-        _trace(f"Full output: {enc_indicator}{enc_body} ({len(enc_indicator)} indicator + {len(enc_body)} body = {len(enc_indicator) + len(enc_body)} chars)", trace)
+        full_output = enc_indicator + enc_body
+        _trace(f"Full output: {full_output} ({len(enc_indicator)} indicator + {len(enc_body)} body = {len(full_output)} chars)", trace)
 
-        return enc_indicator + enc_body
+        if prng_seed is not None:
+            full_output = apply_prng_overlay(full_output, prng_seed)
+            _trace(f"After PRNG overlay: {full_output}", trace)
+
+        return full_output
 
     else:
         _trace(f"Input ciphertext: {text} ({len(text)} chars)", trace)
+
+        if prng_seed is not None:
+            text = remove_prng_overlay(text, prng_seed)
+            _trace(f"After removing PRNG overlay: {text}", trace)
 
         # Split indicator (first 3 chars) from body
         enc_indicator = text[:3]
@@ -279,6 +339,7 @@ def load_codebook_key(codebook_path, date_str=None):
         "w3": day["positions"][2],
         "plugboard": day["plugboard"],
         "wheels": day["wheels"],
+        "prng_seed": day.get("prng_seed"),
     }, date_str
 
 
@@ -307,6 +368,7 @@ def main():
     parser.add_argument("--date", dest="date", help="Date to use with codebook (YYYY-MM-DD, default: today)")
     parser.add_argument("--trace", action="store_true", help="Print detailed trace of encoding/decoding steps")
     parser.add_argument("--wf", dest="wheels_file", default="wheels.json", help="Path to wheels JSON file (default: wheels.json)")
+    parser.add_argument("--prng-seed", dest="prng_seed", type=int, default=None, help="PRNG seed for stream overlay (integer)")
     args = parser.parse_args()
 
     mode = "decode" if args.d else "encode"
@@ -324,6 +386,7 @@ def main():
     w1, w2, w3 = args.w1, args.w2, args.w3
     plugboard_str = args.plugboard
     wheel_select = [int(x) for x in args.wheels.split()] if args.wheels else None
+    prng_seed = args.prng_seed
 
     if args.codebook is not None:
         # Codebook mode
@@ -346,6 +409,8 @@ def main():
                     w1, w2, w3 = key["w1"], key["w2"], key["w3"]
                     plugboard_str = key["plugboard"]
                     wheel_select = key["wheels"]
+                    if prng_seed is None and key.get("prng_seed") is not None:
+                        prng_seed = key["prng_seed"]
                     print(f"Using codebook key for {date_str}", file=sys.stderr)
         else:
             # Explicit codebook path
@@ -365,6 +430,8 @@ def main():
                     w1, w2, w3 = key["w1"], key["w2"], key["w3"]
                     plugboard_str = key["plugboard"]
                     wheel_select = key["wheels"]
+                    if prng_seed is None and key.get("prng_seed") is not None:
+                        prng_seed = key["prng_seed"]
                     print(f"Using codebook key for {date_str}", file=sys.stderr)
 
     if w1 is None or w2 is None or w3 is None:
@@ -378,7 +445,7 @@ def main():
     else:
         parser.error("Provide text as argument or use --in <infile>")
 
-    result = enegma(text, w1, w2, w3, wheels_path=args.wheels_file, mode=mode, plugboard_str=plugboard_str, wheel_select=wheel_select, trace=args.trace)
+    result = enegma(text, w1, w2, w3, wheels_path=args.wheels_file, mode=mode, plugboard_str=plugboard_str, wheel_select=wheel_select, trace=args.trace, prng_seed=prng_seed)
 
     if args.outfile:
         with open(args.outfile, "w") as f:
