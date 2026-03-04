@@ -317,6 +317,7 @@ using distinct wheels is stronger.
 - [README-pq.md](README-pq.md) — Adding post-quantum key encapsulation (ML-KEM) and signatures (ML-DSA)
 - [README-revocation.md](README-revocation.md) — Codebook revocation, versioning, and shorter rotation periods
 - [README-crypto.md](README-crypto.md) — Additional cryptographic concepts: key derivation, padding, authenticated encryption, and more
+- [README-frequency.md](README-frequency.md) — Frequency-aware plugboard pairing to resist statistical analysis
 
 ## Wheel Configuration
 
