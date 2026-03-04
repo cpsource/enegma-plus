@@ -207,6 +207,7 @@ def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard
 
     ws = wheel_select or [1, 2, 3]
     _trace(f"Mode: {mode.upper()}", trace)
+    _trace(f"Wheels file: {wheels_path}", trace)
     _trace(f"Wheels: {ws[0]}, {ws[1]}, {ws[2]}", trace)
     _trace(f"Daily key positions: {w1}, {w2}, {w3}", trace)
     _trace(f"Plugboard: {plugboard_str or '(none)'}", trace)
@@ -305,6 +306,7 @@ def main():
                         help="Use codebook for daily key. Optionally specify path (default: auto-detect)")
     parser.add_argument("--date", dest="date", help="Date to use with codebook (YYYY-MM-DD, default: today)")
     parser.add_argument("--trace", action="store_true", help="Print detailed trace of encoding/decoding steps")
+    parser.add_argument("--wf", dest="wheels_file", default="wheels.json", help="Path to wheels JSON file (default: wheels.json)")
     args = parser.parse_args()
 
     mode = "decode" if args.d else "encode"
@@ -376,7 +378,7 @@ def main():
     else:
         parser.error("Provide text as argument or use --in <infile>")
 
-    result = enegma(text, w1, w2, w3, mode=mode, plugboard_str=plugboard_str, wheel_select=wheel_select, trace=args.trace)
+    result = enegma(text, w1, w2, w3, wheels_path=args.wheels_file, mode=mode, plugboard_str=plugboard_str, wheel_select=wheel_select, trace=args.trace)
 
     if args.outfile:
         with open(args.outfile, "w") as f:
