@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Enegma - A 3-wheel Enigma-style cipher engine with chaining."""
+"""Enegma - A 3-wheel Enigma-style cipher engine (standard)."""
 
+import argparse
 import json
 import sys
 
@@ -28,17 +29,13 @@ def step_wheels(positions, wheel_sizes):
             positions[2] = (positions[2] + 1) % wheel_sizes[2]
 
 
-def encode_char(c, wheels, reverses, reflector, positions, chain_offset=0, decoding=False):
+def encode_char(c, wheels, reverses, reflector, positions):
     if not c.isascii() or not c.isalpha():
         return c
 
     upper = c.isupper()
     index = ord(c.upper()) - ord('A')
     size = 26
-
-    # Chaining: encode adds offset before core, decode subtracts after core
-    if not decoding:
-        index = (index + chain_offset) % size
 
     # Forward through wheels 1 -> 2 -> 3
     for i in range(3):
@@ -55,15 +52,12 @@ def encode_char(c, wheels, reverses, reflector, positions, chain_offset=0, decod
         index = reverses[i][index]
         index = (index - positions[i]) % size
 
-    if decoding:
-        index = (index - chain_offset) % size
-
     result = chr(index + ord('A'))
     return result.lower() if not upper else result
 
 
 def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode"):
-    """Encode or decode text. Mode must be 'encode' or 'decode'."""
+    """Encode or decode text. Self-reciprocal: same settings encode and decode."""
     wheel1, wheel2, wheel3, reflector = load_wheels(wheels_path)
     wheels = [wheel1, wheel2, wheel3]
     reverses = [make_reverse(w) for w in wheels]
@@ -71,37 +65,39 @@ def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode"):
     wheel_sizes = [len(w) for w in wheels]
 
     output = []
-    chain_offset = 0
     for c in text:
         if c.isalpha():
             step_wheels(positions, wheel_sizes)
-        out_c = encode_char(c, wheels, reverses, reflector, positions, chain_offset, decoding=(mode == "decode"))
-        output.append(out_c)
-        if c.isalpha():
-            if mode == "encode":
-                # Next offset comes from ciphertext output
-                chain_offset = ord(out_c.upper()) - ord('A')
-            else:
-                # Next offset comes from ciphertext input
-                chain_offset = ord(c.upper()) - ord('A')
+        output.append(encode_char(c, wheels, reverses, reflector, positions))
 
     return "".join(output)
 
 
 def main():
-    if len(sys.argv) < 5 or len(sys.argv) > 6:
-        print(f"Usage: {sys.argv[0]} <text> W1 W2 W3 [d]", file=sys.stderr)
-        print(f"  text  - ASCII text to encode/decode", file=sys.stderr)
-        print(f"  W1-W3 - Starting positions for each wheel (integers)", file=sys.stderr)
-        print(f"  d     - Add 'd' to decode (default: encode)", file=sys.stderr)
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description="Enegma cipher engine (standard)")
+    parser.add_argument("text", nargs="?", help="Text to encode/decode")
+    parser.add_argument("w1", type=int, help="Wheel 1 starting position")
+    parser.add_argument("w2", type=int, help="Wheel 2 starting position")
+    parser.add_argument("w3", type=int, help="Wheel 3 starting position")
+    parser.add_argument("--in", dest="infile", help="Input file")
+    parser.add_argument("--out", dest="outfile", help="Output file")
+    args = parser.parse_args()
 
-    text = sys.argv[1]
-    w1, w2, w3 = int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
-    mode = "decode" if len(sys.argv) == 6 and sys.argv[5].lower() == "d" else "encode"
+    if args.infile:
+        with open(args.infile) as f:
+            text = f.read()
+    elif args.text:
+        text = args.text
+    else:
+        parser.error("Provide text as argument or use --in <infile>")
 
-    result = enegma(text, w1, w2, w3, mode=mode)
-    print(result)
+    result = enegma(text, args.w1, args.w2, args.w3)
+
+    if args.outfile:
+        with open(args.outfile, "w") as f:
+            f.write(result)
+    else:
+        print(result)
 
 
 if __name__ == "__main__":
