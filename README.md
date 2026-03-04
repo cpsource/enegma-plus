@@ -4,6 +4,8 @@ A 3-wheel Enigma-style cipher engine in Python, available in two variants:
 a standard version faithful to the original Enigma design, and an enhanced
 "plus" version with modern improvements.
 
+The name **Enegma** is a deliberate respelling of "Enigma" — not a typo.
+
 ## Files
 
 | File | Description |
@@ -308,6 +310,11 @@ configurations from wheel selection and positions alone.
 
 Wheels can be reused in different positions (e.g., `--wh "5 5 5"`) though
 using distinct wheels is stronger.
+
+## Future: Signing and Post-Quantum Features
+
+- [README-sign.md](README-sign.md) — Adding message signing and integrity verification (HMAC, Ed25519, ML-DSA)
+- [README-pq.md](README-pq.md) — Adding post-quantum key encapsulation (ML-KEM) and signatures (ML-DSA)
 
 ## Wheel Configuration
 
