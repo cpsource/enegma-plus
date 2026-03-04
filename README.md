@@ -316,6 +316,7 @@ using distinct wheels is stronger.
 - [README-sign.md](README-sign.md) — Adding message signing and integrity verification (HMAC, Ed25519, ML-DSA)
 - [README-pq.md](README-pq.md) — Adding post-quantum key encapsulation (ML-KEM) and signatures (ML-DSA)
 - [README-revocation.md](README-revocation.md) — Codebook revocation, versioning, and shorter rotation periods
+- [README-crypto.md](README-crypto.md) — Additional cryptographic concepts: key derivation, padding, authenticated encryption, and more
 
 ## Wheel Configuration
 
