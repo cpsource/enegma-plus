@@ -188,5 +188,21 @@ max_freq = max(counts.values()) / total; \
 assert max_freq <= 0.15, f'FAIL: max frequency {max_freq:.2%} exceeds 15%'; \
 print(f'PASS (max frequency: {max_freq:.2%})')"
 
+	@echo "=== Test 22: PRNG overlay via codebook round-trip ==="
+	@$(PYTHON) -c "\
+import json, tempfile, os; \
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+cb = {'year': 9999, 'days': {'9999-01-01': {'wheels': [1,2,3], 'positions': [7,14,22], 'plugboard': 'AN BY', 'prng_seed': 77777}}}; \
+f = tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False); \
+json.dump(cb, f); f.close(); \
+key, _ = ep.load_codebook_key(f.name, '9999-01-01'); \
+assert key['prng_seed'] == 77777, f'FAIL: prng_seed not loaded from codebook'; \
+enc = ep.enegma('HELLO WORLD', key['w1'], key['w2'], key['w3'], mode='encode', plugboard_str=key['plugboard'], wheel_select=key['wheels'], prng_seed=key['prng_seed']); \
+dec = ep.enegma(enc, key['w1'], key['w2'], key['w3'], mode='decode', plugboard_str=key['plugboard'], wheel_select=key['wheels'], prng_seed=key['prng_seed']); \
+assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
+os.unlink(f.name); \
+print('PASS')"
+
 	@echo ""
 	@echo "All tests passed."

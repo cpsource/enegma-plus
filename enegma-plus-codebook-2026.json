@@ -4,4747 +4,5112 @@
     "2026-01-01": {
       "wheels": [
         12,
-        5,
-        10
+        6,
+        8
       ],
       "positions": [
-        8,
-        11,
-        20
+        10,
+        14,
+        1
       ],
-      "plugboard": "SP HC XU IB NG RJ FK DZ QV AL"
+      "plugboard": "DR WH TZ ME NQ YA KS FB VO LX",
+      "prng_seed": 8430208874029588323
     },
     "2026-01-02": {
       "wheels": [
-        2,
-        15,
-        6
-      ],
-      "positions": [
-        8,
         9,
-        14
-      ],
-      "plugboard": "YH ZB FQ LD OX GA VU JE MT CW"
-    },
-    "2026-01-03": {
-      "wheels": [
-        15,
-        13,
-        14
-      ],
-      "positions": [
-        22,
-        8,
-        10
-      ],
-      "plugboard": "CD IO FP BJ SH ZE YQ AK XM UG"
-    },
-    "2026-01-04": {
-      "wheels": [
         7,
-        2,
-        15
-      ],
-      "positions": [
-        15,
-        15,
-        25
-      ],
-      "plugboard": "EX PF WO GM NV YR US BQ LT IK"
-    },
-    "2026-01-05": {
-      "wheels": [
-        4,
-        5,
-        11
-      ],
-      "positions": [
-        12,
-        24,
-        13
-      ],
-      "plugboard": "QB IV UA FD LP OH TE KX SW MN"
-    },
-    "2026-01-06": {
-      "wheels": [
-        14,
-        15,
-        11
-      ],
-      "positions": [
-        22,
-        25,
-        9
-      ],
-      "plugboard": "QC SG DP ZX TJ ML FV YH RE IO"
-    },
-    "2026-01-07": {
-      "wheels": [
-        6,
-        1,
-        13
-      ],
-      "positions": [
-        6,
-        23,
-        0
-      ],
-      "plugboard": "AZ MF UW QO YN GR LB DT IP KS"
-    },
-    "2026-01-08": {
-      "wheels": [
-        16,
-        2,
-        10
-      ],
-      "positions": [
-        17,
-        18,
-        1
-      ],
-      "plugboard": "SF PE KO CQ BM LH VT JZ GD NX"
-    },
-    "2026-01-09": {
-      "wheels": [
-        4,
-        11,
-        7
-      ],
-      "positions": [
-        18,
-        13,
-        7
-      ],
-      "plugboard": "OX IU FT GB QC VZ LE SJ MP YD"
-    },
-    "2026-01-10": {
-      "wheels": [
-        12,
-        13,
-        6
-      ],
-      "positions": [
-        5,
-        9,
-        15
-      ],
-      "plugboard": "NW GV KH ZJ SF YB PD CA OR EU"
-    },
-    "2026-01-11": {
-      "wheels": [
-        12,
-        5,
-        10
-      ],
-      "positions": [
-        25,
-        15,
-        24
-      ],
-      "plugboard": "RJ LX FE UZ WQ MC HV BG PI SO"
-    },
-    "2026-01-12": {
-      "wheels": [
-        5,
-        12,
-        13
-      ],
-      "positions": [
-        11,
-        13,
-        24
-      ],
-      "plugboard": "YP NX UQ HF GA MB WD VC TZ KS"
-    },
-    "2026-01-13": {
-      "wheels": [
-        3,
-        16,
-        6
-      ],
-      "positions": [
-        16,
-        11,
-        14
-      ],
-      "plugboard": "JM TO HB GD IS UK PF CL YQ XV"
-    },
-    "2026-01-14": {
-      "wheels": [
-        15,
-        7,
-        13
-      ],
-      "positions": [
-        25,
-        15,
-        2
-      ],
-      "plugboard": "AZ CB QT FH EN YV PK DU RG WX"
-    },
-    "2026-01-15": {
-      "wheels": [
-        1,
-        15,
-        9
-      ],
-      "positions": [
-        11,
-        10,
-        17
-      ],
-      "plugboard": "PZ CW YE QI FT SA BO RL UG NM"
-    },
-    "2026-01-16": {
-      "wheels": [
-        6,
-        15,
-        8
-      ],
-      "positions": [
-        17,
-        19,
-        13
-      ],
-      "plugboard": "KV TJ WR NU HM DG XA LZ IC QS"
-    },
-    "2026-01-17": {
-      "wheels": [
-        11,
-        2,
-        13
-      ],
-      "positions": [
-        2,
-        18,
-        4
-      ],
-      "plugboard": "FK ZR EY MN OJ UP IV WS HQ XG"
-    },
-    "2026-01-18": {
-      "wheels": [
-        8,
-        15,
-        16
-      ],
-      "positions": [
-        10,
-        18,
-        25
-      ],
-      "plugboard": "QO SW HN JY FK AI ZX ML GC TV"
-    },
-    "2026-01-19": {
-      "wheels": [
-        4,
-        1,
-        8
+        3
       ],
       "positions": [
         0,
-        6,
-        14
-      ],
-      "plugboard": "SG DY AF WB VX MC RH TL PO NE"
-    },
-    "2026-01-20": {
-      "wheels": [
-        12,
         3,
-        8
+        13
+      ],
+      "plugboard": "QH YB EP JG KZ NF WR TA MD VL",
+      "prng_seed": 12497402952558300217
+    },
+    "2026-01-03": {
+      "wheels": [
+        4,
+        8,
+        10
       ],
       "positions": [
-        12,
-        24,
-        6
+        0,
+        18,
+        25
       ],
-      "plugboard": "FU RI QN DZ WH GJ CT BO PK ML"
+      "plugboard": "SK WL EH VM GD PA JN XC FR OB",
+      "prng_seed": 15725558075168501170
     },
-    "2026-01-21": {
+    "2026-01-04": {
       "wheels": [
-        5,
+        16,
         9,
         4
       ],
       "positions": [
-        6,
-        5,
-        2
+        25,
+        7,
+        21
       ],
-      "plugboard": "BE MV PI KC DQ UO LW XR GF AH"
+      "plugboard": "EJ AL SU ZC PK MQ NF DI VT HX",
+      "prng_seed": 5008236711324983969
     },
-    "2026-01-22": {
+    "2026-01-05": {
+      "wheels": [
+        15,
+        3,
+        16
+      ],
+      "positions": [
+        19,
+        1,
+        24
+      ],
+      "plugboard": "LA BE YR CV KT OH GJ MU XQ SW",
+      "prng_seed": 13590823176571267300
+    },
+    "2026-01-06": {
       "wheels": [
         5,
+        8,
+        11
+      ],
+      "positions": [
+        17,
+        6,
+        12
+      ],
+      "plugboard": "WE QN MO DL TX VH UK RS PY JI",
+      "prng_seed": 26527621045847625
+    },
+    "2026-01-07": {
+      "wheels": [
+        14,
+        5,
+        4
+      ],
+      "positions": [
+        3,
+        23,
+        14
+      ],
+      "plugboard": "GK AU YP LN ZM FT SQ CW BE IX",
+      "prng_seed": 12914796244607581463
+    },
+    "2026-01-08": {
+      "wheels": [
+        8,
+        3,
+        15
+      ],
+      "positions": [
+        13,
+        18,
+        20
+      ],
+      "plugboard": "KB WE NR VO GY HA UT LD PM IJ",
+      "prng_seed": 3789692250015150040
+    },
+    "2026-01-09": {
+      "wheels": [
+        16,
+        7,
+        5
+      ],
+      "positions": [
+        19,
+        1,
+        19
+      ],
+      "plugboard": "IK TM HC JW PB SD GE LF YZ OQ",
+      "prng_seed": 15042847567848681198
+    },
+    "2026-01-10": {
+      "wheels": [
+        13,
+        14,
+        7
+      ],
+      "positions": [
+        17,
+        20,
+        14
+      ],
+      "plugboard": "CO GK AT JD EF UM YS IZ BH RN",
+      "prng_seed": 9839384190066739523
+    },
+    "2026-01-11": {
+      "wheels": [
         15,
-        10
+        1,
+        2
+      ],
+      "positions": [
+        19,
+        24,
+        7
+      ],
+      "plugboard": "TO JY QC PH SR AI XD BL EV UF",
+      "prng_seed": 4043466397190392911
+    },
+    "2026-01-12": {
+      "wheels": [
+        6,
+        2,
+        11
+      ],
+      "positions": [
+        0,
+        21,
+        14
+      ],
+      "plugboard": "AW FK BZ UO IT PL YC SV RN EH",
+      "prng_seed": 3410320833444070972
+    },
+    "2026-01-13": {
+      "wheels": [
+        13,
+        10,
+        5
       ],
       "positions": [
         12,
+        16,
+        8
+      ],
+      "plugboard": "DQ RL PY OT AN GM JK CZ XV US",
+      "prng_seed": 4934998553479587521
+    },
+    "2026-01-14": {
+      "wheels": [
+        4,
+        12,
+        9
+      ],
+      "positions": [
+        13,
+        15,
+        15
+      ],
+      "plugboard": "AT YD LN KC XH VQ FB ZJ WR SO",
+      "prng_seed": 2277325529155011620
+    },
+    "2026-01-15": {
+      "wheels": [
+        10,
+        15,
+        13
+      ],
+      "positions": [
+        13,
+        19,
+        21
+      ],
+      "plugboard": "GV QR JO SB DM CX UP FH IE YW",
+      "prng_seed": 3290962336405822121
+    },
+    "2026-01-16": {
+      "wheels": [
         2,
+        11,
+        5
+      ],
+      "positions": [
+        20,
+        12,
+        22
+      ],
+      "plugboard": "ZH BA WF RL IY VD JG OT KQ CX",
+      "prng_seed": 6860152986326554415
+    },
+    "2026-01-17": {
+      "wheels": [
+        6,
+        3,
+        9
+      ],
+      "positions": [
+        19,
+        23,
+        13
+      ],
+      "plugboard": "YZ BL MO PJ AQ VF UG CT WE RK",
+      "prng_seed": 4226003668770026415
+    },
+    "2026-01-18": {
+      "wheels": [
+        5,
+        15,
         7
       ],
-      "plugboard": "JK CD XR TV PW AG YB IU QF MH"
+      "positions": [
+        16,
+        5,
+        24
+      ],
+      "plugboard": "FC VL XK ZU GM YB QS AH PE JO",
+      "prng_seed": 16171819100401847417
+    },
+    "2026-01-19": {
+      "wheels": [
+        11,
+        4,
+        12
+      ],
+      "positions": [
+        14,
+        24,
+        0
+      ],
+      "plugboard": "BO XA NS YF RD CM KT QZ EV UI",
+      "prng_seed": 16077951434551926866
+    },
+    "2026-01-20": {
+      "wheels": [
+        9,
+        16,
+        15
+      ],
+      "positions": [
+        14,
+        20,
+        3
+      ],
+      "plugboard": "EL XV OT AN QW HJ DP IK BF YZ",
+      "prng_seed": 337911783300308514
+    },
+    "2026-01-21": {
+      "wheels": [
+        13,
+        4,
+        7
+      ],
+      "positions": [
+        9,
+        11,
+        23
+      ],
+      "plugboard": "ES DL ZN AI WT RB YK VP UX QJ",
+      "prng_seed": 5049602778033276809
+    },
+    "2026-01-22": {
+      "wheels": [
+        1,
+        4,
+        5
+      ],
+      "positions": [
+        17,
+        21,
+        8
+      ],
+      "plugboard": "ZA ID MC FJ HR TV EG UL PO QS",
+      "prng_seed": 17365582504240824051
     },
     "2026-01-23": {
       "wheels": [
         4,
-        5,
-        8
-      ],
-      "positions": [
-        22,
-        15,
-        23
-      ],
-      "plugboard": "LA FP IT YR XU MN WJ ZV KH SB"
-    },
-    "2026-01-24": {
-      "wheels": [
-        14,
-        15,
-        16
-      ],
-      "positions": [
-        16,
-        2,
-        22
-      ],
-      "plugboard": "NJ WF AQ EU GH MB IS LY XV TC"
-    },
-    "2026-01-25": {
-      "wheels": [
-        14,
-        7,
-        3
-      ],
-      "positions": [
-        21,
-        5,
-        20
-      ],
-      "plugboard": "ID WL EH CR FG UO PJ YA TN XQ"
-    },
-    "2026-01-26": {
-      "wheels": [
-        10,
-        12,
-        6
-      ],
-      "positions": [
         11,
-        6,
-        16
-      ],
-      "plugboard": "OP ZM VF SD RX HT QA LU EJ YK"
-    },
-    "2026-01-27": {
-      "wheels": [
-        7,
-        9,
         2
-      ],
-      "positions": [
-        2,
-        18,
-        3
-      ],
-      "plugboard": "ZY VP XN TR IM CJ QB UK WS LD"
-    },
-    "2026-01-28": {
-      "wheels": [
-        7,
-        14,
-        4
-      ],
-      "positions": [
-        3,
-        24,
-        18
-      ],
-      "plugboard": "OI CH NA XY US BL MW EK RD TP"
-    },
-    "2026-01-29": {
-      "wheels": [
-        5,
-        15,
-        10
-      ],
-      "positions": [
-        11,
-        5,
-        2
-      ],
-      "plugboard": "ZE HI AP SX OV BM FQ LC DG YT"
-    },
-    "2026-01-30": {
-      "wheels": [
-        6,
-        8,
-        13
-      ],
-      "positions": [
-        16,
-        24,
-        6
-      ],
-      "plugboard": "NH BY RT EP DF OI MV GW CS ZK"
-    },
-    "2026-01-31": {
-      "wheels": [
-        9,
-        6,
-        13
-      ],
-      "positions": [
-        23,
-        22,
-        10
-      ],
-      "plugboard": "XA JM KN RO CQ LD PG UW TZ YI"
-    },
-    "2026-02-01": {
-      "wheels": [
-        9,
-        1,
-        16
-      ],
-      "positions": [
-        4,
-        9,
-        13
-      ],
-      "plugboard": "SY IV QP MA RO CT UN BL XE DF"
-    },
-    "2026-02-02": {
-      "wheels": [
-        15,
-        7,
-        13
-      ],
-      "positions": [
-        8,
-        9,
-        18
-      ],
-      "plugboard": "EJ PA UV MK OX LB QY GC IF HS"
-    },
-    "2026-02-03": {
-      "wheels": [
-        14,
-        15,
-        4
-      ],
-      "positions": [
-        23,
-        10,
-        3
-      ],
-      "plugboard": "RI VP TZ QD MA KW NO GJ CU SB"
-    },
-    "2026-02-04": {
-      "wheels": [
-        15,
-        2,
-        1
       ],
       "positions": [
         19,
-        15,
-        3
+        11,
+        11
       ],
-      "plugboard": "ZN LY OH BU JG RM TX VE WA KI"
+      "plugboard": "VW TE CK SX OL DI NG ZU PR FB",
+      "prng_seed": 7746909669014838057
     },
-    "2026-02-05": {
+    "2026-01-24": {
       "wheels": [
-        8,
-        1,
+        13,
+        6,
+        8
+      ],
+      "positions": [
+        23,
+        2,
+        24
+      ],
+      "plugboard": "IR FM VD TJ EQ LB WU SO CK ZG",
+      "prng_seed": 13709671190213446813
+    },
+    "2026-01-25": {
+      "wheels": [
+        4,
+        6,
         16
       ],
       "positions": [
-        1,
-        15,
-        3
+        19,
+        21,
+        7
       ],
-      "plugboard": "ZU FD AE TM VS OG XW CN PY RQ"
+      "plugboard": "GQ AR IJ ZT ON SE MK UD HL VP",
+      "prng_seed": 11701718599409667987
     },
-    "2026-02-06": {
+    "2026-01-26": {
       "wheels": [
         4,
         3,
-        1
+        10
       ],
       "positions": [
-        18,
-        7,
-        0
+        10,
+        9,
+        16
       ],
-      "plugboard": "UA LZ GP IQ CY MD HW BS RN VX"
+      "plugboard": "TI FJ XR DB AQ SK CU HN EO YV",
+      "prng_seed": 8822688330813740412
+    },
+    "2026-01-27": {
+      "wheels": [
+        4,
+        16,
+        6
+      ],
+      "positions": [
+        3,
+        13,
+        13
+      ],
+      "plugboard": "JW KS BE CU AT OX FH GD RL PN",
+      "prng_seed": 3735689882983683369
+    },
+    "2026-01-28": {
+      "wheels": [
+        9,
+        4,
+        13
+      ],
+      "positions": [
+        0,
+        10,
+        15
+      ],
+      "plugboard": "SC VR NK BW FP LT IX EG MQ ZY",
+      "prng_seed": 17153797484235994881
+    },
+    "2026-01-29": {
+      "wheels": [
+        16,
+        7,
+        15
+      ],
+      "positions": [
+        16,
+        4,
+        20
+      ],
+      "plugboard": "KA FZ IC NJ XD UV GQ RO YS LE",
+      "prng_seed": 9687393871573600167
+    },
+    "2026-01-30": {
+      "wheels": [
+        16,
+        3,
+        14
+      ],
+      "positions": [
+        23,
+        20,
+        16
+      ],
+      "plugboard": "FX BO SY IR VU DN MZ EP HT CJ",
+      "prng_seed": 11343963182250773977
+    },
+    "2026-01-31": {
+      "wheels": [
+        13,
+        8,
+        14
+      ],
+      "positions": [
+        5,
+        8,
+        3
+      ],
+      "plugboard": "ME PJ LF CS HA XR WT NV YG OD",
+      "prng_seed": 18444697818322393006
+    },
+    "2026-02-01": {
+      "wheels": [
+        10,
+        15,
+        3
+      ],
+      "positions": [
+        0,
+        0,
+        6
+      ],
+      "plugboard": "JH TB PO FL NS RI UD XK CE GM",
+      "prng_seed": 4991202664516369700
+    },
+    "2026-02-02": {
+      "wheels": [
+        9,
+        15,
+        6
+      ],
+      "positions": [
+        1,
+        13,
+        15
+      ],
+      "plugboard": "GP WO BS ND YV ZJ HQ XI FE LA",
+      "prng_seed": 2606463445712197215
+    },
+    "2026-02-03": {
+      "wheels": [
+        7,
+        6,
+        8
+      ],
+      "positions": [
+        24,
+        19,
+        9
+      ],
+      "plugboard": "XI QK GA UB MO DF SN ZW JE TH",
+      "prng_seed": 13139694938716873719
+    },
+    "2026-02-04": {
+      "wheels": [
+        6,
+        5,
+        13
+      ],
+      "positions": [
+        21,
+        16,
+        9
+      ],
+      "plugboard": "NS GP QE KB CI DJ OU TR MW ZY",
+      "prng_seed": 4636801518321650685
+    },
+    "2026-02-05": {
+      "wheels": [
+        11,
+        13,
+        14
+      ],
+      "positions": [
+        21,
+        3,
+        4
+      ],
+      "plugboard": "VL YB OT DU HA RN GM KF ZC PX",
+      "prng_seed": 12611400537109937814
+    },
+    "2026-02-06": {
+      "wheels": [
+        10,
+        15,
+        8
+      ],
+      "positions": [
+        6,
+        11,
+        9
+      ],
+      "plugboard": "FI CP KW ZL QJ OH AM NV ET BS",
+      "prng_seed": 3797140397345737367
     },
     "2026-02-07": {
       "wheels": [
-        2,
-        6,
-        14
+        11,
+        12,
+        15
       ],
       "positions": [
-        9,
-        0,
-        14
+        1,
+        18,
+        2
       ],
-      "plugboard": "QU HF OM AJ SR WV PB ED ZN GC"
+      "plugboard": "IB TH LZ FW XG JU DC MA KE RY",
+      "prng_seed": 11557247506173350051
     },
     "2026-02-08": {
       "wheels": [
         8,
-        15,
-        5
+        3,
+        16
       ],
       "positions": [
-        1,
-        6,
-        17
+        12,
+        20,
+        7
       ],
-      "plugboard": "LI YM KD OA SP NZ VR GB TJ CU"
+      "plugboard": "DL HI CX TW KO YV RN FU SA ZM",
+      "prng_seed": 2538849728718175241
     },
     "2026-02-09": {
       "wheels": [
+        6,
         12,
-        10,
-        13
+        7
       ],
       "positions": [
-        14,
-        1,
-        16
+        25,
+        19,
+        14
       ],
-      "plugboard": "VB KM JT HS CI LU DA XQ OR EP"
+      "plugboard": "LK PJ SE MI XU OG QB ZR TY DW",
+      "prng_seed": 9484604118139968372
     },
     "2026-02-10": {
       "wheels": [
-        14,
-        13,
+        12,
+        9,
         8
       ],
       "positions": [
-        15,
-        13,
-        9
+        18,
+        10,
+        21
       ],
-      "plugboard": "NU OQ WG HR AV YE CL MT PS JX"
+      "plugboard": "GU OX YZ BC TM KJ HL QV ES ND",
+      "prng_seed": 2935034623761048983
     },
     "2026-02-11": {
       "wheels": [
-        3,
-        16,
+        14,
+        7,
+        9
+      ],
+      "positions": [
+        19,
+        2,
+        15
+      ],
+      "plugboard": "LE ZH UT PM DK FO BI JG CS AY",
+      "prng_seed": 18265828574875128649
+    },
+    "2026-02-12": {
+      "wheels": [
+        13,
+        7,
+        5
+      ],
+      "positions": [
+        21,
+        14,
+        3
+      ],
+      "plugboard": "OK EQ FD WA UB HT PY ZS NV XJ",
+      "prng_seed": 9229576416348668562
+    },
+    "2026-02-13": {
+      "wheels": [
+        7,
+        6,
+        1
+      ],
+      "positions": [
+        20,
+        11,
+        20
+      ],
+      "plugboard": "EA HR SP DY ZK QO MI LN CF TW",
+      "prng_seed": 14633600057196866752
+    },
+    "2026-02-14": {
+      "wheels": [
+        4,
+        13,
+        1
+      ],
+      "positions": [
+        4,
+        0,
+        2
+      ],
+      "plugboard": "HA PW UR ST EC XM OF GI ZN KV",
+      "prng_seed": 8415653242287748135
+    },
+    "2026-02-15": {
+      "wheels": [
+        6,
+        9,
         11
       ],
       "positions": [
         19,
-        11,
-        20
-      ],
-      "plugboard": "OI QC TR NL DB EG YZ FV JP HS"
-    },
-    "2026-02-12": {
-      "wheels": [
-        15,
-        7,
-        13
-      ],
-      "positions": [
-        15,
-        11,
-        24
-      ],
-      "plugboard": "DB HU XW YM OS RF TA ZC NE QJ"
-    },
-    "2026-02-13": {
-      "wheels": [
-        4,
         10,
-        3
+        11
       ],
-      "positions": [
-        24,
-        6,
-        9
-      ],
-      "plugboard": "DL TM ZB PR SY AW UG VX CJ EI"
-    },
-    "2026-02-14": {
-      "wheels": [
-        10,
-        8,
-        16
-      ],
-      "positions": [
-        21,
-        2,
-        7
-      ],
-      "plugboard": "WC ZY OS IR QJ NL FM AE TV KB"
-    },
-    "2026-02-15": {
-      "wheels": [
-        1,
-        15,
-        4
-      ],
-      "positions": [
-        21,
-        3,
-        18
-      ],
-      "plugboard": "EM KN UR ID GQ VS ZC OT WA YH"
+      "plugboard": "XZ YR BO PJ HM VW LI AK FQ DU",
+      "prng_seed": 2741410785433892572
     },
     "2026-02-16": {
       "wheels": [
         7,
-        10,
-        3
+        8,
+        6
       ],
       "positions": [
         1,
-        7,
-        10
+        13,
+        9
       ],
-      "plugboard": "AF RL HQ DI KW NZ TY VM OS EU"
+      "plugboard": "IB AQ NH UG SV DK RL WZ YX PC",
+      "prng_seed": 7707277654816701408
     },
     "2026-02-17": {
       "wheels": [
-        3,
-        8,
-        9
+        16,
+        11,
+        13
       ],
       "positions": [
-        0,
-        2,
-        21
+        23,
+        9,
+        20
       ],
-      "plugboard": "BZ UV QD FN WY KX HI MC AS RJ"
+      "plugboard": "AP ZT XN LO HB GC JM KU EV QF",
+      "prng_seed": 13681879868295279006
     },
     "2026-02-18": {
       "wheels": [
-        14,
-        4,
-        11
+        6,
+        12,
+        9
       ],
       "positions": [
-        24,
-        6,
-        10
+        17,
+        11,
+        13
       ],
-      "plugboard": "HO UR SL IC GK DY MF BJ XV QN"
+      "plugboard": "ZQ BC XJ AV PN RT IO UD YG HF",
+      "prng_seed": 14672967893515393133
     },
     "2026-02-19": {
       "wheels": [
-        14,
-        15,
-        4
+        9,
+        13,
+        2
       ],
       "positions": [
-        23,
-        5,
-        17
+        16,
+        21,
+        22
       ],
-      "plugboard": "EO KF MU YA RW JD PH IL BS VC"
+      "plugboard": "QI KW MS JX NZ TV EU LD YG FR",
+      "prng_seed": 16551986654240589315
     },
     "2026-02-20": {
       "wheels": [
-        13,
-        2,
-        3
+        15,
+        7,
+        2
       ],
       "positions": [
-        23,
-        4,
-        10
+        14,
+        18,
+        7
       ],
-      "plugboard": "ZM VJ EU NS HY AX WG LI FD OQ"
+      "plugboard": "KM YS OJ PL AV RN QT BF WD UX",
+      "prng_seed": 2667357169073190127
     },
     "2026-02-21": {
       "wheels": [
-        11,
-        5,
-        12
+        4,
+        12,
+        14
       ],
       "positions": [
-        1,
-        21,
-        3
+        18,
+        23,
+        21
       ],
-      "plugboard": "BH YQ DF SG UV KR LE IT AJ PM"
+      "plugboard": "HY IE LC WX KA FZ OQ JD TM NG",
+      "prng_seed": 10536742456745258475
     },
     "2026-02-22": {
       "wheels": [
-        2,
-        5,
-        3
+        1,
+        14,
+        13
       ],
       "positions": [
-        6,
-        12,
-        20
+        11,
+        0,
+        1
       ],
-      "plugboard": "ER HK BQ DV MC XO AZ YT SP UI"
+      "plugboard": "AZ QS VM NL BK XO DR PH GF IW",
+      "prng_seed": 2041562754075167731
     },
     "2026-02-23": {
       "wheels": [
-        14,
-        6,
-        1
+        5,
+        12,
+        4
       ],
       "positions": [
+        1,
         22,
-        3,
-        15
+        19
       ],
-      "plugboard": "VM UH WP GD KN IX QF AJ YO SC"
+      "plugboard": "GR KP DN OH TU LW IB AY JS MC",
+      "prng_seed": 5713759430668199857
     },
     "2026-02-24": {
       "wheels": [
-        9,
-        4,
-        5
-      ],
-      "positions": [
-        10,
-        3,
-        2
-      ],
-      "plugboard": "ZY FV DG MW SO HP BT XA RL QE"
-    },
-    "2026-02-25": {
-      "wheels": [
-        14,
-        4,
-        7
-      ],
-      "positions": [
         2,
-        15,
-        17
-      ],
-      "plugboard": "YH TK EP OU XC QW ZB AJ SD IM"
-    },
-    "2026-02-26": {
-      "wheels": [
-        10,
-        7,
-        1
-      ],
-      "positions": [
-        7,
-        9,
-        6
-      ],
-      "plugboard": "UO AH GK VQ BR WP ZS ND MY IL"
-    },
-    "2026-02-27": {
-      "wheels": [
-        15,
-        7,
-        10
+        16,
+        13
       ],
       "positions": [
         21,
-        20,
-        10
+        25,
+        25
       ],
-      "plugboard": "MQ WI EC AN DS GX JZ UP BH OV"
+      "plugboard": "RS ZD QW HO MY GB VP FA IU LT",
+      "prng_seed": 5601097624066621733
     },
-    "2026-02-28": {
+    "2026-02-25": {
       "wheels": [
-        1,
-        11,
-        16
+        5,
+        2,
+        6
+      ],
+      "positions": [
+        15,
+        7,
+        18
+      ],
+      "plugboard": "MR WG UT IC AP BY LS DJ QN FH",
+      "prng_seed": 9310148337591103790
+    },
+    "2026-02-26": {
+      "wheels": [
+        4,
+        9,
+        15
+      ],
+      "positions": [
+        13,
+        13,
+        1
+      ],
+      "plugboard": "LJ OF PQ ED ZX NR TM HW BK GC",
+      "prng_seed": 10235342200323677634
+    },
+    "2026-02-27": {
+      "wheels": [
+        10,
+        3,
+        8
       ],
       "positions": [
         8,
-        10,
-        0
+        3,
+        21
       ],
-      "plugboard": "AW XO GD BP QF KV LU MN RE IC"
+      "plugboard": "HW NG QS TI AL EX FV DB RP OM",
+      "prng_seed": 16528332624785573934
+    },
+    "2026-02-28": {
+      "wheels": [
+        3,
+        16,
+        9
+      ],
+      "positions": [
+        3,
+        7,
+        5
+      ],
+      "plugboard": "BA IS NP FD VT EM LH JC YQ UK",
+      "prng_seed": 9142794640517165393
     },
     "2026-03-01": {
       "wheels": [
         5,
-        6,
-        10
+        7,
+        2
       ],
       "positions": [
-        14,
-        1,
+        11,
+        20,
         7
       ],
-      "plugboard": "BE TQ ZG PU HY IA OF SW JX LC"
+      "plugboard": "WK RJ BM CZ TO YS VN FP AI XL",
+      "prng_seed": 12737032140645183953
     },
     "2026-03-02": {
       "wheels": [
         7,
-        9,
+        1,
         6
       ],
       "positions": [
-        14,
-        5,
-        25
+        15,
+        15,
+        4
       ],
-      "plugboard": "SR XT FU CG BJ EH ZL VA KP OD"
+      "plugboard": "KP RU XD SO GC EV QH ZJ YF NI",
+      "prng_seed": 1828286687899023010
     },
     "2026-03-03": {
       "wheels": [
-        7,
         11,
-        3
+        13,
+        1
       ],
       "positions": [
-        9,
-        10,
-        16
+        18,
+        23,
+        21
       ],
-      "plugboard": "TB KP UD RO VA YW LM SZ CG EF"
+      "plugboard": "GQ KS FE TH UY ZW PJ BX IV RC",
+      "prng_seed": 5103515103149720861
     },
     "2026-03-04": {
       "wheels": [
-        16,
-        9,
-        3
+        11,
+        8,
+        1
       ],
       "positions": [
-        4,
-        18,
-        10
+        15,
+        7,
+        7
       ],
-      "plugboard": "ES ZW MO XL AH GF DK QT BI VJ"
+      "plugboard": "SI AO BJ PC UD VR EY FX QL HW",
+      "prng_seed": 3592088591331115546
     },
     "2026-03-05": {
       "wheels": [
-        6,
-        9,
-        2
+        11,
+        8,
+        14
       ],
       "positions": [
-        3,
-        5,
-        21
+        6,
+        18,
+        22
       ],
-      "plugboard": "CD GX EH PZ MI TN VB RL YF JS"
+      "plugboard": "UE LO IW QN TF XJ VM KB AC YR",
+      "prng_seed": 8277537880847069817
     },
     "2026-03-06": {
       "wheels": [
-        8,
-        5,
-        10
+        1,
+        11,
+        7
       ],
       "positions": [
-        19,
+        9,
         8,
-        8
+        23
       ],
-      "plugboard": "RZ GU EH AP FB YC WK IQ ML XV"
+      "plugboard": "XC QJ KW GS NM EF BY RL DA VH",
+      "prng_seed": 1258442329373643591
     },
     "2026-03-07": {
       "wheels": [
-        16,
+        7,
+        4,
+        12
+      ],
+      "positions": [
+        25,
+        2,
+        20
+      ],
+      "plugboard": "PL FJ MH YA WS UX ED GZ KC VN",
+      "prng_seed": 9877247680896941922
+    },
+    "2026-03-08": {
+      "wheels": [
+        11,
+        15,
+        16
+      ],
+      "positions": [
+        18,
+        13,
+        10
+      ],
+      "plugboard": "EV KH PM XB NJ SL YT UI CO RQ",
+      "prng_seed": 10804719192378328152
+    },
+    "2026-03-09": {
+      "wheels": [
         3,
-        11
+        13,
+        12
       ],
       "positions": [
         16,
         1,
-        14
+        1
       ],
-      "plugboard": "SG CB EH LI WO TV RZ MN FD PY"
-    },
-    "2026-03-08": {
-      "wheels": [
-        6,
-        3,
-        5
-      ],
-      "positions": [
-        3,
-        23,
-        8
-      ],
-      "plugboard": "VE WF KQ HM SI YB PO DU JA CR"
-    },
-    "2026-03-09": {
-      "wheels": [
-        16,
-        15,
-        11
-      ],
-      "positions": [
-        2,
-        6,
-        15
-      ],
-      "plugboard": "ZD BF LN KI AH PJ XG SY TM WU"
+      "plugboard": "RN YM TL HU GD QC FO XB SJ IV",
+      "prng_seed": 15607767100857017671
     },
     "2026-03-10": {
       "wheels": [
-        8,
-        3,
-        6
+        7,
+        16,
+        12
       ],
       "positions": [
-        16,
-        22,
-        24
+        7,
+        5,
+        22
       ],
-      "plugboard": "EJ TU CG ZI WH KM AF PO ND VB"
+      "plugboard": "WX EV LG YF KM AD IP JH ON BZ",
+      "prng_seed": 9991978651707655145
     },
     "2026-03-11": {
       "wheels": [
-        3,
-        8,
-        6
-      ],
-      "positions": [
         15,
-        13,
-        1
-      ],
-      "plugboard": "QM DG IZ LR PB UO WK AH EJ VT"
-    },
-    "2026-03-12": {
-      "wheels": [
-        3,
-        15,
-        16
-      ],
-      "positions": [
-        9,
-        0,
-        19
-      ],
-      "plugboard": "YG PN QZ DK FA BM CU VX ES TO"
-    },
-    "2026-03-13": {
-      "wheels": [
-        11,
-        4,
-        10
-      ],
-      "positions": [
-        14,
-        20,
-        14
-      ],
-      "plugboard": "RQ UN CI AF EB LK GZ XO VJ TM"
-    },
-    "2026-03-14": {
-      "wheels": [
-        10,
-        4,
+        1,
         13
       ],
       "positions": [
-        14,
-        23,
-        12
+        11,
+        21,
+        25
       ],
-      "plugboard": "KC PL FY UD HA BG VT XQ SW EN"
+      "plugboard": "DI KX HV QU CT WA GJ SB FL ER",
+      "prng_seed": 13010529546481657790
     },
-    "2026-03-15": {
+    "2026-03-12": {
       "wheels": [
-        13,
-        3,
+        10,
+        4,
+        5
+      ],
+      "positions": [
+        4,
+        17,
+        18
+      ],
+      "plugboard": "QI ZW MY DF XT EH PN AV LC UO",
+      "prng_seed": 15492147064944889495
+    },
+    "2026-03-13": {
+      "wheels": [
+        1,
+        9,
         14
       ],
       "positions": [
-        11,
         19,
-        0
+        19,
+        15
       ],
-      "plugboard": "UT GF QP EB MA XI VO WZ YR JS"
+      "plugboard": "BF ON CV SD AE MT XI HK ZQ UY",
+      "prng_seed": 3316804583465454642
     },
-    "2026-03-16": {
+    "2026-03-14": {
       "wheels": [
-        7,
-        11,
-        8
-      ],
-      "positions": [
-        3,
-        24,
-        25
-      ],
-      "plugboard": "PC YX WJ NR IQ SG AK VO UZ MB"
-    },
-    "2026-03-17": {
-      "wheels": [
-        10,
-        8,
+        16,
+        13,
         1
       ],
       "positions": [
-        16,
         17,
+        6,
+        23
+      ],
+      "plugboard": "DO LP IN BA KJ QT ER ZV GW FY",
+      "prng_seed": 13735399186943411805
+    },
+    "2026-03-15": {
+      "wheels": [
+        14,
+        15,
+        13
+      ],
+      "positions": [
+        25,
+        3,
         3
       ],
-      "plugboard": "PL NY KH VD BS TR MJ IZ AF UE"
+      "plugboard": "IS XN QV EO TZ AW JM DB RK LH",
+      "prng_seed": 18124995374514956513
+    },
+    "2026-03-16": {
+      "wheels": [
+        11,
+        10,
+        13
+      ],
+      "positions": [
+        24,
+        8,
+        23
+      ],
+      "plugboard": "YF CS QV XR KP GW IE OT BA MN",
+      "prng_seed": 11700224396302351273
+    },
+    "2026-03-17": {
+      "wheels": [
+        1,
+        7,
+        11
+      ],
+      "positions": [
+        18,
+        22,
+        21
+      ],
+      "plugboard": "NS XT WJ PU KR LM QC IF GV ZH",
+      "prng_seed": 7643086205063837386
     },
     "2026-03-18": {
       "wheels": [
-        6,
-        16,
+        10,
+        8,
         12
       ],
       "positions": [
-        22,
-        18,
-        5
+        1,
+        15,
+        6
       ],
-      "plugboard": "DG MC FR WZ KN XA JV YL IP ET"
+      "plugboard": "QO HR EN UL PZ DF JC XW KA BM",
+      "prng_seed": 7963639544702769173
     },
     "2026-03-19": {
       "wheels": [
-        16,
-        6,
+        2,
+        14,
         4
       ],
       "positions": [
-        6,
-        10,
-        12
+        25,
+        17,
+        16
       ],
-      "plugboard": "HP YS QC FX EZ BT LM JU NV RI"
+      "plugboard": "VX KE UN RH LS CJ YQ BM OW AP",
+      "prng_seed": 4996106885072133916
     },
     "2026-03-20": {
       "wheels": [
         9,
-        3,
-        10
-      ],
-      "positions": [
-        2,
-        25,
-        24
-      ],
-      "plugboard": "WU RN EL AB JO IG QS KY DT VZ"
-    },
-    "2026-03-21": {
-      "wheels": [
-        16,
-        8,
-        1
-      ],
-      "positions": [
-        14,
-        23,
-        5
-      ],
-      "plugboard": "IB SP MD NF HK GR YT LA VJ UQ"
-    },
-    "2026-03-22": {
-      "wheels": [
-        5,
-        14,
-        11
-      ],
-      "positions": [
-        18,
-        25,
-        11
-      ],
-      "plugboard": "UR IG EC SZ WA HD VP FL KT QJ"
-    },
-    "2026-03-23": {
-      "wheels": [
-        10,
-        14,
+        4,
         6
       ],
       "positions": [
+        8,
+        20,
+        5
+      ],
+      "plugboard": "PU IW TJ GK DR CX MF EL ZS NY",
+      "prng_seed": 10298110910048451923
+    },
+    "2026-03-21": {
+      "wheels": [
+        1,
+        6,
+        16
+      ],
+      "positions": [
+        23,
+        9,
+        18
+      ],
+      "plugboard": "YE RT PK JZ UQ VX BO CW DA IG",
+      "prng_seed": 13415330266728166588
+    },
+    "2026-03-22": {
+      "wheels": [
+        14,
+        13,
+        16
+      ],
+      "positions": [
+        21,
+        15,
+        2
+      ],
+      "plugboard": "ZO GJ BQ AF UT LK EI NX YR SD",
+      "prng_seed": 9957963363601559553
+    },
+    "2026-03-23": {
+      "wheels": [
         6,
         9,
+        12
+      ],
+      "positions": [
+        8,
+        15,
         9
       ],
-      "plugboard": "SA RN CF KE TB WU GP XV MJ HI"
+      "plugboard": "VU YT SK MQ LP BR EJ OX ID AF",
+      "prng_seed": 2828576188160068654
     },
     "2026-03-24": {
       "wheels": [
-        5,
+        6,
+        9,
+        5
+      ],
+      "positions": [
+        10,
+        0,
+        20
+      ],
+      "plugboard": "HJ QY LT GC BF AS WO DI UV MP",
+      "prng_seed": 8382252810988635393
+    },
+    "2026-03-25": {
+      "wheels": [
+        13,
+        7,
+        1
+      ],
+      "positions": [
+        23,
         8,
+        11
+      ],
+      "plugboard": "XN YH OP EM IC JQ BD UV WG AL",
+      "prng_seed": 16652832366777578021
+    },
+    "2026-03-26": {
+      "wheels": [
+        4,
+        11,
+        15
+      ],
+      "positions": [
+        16,
+        3,
+        0
+      ],
+      "plugboard": "YC HA RD FO IX VE PJ QS UG BK",
+      "prng_seed": 10507684583283469027
+    },
+    "2026-03-27": {
+      "wheels": [
+        14,
+        16,
+        1
+      ],
+      "positions": [
+        17,
+        10,
+        7
+      ],
+      "plugboard": "FT JK EY VR QW OX SA NI CD UG",
+      "prng_seed": 8773220894323187424
+    },
+    "2026-03-28": {
+      "wheels": [
+        2,
+        3,
+        6
+      ],
+      "positions": [
+        23,
+        24,
+        13
+      ],
+      "plugboard": "YW FO VB KT ZD IC NG LH US MP",
+      "prng_seed": 7864452799679695878
+    },
+    "2026-03-29": {
+      "wheels": [
+        6,
+        11,
+        8
+      ],
+      "positions": [
+        16,
+        18,
+        20
+      ],
+      "plugboard": "WZ HE OT RU MF KI YA VP GC BD",
+      "prng_seed": 11496573994004641272
+    },
+    "2026-03-30": {
+      "wheels": [
+        4,
+        11,
+        8
+      ],
+      "positions": [
+        18,
+        24,
+        20
+      ],
+      "plugboard": "PD TL FE IZ OR MJ UK SX WQ VG",
+      "prng_seed": 13192886596340137948
+    },
+    "2026-03-31": {
+      "wheels": [
+        6,
+        10,
+        3
+      ],
+      "positions": [
+        18,
+        10,
+        14
+      ],
+      "plugboard": "DJ GN MU CK ZB AO SF LY PX TR",
+      "prng_seed": 928979480744323029
+    },
+    "2026-04-01": {
+      "wheels": [
+        5,
+        11,
+        16
+      ],
+      "positions": [
+        1,
+        3,
+        6
+      ],
+      "plugboard": "BG SU KN FT WP XL QR JO YV IC",
+      "prng_seed": 8634940385829421698
+    },
+    "2026-04-02": {
+      "wheels": [
+        10,
+        3,
+        8
+      ],
+      "positions": [
+        15,
+        1,
+        15
+      ],
+      "plugboard": "ZH UO YF BI VT JS RC NG EQ ML",
+      "prng_seed": 12630791647693173457
+    },
+    "2026-04-03": {
+      "wheels": [
+        9,
+        2,
+        4
+      ],
+      "positions": [
+        3,
+        20,
+        24
+      ],
+      "plugboard": "QZ LC SF UO IM GA EJ RW VY NB",
+      "prng_seed": 17113509568190991718
+    },
+    "2026-04-04": {
+      "wheels": [
+        9,
+        14,
+        13
+      ],
+      "positions": [
+        21,
+        13,
+        9
+      ],
+      "plugboard": "LA JP CG YW TD MI BR HK UF VS",
+      "prng_seed": 7652809989050053587
+    },
+    "2026-04-05": {
+      "wheels": [
+        5,
+        2,
+        16
+      ],
+      "positions": [
+        2,
+        3,
+        18
+      ],
+      "plugboard": "EN FX AI KR UM SV BD JZ GC PH",
+      "prng_seed": 4860940802528297970
+    },
+    "2026-04-06": {
+      "wheels": [
+        9,
+        12,
+        16
+      ],
+      "positions": [
+        4,
+        6,
+        22
+      ],
+      "plugboard": "YP DA GT OI VH FE RN ML WZ XU",
+      "prng_seed": 2569467291914717705
+    },
+    "2026-04-07": {
+      "wheels": [
+        12,
+        1,
+        11
+      ],
+      "positions": [
+        19,
+        10,
+        12
+      ],
+      "plugboard": "CS IR XG JN KT OE PV LY UD ZF",
+      "prng_seed": 15885700963878814101
+    },
+    "2026-04-08": {
+      "wheels": [
+        10,
+        6,
+        9
+      ],
+      "positions": [
+        21,
+        0,
+        10
+      ],
+      "plugboard": "BG AY TD JP OL ZV WX MU NK SQ",
+      "prng_seed": 9509476988530527283
+    },
+    "2026-04-09": {
+      "wheels": [
+        4,
+        7,
+        2
+      ],
+      "positions": [
+        12,
+        16,
+        12
+      ],
+      "plugboard": "IR BL MO KE CF HX YP TA JS WG",
+      "prng_seed": 15000712010899412007
+    },
+    "2026-04-10": {
+      "wheels": [
+        9,
+        6,
+        16
+      ],
+      "positions": [
+        25,
+        2,
+        22
+      ],
+      "plugboard": "TG RV EJ AM BS LW FN UX HZ QP",
+      "prng_seed": 136191367576409635
+    },
+    "2026-04-11": {
+      "wheels": [
+        9,
+        15,
+        11
+      ],
+      "positions": [
+        17,
+        0,
+        1
+      ],
+      "plugboard": "FG HR BI PY JA QV WU CE ST MD",
+      "prng_seed": 883442523789501290
+    },
+    "2026-04-12": {
+      "wheels": [
+        6,
+        16,
         15
       ],
       "positions": [
         5,
-        11,
-        23
-      ],
-      "plugboard": "LB YS IX ET OG CP MF UR WH JA"
-    },
-    "2026-03-25": {
-      "wheels": [
-        6,
-        15,
-        13
-      ],
-      "positions": [
-        3,
-        11,
-        5
-      ],
-      "plugboard": "OI SD PR WE JZ LB UH GF TM VN"
-    },
-    "2026-03-26": {
-      "wheels": [
-        3,
-        7,
-        9
-      ],
-      "positions": [
-        13,
-        17,
-        6
-      ],
-      "plugboard": "DI KT SX UM FZ NQ JA LG OB RV"
-    },
-    "2026-03-27": {
-      "wheels": [
-        11,
         16,
-        13
-      ],
-      "positions": [
-        22,
-        11,
-        12
-      ],
-      "plugboard": "DV WA EY SH ZB OP JT KI CG MU"
-    },
-    "2026-03-28": {
-      "wheels": [
-        9,
-        11,
-        7
-      ],
-      "positions": [
-        24,
-        7,
-        0
-      ],
-      "plugboard": "QC DB YR MK WG ZP FL JS HO VT"
-    },
-    "2026-03-29": {
-      "wheels": [
-        8,
-        13,
-        6
-      ],
-      "positions": [
-        21,
-        21,
-        20
-      ],
-      "plugboard": "NZ LP YK VH QA JC TD GI WF OE"
-    },
-    "2026-03-30": {
-      "wheels": [
-        5,
-        9,
-        4
-      ],
-      "positions": [
-        0,
-        20,
-        25
-      ],
-      "plugboard": "GR HM QJ AT SD UF PL BV NE KZ"
-    },
-    "2026-03-31": {
-      "wheels": [
-        1,
-        10,
-        14
-      ],
-      "positions": [
-        9,
-        23,
-        1
-      ],
-      "plugboard": "VQ UF AJ DC NT RK MX ZG SO PH"
-    },
-    "2026-04-01": {
-      "wheels": [
-        12,
-        1,
         2
       ],
-      "positions": [
-        6,
-        20,
-        19
-      ],
-      "plugboard": "EL DV UO KY RJ ZP CF SQ WH NB"
-    },
-    "2026-04-02": {
-      "wheels": [
-        3,
-        7,
-        11
-      ],
-      "positions": [
-        22,
-        12,
-        21
-      ],
-      "plugboard": "EM QR YX TH GN ZO DC FJ UW IS"
-    },
-    "2026-04-03": {
-      "wheels": [
-        16,
-        6,
-        11
-      ],
-      "positions": [
-        9,
-        25,
-        4
-      ],
-      "plugboard": "WZ LS NB YO VU ME TD PC GI HA"
-    },
-    "2026-04-04": {
-      "wheels": [
-        7,
-        15,
-        10
-      ],
-      "positions": [
-        22,
-        12,
-        7
-      ],
-      "plugboard": "CJ VP DQ MW SR GZ KY HU XT LE"
-    },
-    "2026-04-05": {
-      "wheels": [
-        16,
-        8,
-        5
-      ],
-      "positions": [
-        9,
-        17,
-        9
-      ],
-      "plugboard": "IH DF ZK OE UM YC VB NL QR SP"
-    },
-    "2026-04-06": {
-      "wheels": [
-        7,
-        14,
-        3
-      ],
-      "positions": [
-        19,
-        16,
-        24
-      ],
-      "plugboard": "BM ZI YE HJ XK SV WC GT NL RO"
-    },
-    "2026-04-07": {
-      "wheels": [
-        10,
-        14,
-        11
-      ],
-      "positions": [
-        10,
-        19,
-        12
-      ],
-      "plugboard": "UN XP QC EL OD RA GB WI KM ST"
-    },
-    "2026-04-08": {
-      "wheels": [
-        11,
-        6,
-        14
-      ],
-      "positions": [
-        25,
-        21,
-        14
-      ],
-      "plugboard": "KH TU DQ NV AE MX CB WS IL JF"
-    },
-    "2026-04-09": {
-      "wheels": [
-        7,
-        12,
-        13
-      ],
-      "positions": [
-        5,
-        4,
-        19
-      ],
-      "plugboard": "YP IF AL CK ZG WD HX SM QT BU"
-    },
-    "2026-04-10": {
-      "wheels": [
-        3,
-        6,
-        4
-      ],
-      "positions": [
-        18,
-        19,
-        23
-      ],
-      "plugboard": "CD HK GZ XR LM NI TO PW BA YU"
-    },
-    "2026-04-11": {
-      "wheels": [
-        10,
-        15,
-        1
-      ],
-      "positions": [
-        14,
-        15,
-        5
-      ],
-      "plugboard": "OL HT FQ WR BC DX VZ AP GY KJ"
-    },
-    "2026-04-12": {
-      "wheels": [
-        3,
-        14,
-        12
-      ],
-      "positions": [
-        3,
-        19,
-        23
-      ],
-      "plugboard": "XI VN OY JK FR MC PS DQ WE UA"
+      "plugboard": "GO HP VQ SY NL EK BU IR XC TA",
+      "prng_seed": 13252847443875108376
     },
     "2026-04-13": {
       "wheels": [
-        3,
-        8,
+        7,
+        5,
         11
       ],
       "positions": [
-        2,
-        0,
-        16
+        17,
+        17,
+        25
       ],
-      "plugboard": "HF JE KD OW TG YN UZ BA XS QI"
+      "plugboard": "WE DM YP JG BQ KF LN SO ZT VU",
+      "prng_seed": 12898513439286413607
     },
     "2026-04-14": {
       "wheels": [
         1,
-        7,
-        15
+        16,
+        10
       ],
       "positions": [
-        7,
-        22,
-        18
+        23,
+        10,
+        2
       ],
-      "plugboard": "JE NB TU QS ZC IO AL WH VK FY"
+      "plugboard": "JI AO KW VR DX YE QL PG FB SU",
+      "prng_seed": 15443317514634613715
     },
     "2026-04-15": {
       "wheels": [
-        12,
+        7,
         3,
-        14
+        11
       ],
       "positions": [
-        4,
-        11,
-        2
+        12,
+        8,
+        0
       ],
-      "plugboard": "MD UI TE VC XF RQ GL JW PK OZ"
+      "plugboard": "QN OJ SF CE XM RI VG LH AZ KB",
+      "prng_seed": 12666099842646729611
     },
     "2026-04-16": {
       "wheels": [
-        14,
-        1,
-        13
+        10,
+        13,
+        3
       ],
       "positions": [
-        0,
-        25,
-        12
+        8,
+        24,
+        5
       ],
-      "plugboard": "OZ SX RL BY VA UE DQ CI MJ KG"
+      "plugboard": "SJ YT MQ LA WK PH EF ZC UX DI",
+      "prng_seed": 13325022881337575546
     },
     "2026-04-17": {
       "wheels": [
-        12,
-        1,
+        4,
+        6,
         9
       ],
       "positions": [
-        9,
-        0,
+        6,
+        21,
         17
       ],
-      "plugboard": "BY FL QJ HO MT DZ UV CP WE RI"
+      "plugboard": "PT WS NU YC ED AF GX RB VM JO",
+      "prng_seed": 4740884704990403568
     },
     "2026-04-18": {
       "wheels": [
-        9,
-        12,
-        16
+        1,
+        7,
+        2
       ],
       "positions": [
         2,
-        3,
-        3
+        22,
+        15
       ],
-      "plugboard": "LM XG OB VF RA QD ZJ IN YP TS"
+      "plugboard": "HC OP LI XD QY MR GF SN EJ TK",
+      "prng_seed": 14881526106757622553
     },
     "2026-04-19": {
       "wheels": [
-        7,
         2,
-        6
+        8,
+        5
       ],
       "positions": [
-        12,
-        20,
-        3
+        7,
+        8,
+        20
       ],
-      "plugboard": "TX PH KJ WU FY VA DZ SO LN EG"
+      "plugboard": "YQ XB GC HV SU PD JT RF EK IO",
+      "prng_seed": 10227851093493462671
     },
     "2026-04-20": {
       "wheels": [
-        13,
-        16,
-        15
-      ],
-      "positions": [
-        22,
-        16,
-        16
-      ],
-      "plugboard": "IS OC QN VG PW HZ FM UL BR YE"
-    },
-    "2026-04-21": {
-      "wheels": [
-        7,
-        12,
-        15
-      ],
-      "positions": [
-        18,
-        5,
-        9
-      ],
-      "plugboard": "CF RE YD OM LK TV UW QZ NI SA"
-    },
-    "2026-04-22": {
-      "wheels": [
-        15,
-        4,
-        6
-      ],
-      "positions": [
-        10,
         9,
-        3
-      ],
-      "plugboard": "YV OA WL SR DC GT HK IU NX EJ"
-    },
-    "2026-04-23": {
-      "wheels": [
-        13,
-        16,
-        14
-      ],
-      "positions": [
-        12,
-        14,
-        9
-      ],
-      "plugboard": "CU TE HZ NL FR GO WX JA PY VQ"
-    },
-    "2026-04-24": {
-      "wheels": [
-        9,
-        15,
-        11
-      ],
-      "positions": [
-        25,
-        4,
-        14
-      ],
-      "plugboard": "OM YV DI LN HG QZ PC XU FW JA"
-    },
-    "2026-04-25": {
-      "wheels": [
-        3,
-        8,
-        16
-      ],
-      "positions": [
-        14,
-        18,
-        3
-      ],
-      "plugboard": "QZ DE XH LK AJ VY TF WS MN GI"
-    },
-    "2026-04-26": {
-      "wheels": [
-        16,
-        15,
-        9
-      ],
-      "positions": [
-        20,
-        7,
-        11
-      ],
-      "plugboard": "UN ZQ WI PF HT RE YJ ML KD XG"
-    },
-    "2026-04-27": {
-      "wheels": [
-        1,
-        13,
-        9
-      ],
-      "positions": [
-        5,
-        14,
-        0
-      ],
-      "plugboard": "ZG AK LB TY OC UV SJ QR NM PF"
-    },
-    "2026-04-28": {
-      "wheels": [
-        16,
-        13,
-        11
-      ],
-      "positions": [
-        13,
-        9,
-        7
-      ],
-      "plugboard": "YI UP TR XJ GS ZK BQ FC HD MW"
-    },
-    "2026-04-29": {
-      "wheels": [
-        10,
         16,
         4
       ],
       "positions": [
-        9,
-        7,
-        22
+        5,
+        3,
+        17
       ],
-      "plugboard": "ES OJ NV IG WQ CM DY UF KZ AB"
+      "plugboard": "KX SM QC YP IZ DO WH FV UA RL",
+      "prng_seed": 7564932884381892735
     },
-    "2026-04-30": {
-      "wheels": [
-        8,
-        15,
-        5
-      ],
-      "positions": [
-        22,
-        9,
-        20
-      ],
-      "plugboard": "CR DW QO HA KF VM JZ NG BP UX"
-    },
-    "2026-05-01": {
+    "2026-04-21": {
       "wheels": [
         12,
-        5,
+        9,
+        11
+      ],
+      "positions": [
+        19,
+        14,
+        19
+      ],
+      "plugboard": "QD KC YG NW PJ FX VU LE RB TM",
+      "prng_seed": 16829718330563210587
+    },
+    "2026-04-22": {
+      "wheels": [
+        6,
+        3,
         2
       ],
       "positions": [
-        2,
-        18,
-        2
+        21,
+        20,
+        7
       ],
-      "plugboard": "EQ NU MW BX VY JR FH ZS KT IL"
+      "plugboard": "IO TV XH AY KJ NZ RU PG LQ CE",
+      "prng_seed": 2330989377208082381
     },
-    "2026-05-02": {
+    "2026-04-23": {
       "wheels": [
         11,
-        3,
-        6
-      ],
-      "positions": [
-        23,
         12,
-        16
-      ],
-      "plugboard": "DL HJ FP ZY CQ EX IM WK BT OR"
-    },
-    "2026-05-03": {
-      "wheels": [
-        1,
-        4,
         13
       ],
       "positions": [
-        10,
-        8,
+        12,
+        22,
+        11
+      ],
+      "plugboard": "UF XA DP ZS JC HM BK YN GE OV",
+      "prng_seed": 4869307134425289021
+    },
+    "2026-04-24": {
+      "wheels": [
+        16,
+        4,
+        2
+      ],
+      "positions": [
+        24,
+        0,
+        5
+      ],
+      "plugboard": "PA VN YE FH WX CL IB JU DT OM",
+      "prng_seed": 17625258718383806791
+    },
+    "2026-04-25": {
+      "wheels": [
+        12,
+        2,
+        4
+      ],
+      "positions": [
+        11,
+        14,
+        17
+      ],
+      "plugboard": "WK QT FO VG HM BI CR EU PJ AN",
+      "prng_seed": 15472188995856993174
+    },
+    "2026-04-26": {
+      "wheels": [
+        15,
+        13,
+        4
+      ],
+      "positions": [
+        3,
+        0,
+        13
+      ],
+      "plugboard": "DQ YA UJ HF RX CG LN OT IP WK",
+      "prng_seed": 2421078159350010836
+    },
+    "2026-04-27": {
+      "wheels": [
+        5,
+        13,
         15
       ],
-      "plugboard": "NI CK QP SG JB WE LU RH ZV DX"
+      "positions": [
+        3,
+        22,
+        14
+      ],
+      "plugboard": "AS XM YD HE OV JU BZ TI NC KR",
+      "prng_seed": 16437622814440210877
+    },
+    "2026-04-28": {
+      "wheels": [
+        15,
+        6,
+        5
+      ],
+      "positions": [
+        14,
+        20,
+        23
+      ],
+      "plugboard": "KL OB FC XR EP GM AS YJ UQ IT",
+      "prng_seed": 16424733554275987482
+    },
+    "2026-04-29": {
+      "wheels": [
+        2,
+        3,
+        5
+      ],
+      "positions": [
+        20,
+        15,
+        19
+      ],
+      "plugboard": "LM FE TH OZ QW IA RC XD VU KG",
+      "prng_seed": 3503659486203088905
+    },
+    "2026-04-30": {
+      "wheels": [
+        3,
+        9,
+        15
+      ],
+      "positions": [
+        19,
+        18,
+        4
+      ],
+      "plugboard": "DE YI FZ WH KU OA ST MR NJ QG",
+      "prng_seed": 5581954974203309313
+    },
+    "2026-05-01": {
+      "wheels": [
+        2,
+        13,
+        3
+      ],
+      "positions": [
+        1,
+        18,
+        5
+      ],
+      "plugboard": "FY SJ BW RU PX TV DN AI MO EK",
+      "prng_seed": 11468350802900694919
+    },
+    "2026-05-02": {
+      "wheels": [
+        13,
+        16,
+        8
+      ],
+      "positions": [
+        14,
+        22,
+        14
+      ],
+      "plugboard": "AC WP KY SE ZD UT LF IV JH MQ",
+      "prng_seed": 16261361119766549662
+    },
+    "2026-05-03": {
+      "wheels": [
+        14,
+        16,
+        15
+      ],
+      "positions": [
+        12,
+        25,
+        10
+      ],
+      "plugboard": "LB FA IO QJ DY EX KP CM TN US",
+      "prng_seed": 7303995471622901216
     },
     "2026-05-04": {
       "wheels": [
         6,
-        15,
-        16
+        9,
+        14
       ],
       "positions": [
-        7,
-        25,
-        6
+        20,
+        6,
+        22
       ],
-      "plugboard": "AM IB KV SO FJ LX QE TU HC YR"
+      "plugboard": "YR UZ SP XN AH IG TJ FE OC KD",
+      "prng_seed": 5264583355750706626
     },
     "2026-05-05": {
       "wheels": [
-        8,
         16,
-        10
+        4,
+        15
       ],
       "positions": [
-        24,
-        0,
-        3
+        11,
+        21,
+        16
       ],
-      "plugboard": "ID XJ ZB AL NY VP TO EC GU SR"
+      "plugboard": "GA YJ XP VC WI UR NF ED SB TH",
+      "prng_seed": 4637315547419066094
     },
     "2026-05-06": {
       "wheels": [
-        6,
-        11,
-        8
+        15,
+        4,
+        1
       ],
       "positions": [
-        10,
-        17,
-        17
+        2,
+        18,
+        18
       ],
-      "plugboard": "DX VW OR LT IC SF YK HP QG UA"
+      "plugboard": "PQ EZ BT AC KU RS VD NG MF XW",
+      "prng_seed": 7339224288433742602
     },
     "2026-05-07": {
       "wheels": [
-        14,
-        10,
-        3
-      ],
-      "positions": [
-        3,
+        12,
         4,
-        22
-      ],
-      "plugboard": "UO VZ CM SD FE AW RX QN BH JT"
-    },
-    "2026-05-08": {
-      "wheels": [
-        16,
-        6,
-        2
-      ],
-      "positions": [
-        4,
-        19,
-        7
-      ],
-      "plugboard": "UW AV SC HO ZB EN LK QR MT JG"
-    },
-    "2026-05-09": {
-      "wheels": [
-        9,
-        1,
-        16
-      ],
-      "positions": [
-        14,
-        16,
-        7
-      ],
-      "plugboard": "ZG CF RO LJ BM HP SY WD TA VE"
-    },
-    "2026-05-10": {
-      "wheels": [
-        2,
-        13,
-        10
-      ],
-      "positions": [
-        16,
-        24,
-        12
-      ],
-      "plugboard": "OE SM RA VG ZL JT DP IF NK BW"
-    },
-    "2026-05-11": {
-      "wheels": [
-        9,
-        6,
-        4
-      ],
-      "positions": [
-        13,
-        3,
-        24
-      ],
-      "plugboard": "GI LE YO VC HD UP XF TS AK JZ"
-    },
-    "2026-05-12": {
-      "wheels": [
-        6,
-        5,
         8
       ],
       "positions": [
-        24,
-        23,
-        24
+        4,
+        3,
+        23
       ],
-      "plugboard": "UQ FL HR MV GW BN CI JD SP TE"
+      "plugboard": "KD JC NX GU TM YF ZV IH BO WA",
+      "prng_seed": 5517682438828132138
     },
-    "2026-05-13": {
+    "2026-05-08": {
       "wheels": [
-        2,
+        4,
+        15,
+        14
+      ],
+      "positions": [
+        21,
+        24,
+        1
+      ],
+      "plugboard": "IX RT MC OH LW UV PG ES KZ NQ",
+      "prng_seed": 7863492784729087704
+    },
+    "2026-05-09": {
+      "wheels": [
         5,
+        7,
         6
       ],
       "positions": [
-        18,
         12,
-        19
+        2,
+        0
       ],
-      "plugboard": "LQ YW VS HC XZ MF IA GJ PU DB"
+      "plugboard": "PA ZJ IO EU NS TH VM LY XD QF",
+      "prng_seed": 7903341894333785999
     },
-    "2026-05-14": {
+    "2026-05-10": {
       "wheels": [
-        16,
-        6,
-        12
-      ],
-      "positions": [
-        5,
-        21,
-        18
-      ],
-      "plugboard": "JY HL CQ PI FK NO MZ AG VB XW"
-    },
-    "2026-05-15": {
-      "wheels": [
+        11,
         14,
-        1,
-        10
+        6
       ],
       "positions": [
-        15,
-        23,
-        14
-      ],
-      "plugboard": "CH XN OT MZ GL UJ PV AW YF ED"
-    },
-    "2026-05-16": {
-      "wheels": [
         8,
-        16,
-        1
+        4,
+        11
+      ],
+      "plugboard": "EJ TK SI OP QD UF YB RH AZ MC",
+      "prng_seed": 15894169963252181513
+    },
+    "2026-05-11": {
+      "wheels": [
+        6,
+        2,
+        13
       ],
       "positions": [
-        25,
-        5,
-        17
+        4,
+        10,
+        22
       ],
-      "plugboard": "YV XL KH UB TP WC MI NG FS RE"
+      "plugboard": "UM TE ZC RL VW DJ XH NY QS BP",
+      "prng_seed": 1926473385626536762
     },
-    "2026-05-17": {
+    "2026-05-12": {
       "wheels": [
-        12,
-        3,
+        4,
+        10,
+        9
+      ],
+      "positions": [
+        18,
+        25,
+        4
+      ],
+      "plugboard": "OB MR ND JF GW QY XE TP SV ZA",
+      "prng_seed": 4858618928099257037
+    },
+    "2026-05-13": {
+      "wheels": [
+        11,
+        5,
         7
       ],
       "positions": [
-        12,
         20,
-        10
+        21,
+        17
       ],
-      "plugboard": "CK RS YH AE FL OJ QV NG TD WX"
+      "plugboard": "JM OT AH CV DQ EK LP GF YR SI",
+      "prng_seed": 10069437506208024124
     },
-    "2026-05-18": {
+    "2026-05-14": {
       "wheels": [
-        10,
-        16,
-        2
-      ],
-      "positions": [
-        23,
-        14,
-        3
-      ],
-      "plugboard": "UF HA YW TZ RP IG NV CS XJ DL"
-    },
-    "2026-05-19": {
-      "wheels": [
-        2,
-        12,
-        9
-      ],
-      "positions": [
-        20,
-        1,
-        12
-      ],
-      "plugboard": "VQ FI BU MX HN GR YK OD TA EP"
-    },
-    "2026-05-20": {
-      "wheels": [
-        15,
-        5,
-        1
-      ],
-      "positions": [
-        0,
-        7,
-        19
-      ],
-      "plugboard": "GK VJ PY SU ND LF EI BC WZ MA"
-    },
-    "2026-05-21": {
-      "wheels": [
-        10,
         11,
-        9
-      ],
-      "positions": [
-        16,
-        1,
-        9
-      ],
-      "plugboard": "PK RH MX ST AE UQ IV CF BZ LD"
-    },
-    "2026-05-22": {
-      "wheels": [
-        1,
-        9,
-        13
-      ],
-      "positions": [
         7,
-        16,
-        9
-      ],
-      "plugboard": "KJ ME IO FH XV WB LS GN ZU QP"
-    },
-    "2026-05-23": {
-      "wheels": [
-        2,
-        3,
-        13
-      ],
-      "positions": [
-        17,
-        4,
-        25
-      ],
-      "plugboard": "OP SX LV GZ HM BJ KC RN YA IW"
-    },
-    "2026-05-24": {
-      "wheels": [
-        16,
-        7,
-        3
+        4
       ],
       "positions": [
         12,
-        14,
-        3
+        4,
+        8
       ],
-      "plugboard": "IB WZ GQ SV OD TU JA YF KP HL"
+      "plugboard": "MR GL AZ NB CP FY XH DQ VW IS",
+      "prng_seed": 5273063844986235941
     },
-    "2026-05-25": {
+    "2026-05-15": {
       "wheels": [
+        12,
+        1,
+        6
+      ],
+      "positions": [
+        9,
+        18,
+        9
+      ],
+      "plugboard": "MW AQ JZ ET CO DR SL GB FN IV",
+      "prng_seed": 10696733904892491999
+    },
+    "2026-05-16": {
+      "wheels": [
+        7,
         16,
+        11
+      ],
+      "positions": [
         5,
-        10
+        3,
+        17
+      ],
+      "plugboard": "NP VJ LA BT SO UQ ZY IH GW MK",
+      "prng_seed": 740099919289707654
+    },
+    "2026-05-17": {
+      "wheels": [
+        1,
+        11,
+        14
       ],
       "positions": [
         13,
-        23,
-        15
-      ],
-      "plugboard": "SE AO QW TZ RI PY GB DC XF JN"
-    },
-    "2026-05-26": {
-      "wheels": [
-        5,
-        7,
-        3
-      ],
-      "positions": [
-        21,
-        9,
+        10,
         16
       ],
-      "plugboard": "EX JG IS WR KY ZV TL MH FP CQ"
+      "plugboard": "RT QO UE XP FJ ZI NA WC LV MK",
+      "prng_seed": 351983375756095910
     },
-    "2026-05-27": {
+    "2026-05-18": {
       "wheels": [
-        6,
-        7,
-        10
+        5,
+        2,
+        16
+      ],
+      "positions": [
+        15,
+        23,
+        24
+      ],
+      "plugboard": "IX SH NM OV RY LK FC QW DT PZ",
+      "prng_seed": 7394924169820073732
+    },
+    "2026-05-19": {
+      "wheels": [
+        4,
+        15,
+        7
       ],
       "positions": [
         22,
         6,
+        18
+      ],
+      "plugboard": "AK XF ZO DN PR QY UW LJ IG CS",
+      "prng_seed": 1870412298053620106
+    },
+    "2026-05-20": {
+      "wheels": [
+        2,
+        6,
+        3
+      ],
+      "positions": [
+        6,
+        14,
+        3
+      ],
+      "plugboard": "VG OA PJ YM ED LI TW CK NH XB",
+      "prng_seed": 14997614770342257835
+    },
+    "2026-05-21": {
+      "wheels": [
+        2,
+        11,
+        13
+      ],
+      "positions": [
+        10,
+        16,
+        15
+      ],
+      "plugboard": "QG RI PC AH SF YJ OB EN UX KW",
+      "prng_seed": 3972042215669738071
+    },
+    "2026-05-22": {
+      "wheels": [
+        15,
+        10,
+        9
+      ],
+      "positions": [
+        1,
+        9,
+        3
+      ],
+      "plugboard": "QB FD TL VM HN JA EI ZS OY UR",
+      "prng_seed": 2221620169412042122
+    },
+    "2026-05-23": {
+      "wheels": [
+        3,
+        16,
         2
       ],
-      "plugboard": "RD NY VF AB KE TM WI ZU XP JG"
+      "positions": [
+        18,
+        4,
+        18
+      ],
+      "plugboard": "LU SW ZM EY GD VO NA JQ KF XC",
+      "prng_seed": 15108501879659348839
+    },
+    "2026-05-24": {
+      "wheels": [
+        4,
+        7,
+        8
+      ],
+      "positions": [
+        14,
+        6,
+        17
+      ],
+      "plugboard": "PA YL EM DU FX NS HZ TO BJ RI",
+      "prng_seed": 6231895579241763041
+    },
+    "2026-05-25": {
+      "wheels": [
+        11,
+        8,
+        9
+      ],
+      "positions": [
+        16,
+        8,
+        22
+      ],
+      "plugboard": "GP IY QJ ON AU TZ CK BX SR FM",
+      "prng_seed": 6183850873289872502
+    },
+    "2026-05-26": {
+      "wheels": [
+        13,
+        2,
+        15
+      ],
+      "positions": [
+        20,
+        21,
+        11
+      ],
+      "plugboard": "QP GU SF JD OL EA NT VM XR ZH",
+      "prng_seed": 1463487856034707095
+    },
+    "2026-05-27": {
+      "wheels": [
+        4,
+        14,
+        7
+      ],
+      "positions": [
+        8,
+        5,
+        11
+      ],
+      "plugboard": "WY BP NM JS IK DE CU GO TH VF",
+      "prng_seed": 6971825275608519701
     },
     "2026-05-28": {
       "wheels": [
+        5,
         6,
-        10,
-        16
+        1
       ],
       "positions": [
-        12,
-        15,
+        23,
+        17,
         4
       ],
-      "plugboard": "ZE NL XA TU FO VG QC BM KS PJ"
+      "plugboard": "HM OB DC NV RI AU TW PG JX QK",
+      "prng_seed": 13549308900401987039
     },
     "2026-05-29": {
       "wheels": [
         7,
-        2,
-        3
+        14,
+        16
       ],
       "positions": [
-        24,
-        16,
-        9
+        4,
+        8,
+        13
       ],
-      "plugboard": "LP CJ XI NB TZ QW OR YA HV UM"
+      "plugboard": "FY VW IT JD MX BH ZE OU CS KL",
+      "prng_seed": 6633192459982557503
     },
     "2026-05-30": {
       "wheels": [
-        7,
-        4,
-        9
-      ],
-      "positions": [
-        11,
-        14,
-        21
-      ],
-      "plugboard": "EQ ZB VD XO NM TJ UR KL WC AY"
-    },
-    "2026-05-31": {
-      "wheels": [
-        15,
-        3,
-        5
-      ],
-      "positions": [
-        22,
-        15,
-        2
-      ],
-      "plugboard": "AM GS RW XV YL UZ OJ TB PD EI"
-    },
-    "2026-06-01": {
-      "wheels": [
-        8,
-        11,
-        16
-      ],
-      "positions": [
-        25,
-        20,
-        11
-      ],
-      "plugboard": "XJ LT MI BR KG YF VO CU WP ZH"
-    },
-    "2026-06-02": {
-      "wheels": [
-        7,
-        8,
-        11
-      ],
-      "positions": [
-        20,
-        19,
-        20
-      ],
-      "plugboard": "IV KC HL SP YB NQ UD TM EZ GJ"
-    },
-    "2026-06-03": {
-      "wheels": [
-        11,
-        10,
-        12
-      ],
-      "positions": [
-        6,
-        15,
-        15
-      ],
-      "plugboard": "KF RN TA MI GE XD YW JU PZ OC"
-    },
-    "2026-06-04": {
-      "wheels": [
-        14,
-        13,
-        11
-      ],
-      "positions": [
         3,
         11,
         2
-      ],
-      "plugboard": "PI KS EZ BV NQ DO YR XW HC LA"
-    },
-    "2026-06-05": {
-      "wheels": [
-        4,
-        3,
-        11
-      ],
-      "positions": [
-        2,
-        14,
-        3
-      ],
-      "plugboard": "NL KM OW EX VJ QR AG ZH FY DU"
-    },
-    "2026-06-06": {
-      "wheels": [
-        1,
-        3,
-        2
-      ],
-      "positions": [
-        3,
-        6,
-        4
-      ],
-      "plugboard": "QX JY OW EI AS PT RH UV ZM ND"
-    },
-    "2026-06-07": {
-      "wheels": [
-        9,
-        14,
-        7
-      ],
-      "positions": [
-        8,
-        4,
-        16
-      ],
-      "plugboard": "MA QK HY EU CD VP OI ST XZ BF"
-    },
-    "2026-06-08": {
-      "wheels": [
-        10,
-        6,
-        4
-      ],
-      "positions": [
-        19,
-        8,
-        22
-      ],
-      "plugboard": "RY CL WA MP GJ UI BT QZ EF SO"
-    },
-    "2026-06-09": {
-      "wheels": [
-        15,
-        3,
-        8
       ],
       "positions": [
         17,
-        2,
-        25
+        16,
+        13
       ],
-      "plugboard": "UL IR VC AJ YO BE TD FN XK QM"
+      "plugboard": "UT OH JF DW MV LY KA BQ ZI PN",
+      "prng_seed": 11106416182288835094
     },
-    "2026-06-10": {
-      "wheels": [
-        9,
-        5,
-        10
-      ],
-      "positions": [
-        13,
-        23,
-        24
-      ],
-      "plugboard": "DV KW FP XL MG BA IJ SN QE UZ"
-    },
-    "2026-06-11": {
-      "wheels": [
-        4,
-        9,
-        14
-      ],
-      "positions": [
-        15,
-        23,
-        23
-      ],
-      "plugboard": "SQ XK UP WH JE VA BR OG DT NC"
-    },
-    "2026-06-12": {
-      "wheels": [
-        8,
-        10,
-        15
-      ],
-      "positions": [
-        12,
-        2,
-        21
-      ],
-      "plugboard": "QK ZY DN BV FJ LW MP IG TR UX"
-    },
-    "2026-06-13": {
+    "2026-05-31": {
       "wheels": [
         5,
-        15,
-        12
-      ],
-      "positions": [
-        0,
-        2,
-        23
-      ],
-      "plugboard": "NX LH JV FT QM UK WA ZR BY SE"
-    },
-    "2026-06-14": {
-      "wheels": [
-        15,
-        3,
-        1
-      ],
-      "positions": [
-        10,
-        22,
-        24
-      ],
-      "plugboard": "IL PT WN GE HC VS YO RD JQ UB"
-    },
-    "2026-06-15": {
-      "wheels": [
-        3,
-        15,
-        12
-      ],
-      "positions": [
         7,
-        14,
-        25
-      ],
-      "plugboard": "FC WA SQ HD TP UM JG LR YZ XI"
-    },
-    "2026-06-16": {
-      "wheels": [
-        5,
-        9,
         16
       ],
       "positions": [
-        21,
-        18,
-        21
+        9,
+        16,
+        11
       ],
-      "plugboard": "TW QC XH UZ IN VJ DK FB LS GE"
+      "plugboard": "CT RH UI DZ MO SQ JW VY FA EN",
+      "prng_seed": 12400971965203493819
+    },
+    "2026-06-01": {
+      "wheels": [
+        2,
+        11,
+        5
+      ],
+      "positions": [
+        3,
+        21,
+        7
+      ],
+      "plugboard": "RT OV LA GD KI QM FJ NW HE SU",
+      "prng_seed": 7785731068540491555
+    },
+    "2026-06-02": {
+      "wheels": [
+        11,
+        4,
+        10
+      ],
+      "positions": [
+        14,
+        1,
+        22
+      ],
+      "plugboard": "PI KN JA BV DO ZH SG WC EM YF",
+      "prng_seed": 13128325222199934093
+    },
+    "2026-06-03": {
+      "wheels": [
+        13,
+        15,
+        8
+      ],
+      "positions": [
+        24,
+        8,
+        11
+      ],
+      "plugboard": "YI FL MK AN QB TD EZ VH RX JU",
+      "prng_seed": 9750997134755678794
+    },
+    "2026-06-04": {
+      "wheels": [
+        15,
+        13,
+        6
+      ],
+      "positions": [
+        20,
+        24,
+        19
+      ],
+      "plugboard": "TW DN JH ZP MK FQ YV XC UI BA",
+      "prng_seed": 7104703233878147520
+    },
+    "2026-06-05": {
+      "wheels": [
+        8,
+        10,
+        9
+      ],
+      "positions": [
+        5,
+        10,
+        25
+      ],
+      "plugboard": "RF NA SI VD UY JB HK ZX OT GQ",
+      "prng_seed": 8720112041918275373
+    },
+    "2026-06-06": {
+      "wheels": [
+        13,
+        8,
+        5
+      ],
+      "positions": [
+        12,
+        5,
+        0
+      ],
+      "plugboard": "SV WD UO IM TB YG CE AF XZ JP",
+      "prng_seed": 12101122135634904657
+    },
+    "2026-06-07": {
+      "wheels": [
+        14,
+        4,
+        3
+      ],
+      "positions": [
+        21,
+        11,
+        12
+      ],
+      "plugboard": "JK CX OQ DW VY ET PS RI NA LH",
+      "prng_seed": 15029240812524468207
+    },
+    "2026-06-08": {
+      "wheels": [
+        13,
+        16,
+        7
+      ],
+      "positions": [
+        13,
+        25,
+        9
+      ],
+      "plugboard": "BN XF CJ UZ HT LS GA MI OK DV",
+      "prng_seed": 9124000026583545274
+    },
+    "2026-06-09": {
+      "wheels": [
+        7,
+        9,
+        4
+      ],
+      "positions": [
+        1,
+        16,
+        13
+      ],
+      "plugboard": "WS ZF ED MC IU BR NY TA KH XL",
+      "prng_seed": 12416496169119995109
+    },
+    "2026-06-10": {
+      "wheels": [
+        15,
+        4,
+        2
+      ],
+      "positions": [
+        16,
+        3,
+        11
+      ],
+      "plugboard": "CA DQ YX ZE KU FW NG JS RM PT",
+      "prng_seed": 14053609928474944140
+    },
+    "2026-06-11": {
+      "wheels": [
+        15,
+        11,
+        14
+      ],
+      "positions": [
+        21,
+        4,
+        1
+      ],
+      "plugboard": "YL PF AE SN WZ CJ RK VT XD UQ",
+      "prng_seed": 191030164130093613
+    },
+    "2026-06-12": {
+      "wheels": [
+        9,
+        10,
+        8
+      ],
+      "positions": [
+        2,
+        1,
+        15
+      ],
+      "plugboard": "MI QH FE LX DT OR VJ ZB GA UC",
+      "prng_seed": 8512669801045969987
+    },
+    "2026-06-13": {
+      "wheels": [
+        12,
+        7,
+        14
+      ],
+      "positions": [
+        3,
+        2,
+        19
+      ],
+      "plugboard": "NU LZ QS CP MI FY HR KJ WV TA",
+      "prng_seed": 7303684224341787107
+    },
+    "2026-06-14": {
+      "wheels": [
+        1,
+        2,
+        6
+      ],
+      "positions": [
+        5,
+        4,
+        13
+      ],
+      "plugboard": "QZ JT GO HA KY NP CL BU MI DW",
+      "prng_seed": 9542138150228420746
+    },
+    "2026-06-15": {
+      "wheels": [
+        10,
+        4,
+        8
+      ],
+      "positions": [
+        9,
+        1,
+        9
+      ],
+      "plugboard": "LI JS DZ HE UP MB OA GQ VY XW",
+      "prng_seed": 16411867812850851316
+    },
+    "2026-06-16": {
+      "wheels": [
+        1,
+        3,
+        7
+      ],
+      "positions": [
+        16,
+        15,
+        7
+      ],
+      "plugboard": "BL ZW RU QE GP SJ OH CM KF NT",
+      "prng_seed": 3333844201459131285
     },
     "2026-06-17": {
       "wheels": [
         10,
-        4,
-        16
+        8,
+        7
       ],
       "positions": [
-        18,
+        7,
         21,
-        0
+        19
       ],
-      "plugboard": "NP AU EW BL JS TZ MI VX RG KO"
+      "plugboard": "MN GO QD FC XV TP WU JS LE IB",
+      "prng_seed": 8108392185619501678
     },
     "2026-06-18": {
       "wheels": [
-        7,
+        10,
+        5,
+        12
+      ],
+      "positions": [
+        8,
+        22,
+        15
+      ],
+      "plugboard": "SB UI QO HE TA XD JL RF MC VG",
+      "prng_seed": 15736813346168034475
+    },
+    "2026-06-19": {
+      "wheels": [
+        9,
+        11,
+        1
+      ],
+      "positions": [
+        3,
+        20,
+        6
+      ],
+      "plugboard": "FB IL GN KR SW JT ZC AY XH VD",
+      "prng_seed": 16676428962893909895
+    },
+    "2026-06-20": {
+      "wheels": [
+        10,
+        5,
+        13
+      ],
+      "positions": [
+        14,
+        0,
+        20
+      ],
+      "plugboard": "MW PZ OC BE RU GQ TS VD YA JK",
+      "prng_seed": 2331469558614573788
+    },
+    "2026-06-21": {
+      "wheels": [
+        6,
+        12,
+        13
+      ],
+      "positions": [
+        9,
+        3,
+        17
+      ],
+      "plugboard": "ZT AD LI EQ FR NU GC JH MV WY",
+      "prng_seed": 1243597960142796571
+    },
+    "2026-06-22": {
+      "wheels": [
+        4,
+        12,
+        11
+      ],
+      "positions": [
         13,
+        0,
+        0
+      ],
+      "plugboard": "TM QP EY GD SR NI ZV HJ LA FU",
+      "prng_seed": 4605689118062540649
+    },
+    "2026-06-23": {
+      "wheels": [
+        10,
+        13,
+        5
+      ],
+      "positions": [
+        14,
+        24,
+        25
+      ],
+      "plugboard": "XN ZT FW BI JO RG LA EC VD MY",
+      "prng_seed": 15276050906784561725
+    },
+    "2026-06-24": {
+      "wheels": [
+        13,
+        7,
+        10
+      ],
+      "positions": [
+        0,
+        6,
+        17
+      ],
+      "plugboard": "JT AF CP EO GH KY MZ LX ND IQ",
+      "prng_seed": 8345737373944003075
+    },
+    "2026-06-25": {
+      "wheels": [
+        9,
+        14,
+        16
+      ],
+      "positions": [
+        2,
+        4,
+        14
+      ],
+      "plugboard": "KO SV CJ IW ER YP XA BZ LN FM",
+      "prng_seed": 10294299635998125724
+    },
+    "2026-06-26": {
+      "wheels": [
+        15,
+        7,
+        4
+      ],
+      "positions": [
+        5,
+        23,
+        9
+      ],
+      "plugboard": "HY UG TD WM RF LO QX KE VZ BN",
+      "prng_seed": 4959545356825748170
+    },
+    "2026-06-27": {
+      "wheels": [
+        9,
+        11,
+        12
+      ],
+      "positions": [
+        5,
+        11,
+        24
+      ],
+      "plugboard": "ZJ IO NB YT FC HW PK MX UV QE",
+      "prng_seed": 10618617202159753493
+    },
+    "2026-06-28": {
+      "wheels": [
+        7,
+        3,
+        12
+      ],
+      "positions": [
+        3,
+        8,
+        14
+      ],
+      "plugboard": "LP HC OU RJ ME AW IK XG YV TQ",
+      "prng_seed": 17276971417041643217
+    },
+    "2026-06-29": {
+      "wheels": [
+        10,
+        12,
+        11
+      ],
+      "positions": [
+        18,
+        23,
+        23
+      ],
+      "plugboard": "ZR VY FX LE MI WN BJ QD HU PT",
+      "prng_seed": 3284202595504989526
+    },
+    "2026-06-30": {
+      "wheels": [
+        1,
+        5,
+        14
+      ],
+      "positions": [
+        9,
+        2,
+        15
+      ],
+      "plugboard": "AV JW LZ PG QU EI OF MH NK XC",
+      "prng_seed": 9761174454886269432
+    },
+    "2026-07-01": {
+      "wheels": [
+        16,
+        7,
         1
       ],
       "positions": [
         23,
-        22,
-        20
-      ],
-      "plugboard": "QJ TL AW FU XY VO RH PN IB ED"
-    },
-    "2026-06-19": {
-      "wheels": [
-        11,
-        12,
-        16
-      ],
-      "positions": [
-        14,
-        11,
-        16
-      ],
-      "plugboard": "CA BY DI WV XK SL OM TZ RP GU"
-    },
-    "2026-06-20": {
-      "wheels": [
-        3,
-        2,
-        6
-      ],
-      "positions": [
-        8,
-        20,
-        2
-      ],
-      "plugboard": "XA RY ES BF LI OW JP DM UC KZ"
-    },
-    "2026-06-21": {
-      "wheels": [
-        3,
-        10,
-        7
-      ],
-      "positions": [
         24,
-        18,
         22
       ],
-      "plugboard": "RE XP MD VK TC NF ZS LI GA UO"
+      "plugboard": "GN DZ IW VY MQ JP KF XU LS EB",
+      "prng_seed": 6009567771314658983
     },
-    "2026-06-22": {
+    "2026-07-02": {
       "wheels": [
-        16,
-        6,
-        9
-      ],
-      "positions": [
-        18,
-        21,
-        20
-      ],
-      "plugboard": "WO PS RZ KA MB UX EL VG FC DY"
-    },
-    "2026-06-23": {
-      "wheels": [
-        11,
+        8,
         13,
-        4
-      ],
-      "positions": [
-        15,
-        20,
-        13
-      ],
-      "plugboard": "MZ WR HU GD OB QP KX NI AV YL"
-    },
-    "2026-06-24": {
-      "wheels": [
-        10,
-        16,
-        4
-      ],
-      "positions": [
-        9,
-        21,
         12
       ],
-      "plugboard": "MT BO DL WU GY CV JZ FE AH NS"
-    },
-    "2026-06-25": {
-      "wheels": [
-        6,
-        13,
-        2
-      ],
       "positions": [
-        20,
+        12,
+        9,
+        19
+      ],
+      "plugboard": "XZ HC VE GD PJ UB NS MO AK YL",
+      "prng_seed": 6711879016294383554
+    },
+    "2026-07-03": {
+      "wheels": [
         7,
-        6
-      ],
-      "plugboard": "US DK CI XP EG MQ NV LY RF JA"
-    },
-    "2026-06-26": {
-      "wheels": [
-        3,
-        10,
-        5
-      ],
-      "positions": [
-        0,
-        21,
-        9
-      ],
-      "plugboard": "VB NH FU RA JP LQ SC OG YE ZD"
-    },
-    "2026-06-27": {
-      "wheels": [
-        15,
-        4,
-        16
-      ],
-      "positions": [
         16,
-        17,
-        4
+        8
       ],
-      "plugboard": "HD CA UJ PM EQ XO RN TK VY SW"
-    },
-    "2026-06-28": {
-      "wheels": [
-        6,
-        2,
+      "positions": [
+        3,
+        23,
         14
       ],
-      "positions": [
-        25,
-        8,
-        10
-      ],
-      "plugboard": "DG QR EP ZI FS JK LB UC XW TH"
+      "plugboard": "WA SN CR IP JF GY DE MK OQ VU",
+      "prng_seed": 442357779256047192
     },
-    "2026-06-29": {
+    "2026-07-04": {
       "wheels": [
-        4,
-        15,
+        5,
+        11,
         16
       ],
       "positions": [
-        19,
         14,
-        6
-      ],
-      "plugboard": "JC EI UT HM LV FD KQ PY AB RS"
-    },
-    "2026-06-30": {
-      "wheels": [
-        10,
         4,
+        24
+      ],
+      "plugboard": "ZI TK UP SB NF YE AH CX RG QL",
+      "prng_seed": 12497978652132523156
+    },
+    "2026-07-05": {
+      "wheels": [
+        6,
+        10,
+        8
+      ],
+      "positions": [
+        12,
+        17,
+        21
+      ],
+      "plugboard": "PW VJ DM GK LQ AU CO TZ XR IY",
+      "prng_seed": 15531326813623108727
+    },
+    "2026-07-06": {
+      "wheels": [
+        7,
+        6,
         8
       ],
       "positions": [
         9,
-        17,
-        14
-      ],
-      "plugboard": "FS VJ WA TC HY MO PK GQ RX ZB"
-    },
-    "2026-07-01": {
-      "wheels": [
-        6,
-        2,
-        9
-      ],
-      "positions": [
-        18,
-        6,
-        3
-      ],
-      "plugboard": "HY OG AX JI UP NR MB VK SL QW"
-    },
-    "2026-07-02": {
-      "wheels": [
-        3,
-        12,
-        6
-      ],
-      "positions": [
-        22,
-        12,
-        24
-      ],
-      "plugboard": "SO GU FL YH CV XQ ER TK IN PD"
-    },
-    "2026-07-03": {
-      "wheels": [
-        12,
-        4,
-        15
-      ],
-      "positions": [
-        1,
-        8,
-        12
-      ],
-      "plugboard": "TS HA EF OY JW VM CK GQ UN XB"
-    },
-    "2026-07-04": {
-      "wheels": [
-        6,
-        5,
-        7
-      ],
-      "positions": [
-        3,
-        11,
-        6
-      ],
-      "plugboard": "QR MZ TU OG DL YI VW BC XE FN"
-    },
-    "2026-07-05": {
-      "wheels": [
-        2,
-        1,
-        5
-      ],
-      "positions": [
-        15,
-        21,
-        20
-      ],
-      "plugboard": "KV UX BN SY PE LA TZ FI DQ MH"
-    },
-    "2026-07-06": {
-      "wheels": [
         9,
-        14,
-        2
+        21
       ],
-      "positions": [
-        1,
-        25,
-        14
-      ],
-      "plugboard": "GX ZF NL BM PC WU HR KS AI OY"
+      "plugboard": "UM QL ZC TA PJ DX FH GE KV WO",
+      "prng_seed": 16063012251421377843
     },
     "2026-07-07": {
       "wheels": [
-        2,
-        1,
-        10
+        10,
+        12,
+        6
       ],
       "positions": [
-        5,
-        11,
-        18
+        14,
+        17,
+        6
       ],
-      "plugboard": "JM GZ XE IF ND KP VS YQ BT HW"
+      "plugboard": "OF DG YC XV MK JS BP QZ TN EL",
+      "prng_seed": 3918976993283139640
     },
     "2026-07-08": {
       "wheels": [
-        2,
-        15,
-        11
+        1,
+        16,
+        14
       ],
       "positions": [
-        5,
-        6,
-        10
+        22,
+        1,
+        21
       ],
-      "plugboard": "JT AI MK LZ DR GX WE BH SF VO"
+      "plugboard": "NC KM TS HZ DW OX YR JG VP IF",
+      "prng_seed": 8751825092268164550
     },
     "2026-07-09": {
       "wheels": [
-        2,
-        5,
-        4
+        12,
+        10,
+        13
       ],
       "positions": [
-        20,
-        7,
-        24
+        14,
+        21,
+        19
       ],
-      "plugboard": "UB EV TO CJ KX WL AF NQ ZP DI"
+      "plugboard": "VG UW EM QJ OP XS HN ZR YI TK",
+      "prng_seed": 11819655301939545225
     },
     "2026-07-10": {
       "wheels": [
         2,
         9,
-        16
-      ],
-      "positions": [
-        0,
-        8,
-        17
-      ],
-      "plugboard": "MN HG IO AJ VQ SE BK FX PZ YR"
-    },
-    "2026-07-11": {
-      "wheels": [
-        9,
-        13,
-        7
-      ],
-      "positions": [
-        11,
-        15,
-        17
-      ],
-      "plugboard": "ZB SE OK HD JM RA LV IU FG QN"
-    },
-    "2026-07-12": {
-      "wheels": [
-        6,
-        16,
-        9
-      ],
-      "positions": [
-        6,
-        2,
-        20
-      ],
-      "plugboard": "MV RW QO SF DP LH GU IZ CJ EY"
-    },
-    "2026-07-13": {
-      "wheels": [
-        8,
-        12,
-        11
-      ],
-      "positions": [
-        3,
-        21,
-        7
-      ],
-      "plugboard": "NV QS CF BA PG XD OM LI UZ KJ"
-    },
-    "2026-07-14": {
-      "wheels": [
-        11,
-        6,
-        13
-      ],
-      "positions": [
-        25,
-        13,
-        23
-      ],
-      "plugboard": "IB ET AL QN PG MY UO XZ FS HW"
-    },
-    "2026-07-15": {
-      "wheels": [
-        14,
-        3,
-        16
-      ],
-      "positions": [
-        12,
-        11,
-        22
-      ],
-      "plugboard": "ZA IL TD XE NO SG KR VY FQ JP"
-    },
-    "2026-07-16": {
-      "wheels": [
-        12,
-        16,
-        8
-      ],
-      "positions": [
-        23,
-        22,
-        18
-      ],
-      "plugboard": "MV BO WK YL NT FS JA GQ DE PU"
-    },
-    "2026-07-17": {
-      "wheels": [
-        8,
-        2,
-        14
-      ],
-      "positions": [
-        13,
-        0,
-        22
-      ],
-      "plugboard": "KA BZ EN JI HQ UD GO FV YM PT"
-    },
-    "2026-07-18": {
-      "wheels": [
-        7,
-        10,
-        8
-      ],
-      "positions": [
-        11,
-        10,
-        7
-      ],
-      "plugboard": "EZ LN VF OY GR TX CM KS QP IA"
-    },
-    "2026-07-19": {
-      "wheels": [
-        4,
-        14,
-        9
-      ],
-      "positions": [
-        24,
-        25,
-        5
-      ],
-      "plugboard": "KV GZ TE BF RA IW DJ CP YX MH"
-    },
-    "2026-07-20": {
-      "wheels": [
-        1,
-        10,
-        14
-      ],
-      "positions": [
-        14,
-        5,
-        11
-      ],
-      "plugboard": "AG UL QD ES XP BK WC HJ NT VI"
-    },
-    "2026-07-21": {
-      "wheels": [
-        7,
-        6,
-        1
-      ],
-      "positions": [
-        13,
-        24,
-        10
-      ],
-      "plugboard": "AV CO BN LR GS XU DJ WY HI EP"
-    },
-    "2026-07-22": {
-      "wheels": [
-        5,
-        2,
-        11
-      ],
-      "positions": [
-        20,
-        20,
-        23
-      ],
-      "plugboard": "JA BM CQ YR FX SZ OP KG EH IW"
-    },
-    "2026-07-23": {
-      "wheels": [
-        16,
-        1,
-        10
-      ],
-      "positions": [
-        9,
-        17,
-        24
-      ],
-      "plugboard": "SN IQ VK OR HP ET BW LU FA YD"
-    },
-    "2026-07-24": {
-      "wheels": [
-        6,
-        13,
-        15
-      ],
-      "positions": [
-        13,
-        6,
-        24
-      ],
-      "plugboard": "OG AU XT FP HS RM KY VE LW DJ"
-    },
-    "2026-07-25": {
-      "wheels": [
-        2,
-        6,
-        1
-      ],
-      "positions": [
-        21,
-        20,
-        16
-      ],
-      "plugboard": "UR YX IO GJ TL FQ PS VW CE ZM"
-    },
-    "2026-07-26": {
-      "wheels": [
-        6,
-        7,
-        5
-      ],
-      "positions": [
-        20,
-        4,
-        4
-      ],
-      "plugboard": "XI VW OZ MH CD SG QR YK PJ LE"
-    },
-    "2026-07-27": {
-      "wheels": [
-        8,
-        10,
-        16
-      ],
-      "positions": [
-        13,
-        0,
-        25
-      ],
-      "plugboard": "XT MV CP AJ RW KL HI FQ NB DO"
-    },
-    "2026-07-28": {
-      "wheels": [
-        10,
-        8,
-        14
-      ],
-      "positions": [
-        7,
-        1,
-        25
-      ],
-      "plugboard": "QC DX RP GO IS MW ZF LT YV HU"
-    },
-    "2026-07-29": {
-      "wheels": [
-        9,
-        13,
-        1
-      ],
-      "positions": [
-        0,
-        25,
-        5
-      ],
-      "plugboard": "VL JK MI SW YC ZO XP AQ HB NT"
-    },
-    "2026-07-30": {
-      "wheels": [
-        16,
-        5,
-        13
-      ],
-      "positions": [
-        17,
-        4,
-        2
-      ],
-      "plugboard": "US BN AT PL IR YZ WQ CJ DV KO"
-    },
-    "2026-07-31": {
-      "wheels": [
-        5,
-        12,
-        6
-      ],
-      "positions": [
-        10,
-        9,
-        17
-      ],
-      "plugboard": "BG TX RV NP SJ FW DK QY OZ CI"
-    },
-    "2026-08-01": {
-      "wheels": [
-        8,
-        2,
-        7
-      ],
-      "positions": [
-        16,
-        18,
-        7
-      ],
-      "plugboard": "GW ZA HX UY TD NE KF IS RM JL"
-    },
-    "2026-08-02": {
-      "wheels": [
-        12,
-        9,
-        13
-      ],
-      "positions": [
-        4,
-        2,
-        12
-      ],
-      "plugboard": "ZG JL TE BM VI KX NY HW CR DU"
-    },
-    "2026-08-03": {
-      "wheels": [
-        2,
-        14,
-        1
-      ],
-      "positions": [
-        18,
-        12,
-        13
-      ],
-      "plugboard": "CG KF AH OW XR BP YZ SI EN UL"
-    },
-    "2026-08-04": {
-      "wheels": [
-        3,
-        6,
-        7
-      ],
-      "positions": [
-        21,
-        9,
-        4
-      ],
-      "plugboard": "JZ KF PD SW LV AI EQ GT HY MB"
-    },
-    "2026-08-05": {
-      "wheels": [
-        11,
-        4,
-        10
-      ],
-      "positions": [
-        6,
-        13,
-        11
-      ],
-      "plugboard": "EW BF NJ QA VK ZD ST CY OH MI"
-    },
-    "2026-08-06": {
-      "wheels": [
-        12,
-        9,
         3
       ],
       "positions": [
-        17,
-        17,
+        22,
+        4,
         1
       ],
-      "plugboard": "PK DH BL QS IF OR WJ TN MU EX"
+      "plugboard": "WC AF VQ BG UI RT YD KS LO JM",
+      "prng_seed": 5826813336981656871
     },
-    "2026-08-07": {
+    "2026-07-11": {
       "wheels": [
-        1,
-        10,
-        5
-      ],
-      "positions": [
+        8,
         7,
-        11,
-        21
-      ],
-      "plugboard": "YA CN XD ZB VP FU OR EK MW IS"
-    },
-    "2026-08-08": {
-      "wheels": [
-        14,
-        3,
-        2
-      ],
-      "positions": [
-        13,
-        23,
-        1
-      ],
-      "plugboard": "YS LQ ZC WP GO MT XU JF RN HK"
-    },
-    "2026-08-09": {
-      "wheels": [
-        6,
-        3,
-        14
-      ],
-      "positions": [
-        11,
-        18,
-        20
-      ],
-      "plugboard": "IS PO HU XG NV ZA QR BK CY FT"
-    },
-    "2026-08-10": {
-      "wheels": [
-        7,
-        14,
-        2
-      ],
-      "positions": [
-        6,
-        15,
-        11
-      ],
-      "plugboard": "XR ZC BA GJ HS EF UV NI QD WM"
-    },
-    "2026-08-11": {
-      "wheels": [
-        13,
-        2,
-        11
-      ],
-      "positions": [
-        3,
-        7,
-        22
-      ],
-      "plugboard": "XT KW BL CN ER PV OQ UI YD MG"
-    },
-    "2026-08-12": {
-      "wheels": [
-        3,
-        2,
-        6
+        13
       ],
       "positions": [
         0,
-        14,
-        21
+        9,
+        20
       ],
-      "plugboard": "VB CJ WE ZK DQ GX HN ML OT UP"
+      "plugboard": "DE YX QS VM IC BA UK JN FP WO",
+      "prng_seed": 3088585352251066185
     },
-    "2026-08-13": {
+    "2026-07-12": {
       "wheels": [
-        14,
-        11,
-        15
+        12,
+        2,
+        1
       ],
       "positions": [
-        5,
-        3,
-        16
+        21,
+        22,
+        1
       ],
-      "plugboard": "VJ IG ED KX WN TA BF HO SP RC"
+      "plugboard": "LO CV HJ ZD YS PK UW NT MR IQ",
+      "prng_seed": 5216415752560924747
     },
-    "2026-08-14": {
+    "2026-07-13": {
       "wheels": [
-        3,
-        1,
-        9
+        11,
+        8,
+        7
       ],
       "positions": [
         10,
-        3,
+        10,
         2
       ],
-      "plugboard": "AX OE HM PB UD YN IR LQ CV WT"
+      "plugboard": "RT BQ CS PI DW GF ZE AK LH UY",
+      "prng_seed": 5818583126801793927
     },
-    "2026-08-15": {
+    "2026-07-14": {
       "wheels": [
-        5,
-        9,
-        8
+        12,
+        16,
+        14
       ],
       "positions": [
-        17,
-        4,
-        0
-      ],
-      "plugboard": "TI YF XV ZL KH OJ WS CU AP NE"
-    },
-    "2026-08-16": {
-      "wheels": [
-        7,
         15,
+        23,
+        22
+      ],
+      "plugboard": "GA MH LB XZ VT PO YC SN IW EU",
+      "prng_seed": 15909712471012950420
+    },
+    "2026-07-15": {
+      "wheels": [
+        10,
+        14,
+        13
+      ],
+      "positions": [
+        2,
+        25,
+        6
+      ],
+      "plugboard": "WU NR DG YQ ZP KS VA TO LM BC",
+      "prng_seed": 17865410361626217007
+    },
+    "2026-07-16": {
+      "wheels": [
+        4,
+        10,
+        2
+      ],
+      "positions": [
+        21,
+        20,
+        14
+      ],
+      "plugboard": "FH AJ EY DC QO GI BK PL TW XZ",
+      "prng_seed": 14141742450944570320
+    },
+    "2026-07-17": {
+      "wheels": [
+        1,
+        3,
+        11
+      ],
+      "positions": [
+        19,
+        9,
+        16
+      ],
+      "plugboard": "DW AQ FI RL BZ KT MP GX JU VE",
+      "prng_seed": 7400128058933031890
+    },
+    "2026-07-18": {
+      "wheels": [
+        14,
+        6,
+        5
+      ],
+      "positions": [
+        23,
+        5,
+        8
+      ],
+      "plugboard": "PO DA XY IV SG CB RQ NK ZU FT",
+      "prng_seed": 13735732224725176825
+    },
+    "2026-07-19": {
+      "wheels": [
+        3,
+        10,
+        2
+      ],
+      "positions": [
+        19,
+        18,
+        13
+      ],
+      "plugboard": "SN WY QP MI FB ER VG HU JX KD",
+      "prng_seed": 8245622227508536266
+    },
+    "2026-07-20": {
+      "wheels": [
+        6,
+        10,
+        3
+      ],
+      "positions": [
+        24,
+        24,
+        2
+      ],
+      "plugboard": "XM HK SZ LO PA TV GD UE YW BJ",
+      "prng_seed": 10915400307522116970
+    },
+    "2026-07-21": {
+      "wheels": [
+        8,
+        6,
+        5
+      ],
+      "positions": [
+        9,
+        21,
+        9
+      ],
+      "plugboard": "OJ HT IP UX WK EY BV MD AQ RL",
+      "prng_seed": 13632952344898815678
+    },
+    "2026-07-22": {
+      "wheels": [
+        1,
+        16,
         10
       ],
       "positions": [
-        20,
+        4,
         6,
+        7
+      ],
+      "plugboard": "GT BV RD MH OA UE QY WJ XS KF",
+      "prng_seed": 4976325682378640736
+    },
+    "2026-07-23": {
+      "wheels": [
+        13,
+        12,
+        10
+      ],
+      "positions": [
+        25,
+        14,
+        4
+      ],
+      "plugboard": "IU TK YX ZH GV NE FB AJ CQ OS",
+      "prng_seed": 7465955907362559016
+    },
+    "2026-07-24": {
+      "wheels": [
+        2,
+        4,
+        16
+      ],
+      "positions": [
+        12,
+        15,
+        20
+      ],
+      "plugboard": "FT PI XQ GV KM UE LN ZJ AR DC",
+      "prng_seed": 1922004700986201489
+    },
+    "2026-07-25": {
+      "wheels": [
+        6,
+        2,
+        12
+      ],
+      "positions": [
+        21,
+        4,
         18
       ],
-      "plugboard": "NX QB SK OP RZ VD UF MA LE CH"
+      "plugboard": "FC WO QL EP NG HA JI MB YX KT",
+      "prng_seed": 15367470589586395193
+    },
+    "2026-07-26": {
+      "wheels": [
+        3,
+        4,
+        7
+      ],
+      "positions": [
+        0,
+        24,
+        23
+      ],
+      "plugboard": "HQ MF WC JV IX DT OS PZ YA BU",
+      "prng_seed": 17445974321734597680
+    },
+    "2026-07-27": {
+      "wheels": [
+        3,
+        7,
+        15
+      ],
+      "positions": [
+        20,
+        9,
+        2
+      ],
+      "plugboard": "BN VJ HT FE LA ZQ KR UM SW IG",
+      "prng_seed": 6808924917988423340
+    },
+    "2026-07-28": {
+      "wheels": [
+        7,
+        2,
+        13
+      ],
+      "positions": [
+        6,
+        4,
+        7
+      ],
+      "plugboard": "IR BZ GL QH VX FN CW SD KY AM",
+      "prng_seed": 942904992291078708
+    },
+    "2026-07-29": {
+      "wheels": [
+        7,
+        6,
+        14
+      ],
+      "positions": [
+        13,
+        13,
+        19
+      ],
+      "plugboard": "ZU QV EI XJ DF GT AS NR YL WO",
+      "prng_seed": 11298512836721068949
+    },
+    "2026-07-30": {
+      "wheels": [
+        3,
+        8,
+        7
+      ],
+      "positions": [
+        7,
+        23,
+        3
+      ],
+      "plugboard": "XB NK VU YS PD GA FZ WM CL OH",
+      "prng_seed": 13642833585915910282
+    },
+    "2026-07-31": {
+      "wheels": [
+        1,
+        14,
+        8
+      ],
+      "positions": [
+        24,
+        17,
+        14
+      ],
+      "plugboard": "CW RZ NJ BE FL AG DP TQ UK HX",
+      "prng_seed": 17290531833288206629
+    },
+    "2026-08-01": {
+      "wheels": [
+        13,
+        1,
+        7
+      ],
+      "positions": [
+        24,
+        0,
+        18
+      ],
+      "plugboard": "CB JW VZ LE IQ ST PF MU GO DA",
+      "prng_seed": 15913756413532782711
+    },
+    "2026-08-02": {
+      "wheels": [
+        8,
+        4,
+        10
+      ],
+      "positions": [
+        1,
+        16,
+        0
+      ],
+      "plugboard": "ZF XS IL QE RW PY HM JB VD UC",
+      "prng_seed": 3048025709349121965
+    },
+    "2026-08-03": {
+      "wheels": [
+        14,
+        16,
+        12
+      ],
+      "positions": [
+        7,
+        6,
+        24
+      ],
+      "plugboard": "YU KO CM WS TZ JE NA RI XL VB",
+      "prng_seed": 6746977194091713849
+    },
+    "2026-08-04": {
+      "wheels": [
+        6,
+        12,
+        8
+      ],
+      "positions": [
+        20,
+        24,
+        1
+      ],
+      "plugboard": "DI HG NK ZU ES PF VA TX RO CQ",
+      "prng_seed": 10467707218294973665
+    },
+    "2026-08-05": {
+      "wheels": [
+        7,
+        11,
+        14
+      ],
+      "positions": [
+        1,
+        4,
+        19
+      ],
+      "plugboard": "IP ZX HJ EK YW TF OU AB QG NS",
+      "prng_seed": 8392414896784403814
+    },
+    "2026-08-06": {
+      "wheels": [
+        8,
+        13,
+        2
+      ],
+      "positions": [
+        0,
+        8,
+        13
+      ],
+      "plugboard": "LJ SW OR IK UC PV YA TZ GH MN",
+      "prng_seed": 17033580867322975057
+    },
+    "2026-08-07": {
+      "wheels": [
+        3,
+        9,
+        7
+      ],
+      "positions": [
+        15,
+        0,
+        5
+      ],
+      "plugboard": "YJ UP ZQ MH NF XA DC KW SO RB",
+      "prng_seed": 11721451651001234273
+    },
+    "2026-08-08": {
+      "wheels": [
+        4,
+        11,
+        7
+      ],
+      "positions": [
+        15,
+        18,
+        3
+      ],
+      "plugboard": "VA SG IK NT FJ LW HE MD CZ UQ",
+      "prng_seed": 6015190418732093547
+    },
+    "2026-08-09": {
+      "wheels": [
+        7,
+        6,
+        14
+      ],
+      "positions": [
+        12,
+        5,
+        15
+      ],
+      "plugboard": "HD WA KQ TP ME BO UR IF GX ZN",
+      "prng_seed": 7162668754597870817
+    },
+    "2026-08-10": {
+      "wheels": [
+        13,
+        9,
+        6
+      ],
+      "positions": [
+        25,
+        13,
+        6
+      ],
+      "plugboard": "HY IC AL GT KD JN QE VS UR ZF",
+      "prng_seed": 1862150242714017104
+    },
+    "2026-08-11": {
+      "wheels": [
+        7,
+        16,
+        11
+      ],
+      "positions": [
+        6,
+        4,
+        3
+      ],
+      "plugboard": "DX KH VI YS RP JM QZ GF NU WT",
+      "prng_seed": 9003886581971666760
+    },
+    "2026-08-12": {
+      "wheels": [
+        6,
+        10,
+        2
+      ],
+      "positions": [
+        8,
+        18,
+        25
+      ],
+      "plugboard": "XJ CE YK AD SW RU GB NF VH TQ",
+      "prng_seed": 4732182418505237661
+    },
+    "2026-08-13": {
+      "wheels": [
+        4,
+        5,
+        2
+      ],
+      "positions": [
+        4,
+        14,
+        10
+      ],
+      "plugboard": "JD HV YQ BX SG NZ ET OU PW KR",
+      "prng_seed": 7124250970860713139
+    },
+    "2026-08-14": {
+      "wheels": [
+        6,
+        5,
+        11
+      ],
+      "positions": [
+        22,
+        2,
+        7
+      ],
+      "plugboard": "IF BJ HO YW PE XV UN KM QC TA",
+      "prng_seed": 3246152353857965299
+    },
+    "2026-08-15": {
+      "wheels": [
+        7,
+        11,
+        9
+      ],
+      "positions": [
+        6,
+        10,
+        16
+      ],
+      "plugboard": "LB RG UA OX TY QI SV KH MF WC",
+      "prng_seed": 14832568261047620866
+    },
+    "2026-08-16": {
+      "wheels": [
+        4,
+        2,
+        13
+      ],
+      "positions": [
+        21,
+        19,
+        14
+      ],
+      "plugboard": "XE CG TV MP IK RY NZ FL DO JA",
+      "prng_seed": 1508460321666580066
     },
     "2026-08-17": {
       "wheels": [
         4,
-        8,
-        16
+        2,
+        3
       ],
       "positions": [
-        6,
-        2,
-        22
+        1,
+        4,
+        16
       ],
-      "plugboard": "TB CJ RS AM PD GI UZ WF EV ON"
+      "plugboard": "MS KC GP XB AO YH JZ FT NV LE",
+      "prng_seed": 8956538798472220144
     },
     "2026-08-18": {
       "wheels": [
-        1,
-        7,
-        12
+        6,
+        16,
+        10
       ],
       "positions": [
-        22,
-        10,
-        6
+        21,
+        6,
+        14
       ],
-      "plugboard": "XS GT DQ NV BZ YC IM UA HE WK"
+      "plugboard": "LN IR XW KC FJ DV MA YU BP TZ",
+      "prng_seed": 6426058852315099367
     },
     "2026-08-19": {
       "wheels": [
-        12,
-        4,
-        15
-      ],
-      "positions": [
-        15,
+        16,
         2,
-        11
-      ],
-      "plugboard": "KV JL ED QP RF WO ZB TA NU IH"
-    },
-    "2026-08-20": {
-      "wheels": [
-        13,
-        7,
-        5
-      ],
-      "positions": [
-        1,
-        22,
-        21
-      ],
-      "plugboard": "HT WZ YF SP EB LX GO CD NK AR"
-    },
-    "2026-08-21": {
-      "wheels": [
-        5,
-        7,
-        4
-      ],
-      "positions": [
-        9,
-        8,
-        19
-      ],
-      "plugboard": "GK VI AS LW ZH PB FM QN EJ UT"
-    },
-    "2026-08-22": {
-      "wheels": [
-        14,
-        15,
         8
       ],
       "positions": [
-        25,
-        3,
-        5
+        12,
+        17,
+        18
       ],
-      "plugboard": "KC BF UP XR WI NG VD HJ ZS AY"
+      "plugboard": "CD GL RO VW BT YX AU JE NM HZ",
+      "prng_seed": 1065533534785358068
+    },
+    "2026-08-20": {
+      "wheels": [
+        3,
+        9,
+        7
+      ],
+      "positions": [
+        16,
+        6,
+        14
+      ],
+      "plugboard": "ZG PE SQ JD OF ML IB TR AC KU",
+      "prng_seed": 6211229443200362505
+    },
+    "2026-08-21": {
+      "wheels": [
+        3,
+        15,
+        7
+      ],
+      "positions": [
+        5,
+        13,
+        6
+      ],
+      "plugboard": "VQ WM AT LE GO IF YR SP KJ UC",
+      "prng_seed": 8699609514596375441
+    },
+    "2026-08-22": {
+      "wheels": [
+        10,
+        7,
+        11
+      ],
+      "positions": [
+        11,
+        6,
+        12
+      ],
+      "plugboard": "BI AZ PF JQ UX NO ML GT RD SY",
+      "prng_seed": 17265628174894793830
     },
     "2026-08-23": {
       "wheels": [
         7,
-        13,
-        6
-      ],
-      "positions": [
-        6,
-        7,
-        10
-      ],
-      "plugboard": "ZX GR SE TB DC AJ HM OF LY VN"
-    },
-    "2026-08-24": {
-      "wheels": [
-        6,
-        1,
+        10,
         8
       ],
       "positions": [
-        9,
-        11,
-        12
-      ],
-      "plugboard": "FZ WA JI MX LE VY CB KN OD TR"
-    },
-    "2026-08-25": {
-      "wheels": [
-        1,
-        10,
-        11
-      ],
-      "positions": [
-        1,
-        9,
-        24
-      ],
-      "plugboard": "ET DB QW SJ YO HI CU ZK XR FN"
-    },
-    "2026-08-26": {
-      "wheels": [
-        11,
-        1,
-        14
-      ],
-      "positions": [
-        20,
-        19,
-        19
-      ],
-      "plugboard": "WD JI FU NA OQ LP VH YB MX KT"
-    },
-    "2026-08-27": {
-      "wheels": [
-        7,
-        3,
-        9
-      ],
-      "positions": [
         5,
-        14,
-        7
+        10,
+        23
       ],
-      "plugboard": "RL CV ZO AB DS PI XW GY NU TK"
+      "plugboard": "SX GT BI WJ QU VZ YH DF AM PE",
+      "prng_seed": 1032703804114209623
     },
-    "2026-08-28": {
+    "2026-08-24": {
       "wheels": [
-        14,
-        1,
-        2
-      ],
-      "positions": [
-        21,
-        8,
-        3
-      ],
-      "plugboard": "KF MG RW VI ZJ UA BO XT QN HD"
-    },
-    "2026-08-29": {
-      "wheels": [
-        14,
-        12,
-        11
+        15,
+        11,
+        4
       ],
       "positions": [
         23,
         19,
-        6
+        0
       ],
-      "plugboard": "WY CH SG UM RX OA IN TB FK JP"
+      "plugboard": "LI HC YE DB GT ZQ WK XF VR MS",
+      "prng_seed": 4629638094137831033
     },
-    "2026-08-30": {
+    "2026-08-25": {
       "wheels": [
-        7,
-        12,
-        13
-      ],
-      "positions": [
-        22,
-        3,
-        14
-      ],
-      "plugboard": "BZ SF EG LI XK UQ HT OY VJ WA"
-    },
-    "2026-08-31": {
-      "wheels": [
-        7,
-        5,
-        4
-      ],
-      "positions": [
-        0,
-        17,
-        22
-      ],
-      "plugboard": "PZ KJ OE ST VQ FH YD UG XM CB"
-    },
-    "2026-09-01": {
-      "wheels": [
-        5,
+        6,
         9,
-        11
-      ],
-      "positions": [
-        4,
-        18,
-        4
-      ],
-      "plugboard": "BU JY TW OV XG AS QM RP NL ZE"
-    },
-    "2026-09-02": {
-      "wheels": [
-        4,
-        8,
         15
       ],
       "positions": [
-        7,
-        11,
-        6
+        24,
+        9,
+        8
       ],
-      "plugboard": "WO XH IZ PC QS NG LR VE BK DM"
+      "plugboard": "GP QU NI KB TD ME ZY LS JA RO",
+      "prng_seed": 4986485098870138700
+    },
+    "2026-08-26": {
+      "wheels": [
+        4,
+        11,
+        12
+      ],
+      "positions": [
+        20,
+        3,
+        18
+      ],
+      "plugboard": "YT RH PS IM JW VO GE XL ND AF",
+      "prng_seed": 1595313736218423402
+    },
+    "2026-08-27": {
+      "wheels": [
+        13,
+        15,
+        10
+      ],
+      "positions": [
+        21,
+        12,
+        4
+      ],
+      "plugboard": "RY SN LI FW XB DK GE CT AZ JO",
+      "prng_seed": 15241839938117431205
+    },
+    "2026-08-28": {
+      "wheels": [
+        16,
+        10,
+        3
+      ],
+      "positions": [
+        1,
+        25,
+        3
+      ],
+      "plugboard": "YM PN EZ SQ KB UT JD FG OV WC",
+      "prng_seed": 7380835649982619343
+    },
+    "2026-08-29": {
+      "wheels": [
+        1,
+        3,
+        12
+      ],
+      "positions": [
+        18,
+        11,
+        3
+      ],
+      "plugboard": "IJ EL SH XW UP FC RD OA YT GV",
+      "prng_seed": 7982465114020685485
+    },
+    "2026-08-30": {
+      "wheels": [
+        5,
+        2,
+        10
+      ],
+      "positions": [
+        23,
+        7,
+        9
+      ],
+      "plugboard": "UW VX BY RZ FL OJ MI QP AT HS",
+      "prng_seed": 16407008450789342241
+    },
+    "2026-08-31": {
+      "wheels": [
+        11,
+        14,
+        13
+      ],
+      "positions": [
+        8,
+        3,
+        1
+      ],
+      "plugboard": "TO BL MG AI PJ RC DV UZ NY HQ",
+      "prng_seed": 11000671648375019061
+    },
+    "2026-09-01": {
+      "wheels": [
+        8,
+        9,
+        12
+      ],
+      "positions": [
+        13,
+        16,
+        2
+      ],
+      "plugboard": "XZ DA WN QT RL GK SP OB VC YF",
+      "prng_seed": 7830875967770510627
+    },
+    "2026-09-02": {
+      "wheels": [
+        12,
+        1,
+        14
+      ],
+      "positions": [
+        17,
+        15,
+        18
+      ],
+      "plugboard": "LA EF CQ WN PR ZI GJ MS KV BU",
+      "prng_seed": 6018661263264777586
     },
     "2026-09-03": {
       "wheels": [
         8,
-        4,
-        11
+        12,
+        3
       ],
       "positions": [
-        8,
-        8,
-        25
+        25,
+        10,
+        3
       ],
-      "plugboard": "XG FY DQ ZP MK WO RL IU NJ HA"
+      "plugboard": "VT JB GQ SR LU KA ID HZ CN ME",
+      "prng_seed": 14680248564228923469
     },
     "2026-09-04": {
       "wheels": [
-        15,
-        16,
-        13
+        11,
+        5,
+        9
       ],
       "positions": [
-        6,
-        23,
-        10
+        4,
+        16,
+        18
       ],
-      "plugboard": "MO SZ QG UL TB AI HF PC EJ XY"
+      "plugboard": "DK BO AI LZ FE RU CX QM NT PJ",
+      "prng_seed": 7116616487166967771
     },
     "2026-09-05": {
       "wheels": [
-        8,
-        5,
-        4
-      ],
-      "positions": [
+        3,
         6,
-        20,
-        15
-      ],
-      "plugboard": "IQ RK NP VH SM FG UT WC OJ AB"
-    },
-    "2026-09-06": {
-      "wheels": [
-        15,
-        12,
-        1
-      ],
-      "positions": [
-        11,
-        19,
-        10
-      ],
-      "plugboard": "EM YH KZ JP FT SQ DB CA GV UO"
-    },
-    "2026-09-07": {
-      "wheels": [
-        4,
-        11,
-        1
-      ],
-      "positions": [
-        12,
-        7,
-        25
-      ],
-      "plugboard": "UA BT RM IN QY DJ CK HX PW GZ"
-    },
-    "2026-09-08": {
-      "wheels": [
-        5,
-        10,
-        15
-      ],
-      "positions": [
-        9,
-        9,
-        3
-      ],
-      "plugboard": "VJ SH UA YI PB XF CO DG WR KT"
-    },
-    "2026-09-09": {
-      "wheels": [
-        16,
-        15,
-        4
-      ],
-      "positions": [
-        15,
-        14,
-        8
-      ],
-      "plugboard": "PZ TG DL OS IW QN BF RM JC EV"
-    },
-    "2026-09-10": {
-      "wheels": [
-        9,
-        7,
-        2
-      ],
-      "positions": [
-        22,
-        23,
-        5
-      ],
-      "plugboard": "TB RS JU GF AM WX IH DZ KP YN"
-    },
-    "2026-09-11": {
-      "wheels": [
-        2,
-        4,
-        12
-      ],
-      "positions": [
-        13,
-        17,
-        17
-      ],
-      "plugboard": "FZ DL TV HA CW OR PS QG NJ MB"
-    },
-    "2026-09-12": {
-      "wheels": [
-        13,
-        4,
-        8
-      ],
-      "positions": [
-        20,
-        10,
-        9
-      ],
-      "plugboard": "JS YF UI GL WK CP RQ AN DH EO"
-    },
-    "2026-09-13": {
-      "wheels": [
-        12,
-        15,
         16
       ],
       "positions": [
-        10,
-        21,
-        22
+        17,
+        17,
+        18
       ],
-      "plugboard": "JM KE TQ IX FH SU DL PN WV AB"
+      "plugboard": "HB EC SQ FI LA NO UM VX WJ RD",
+      "prng_seed": 10017516137264507139
     },
-    "2026-09-14": {
+    "2026-09-06": {
       "wheels": [
+        9,
+        3,
+        4
+      ],
+      "positions": [
+        8,
+        16,
+        20
+      ],
+      "plugboard": "NZ XK TD PF RH YV MS GB OQ AL",
+      "prng_seed": 5491954151217196662
+    },
+    "2026-09-07": {
+      "wheels": [
+        14,
         5,
-        6,
+        16
+      ],
+      "positions": [
+        23,
+        15,
+        25
+      ],
+      "plugboard": "ZX CJ AT FL BY MS RI NH VK WD",
+      "prng_seed": 10294623054797811919
+    },
+    "2026-09-08": {
+      "wheels": [
+        2,
+        16,
         1
       ],
       "positions": [
-        11,
-        10,
-        21
+        5,
+        7,
+        18
       ],
-      "plugboard": "RN YQ ET GB IA SF DZ HO PJ CL"
+      "plugboard": "QS EM NR ZX BD YK LJ AO CF TI",
+      "prng_seed": 15395837526951465701
+    },
+    "2026-09-09": {
+      "wheels": [
+        8,
+        4,
+        16
+      ],
+      "positions": [
+        1,
+        13,
+        12
+      ],
+      "plugboard": "PE ZJ SN HG KT XQ UA CY BV MR",
+      "prng_seed": 17527777023013361574
+    },
+    "2026-09-10": {
+      "wheels": [
+        15,
+        9,
+        10
+      ],
+      "positions": [
+        22,
+        4,
+        18
+      ],
+      "plugboard": "SQ XL HZ ME CP OK TU IR WN BV",
+      "prng_seed": 8569696872069760961
+    },
+    "2026-09-11": {
+      "wheels": [
+        6,
+        5,
+        10
+      ],
+      "positions": [
+        7,
+        14,
+        12
+      ],
+      "plugboard": "KH EY PJ WN ZG AT CQ OL XI RD",
+      "prng_seed": 16123974512594410479
+    },
+    "2026-09-12": {
+      "wheels": [
+        7,
+        15,
+        1
+      ],
+      "positions": [
+        1,
+        11,
+        3
+      ],
+      "plugboard": "GQ WI OB TJ KC LA YS DX VM UR",
+      "prng_seed": 5479311021810238046
+    },
+    "2026-09-13": {
+      "wheels": [
+        10,
+        13,
+        12
+      ],
+      "positions": [
+        10,
+        9,
+        6
+      ],
+      "plugboard": "SF ZK ED HB IX CV AJ PO NL QR",
+      "prng_seed": 12061615738225008064
+    },
+    "2026-09-14": {
+      "wheels": [
+        2,
+        11,
+        9
+      ],
+      "positions": [
+        3,
+        25,
+        14
+      ],
+      "plugboard": "LO FJ KW SI EH BG AU ZX QP TD",
+      "prng_seed": 4967170313608664062
     },
     "2026-09-15": {
       "wheels": [
         4,
         11,
-        5
+        8
       ],
       "positions": [
-        23,
-        9,
-        20
+        13,
+        10,
+        16
       ],
-      "plugboard": "WK GI LS XT DJ RB QY UN VP MA"
+      "plugboard": "FI XJ OE KM TP AL ZR GD YC VN",
+      "prng_seed": 847019983213954663
     },
     "2026-09-16": {
       "wheels": [
-        3,
-        1,
-        12
+        8,
+        15,
+        13
       ],
       "positions": [
-        14,
-        20,
-        25
+        15,
+        5,
+        18
       ],
-      "plugboard": "EL XW YS DC HQ UP OV AJ FG ZT"
+      "plugboard": "ZH XY EV AW MB FI QC LU JO KT",
+      "prng_seed": 6368169909840121734
     },
     "2026-09-17": {
       "wheels": [
-        8,
-        9,
-        2
-      ],
-      "positions": [
-        9,
-        17,
-        4
-      ],
-      "plugboard": "IT PA EH DZ KW NB XF RS LC GV"
-    },
-    "2026-09-18": {
-      "wheels": [
-        5,
-        13,
-        3
-      ],
-      "positions": [
-        6,
-        14,
-        16
-      ],
-      "plugboard": "ZR EN PC AJ BH DK UL IF XS OM"
-    },
-    "2026-09-19": {
-      "wheels": [
-        1,
-        12,
-        7
-      ],
-      "positions": [
-        25,
-        25,
-        8
-      ],
-      "plugboard": "BQ ZD CH LF TX MG RW EJ YA PN"
-    },
-    "2026-09-20": {
-      "wheels": [
-        12,
-        15,
-        10
-      ],
-      "positions": [
-        19,
-        12,
-        21
-      ],
-      "plugboard": "QU ZS HP TG BC EI WR XA LD JO"
-    },
-    "2026-09-21": {
-      "wheels": [
-        5,
         4,
-        16
-      ],
-      "positions": [
-        22,
-        25,
-        4
-      ],
-      "plugboard": "XV PC IU MD RO KG BE NW JA TL"
-    },
-    "2026-09-22": {
-      "wheels": [
-        9,
-        13,
+        3,
         15
       ],
       "positions": [
-        15,
-        20,
-        7
-      ],
-      "plugboard": "JA VN RC HT DO FY XG KI MZ SU"
-    },
-    "2026-09-23": {
-      "wheels": [
-        15,
-        3,
-        13
-      ],
-      "positions": [
-        21,
-        8,
-        2
-      ],
-      "plugboard": "QA HC NI OR BV KY SE TG LD JM"
-    },
-    "2026-09-24": {
-      "wheels": [
-        3,
-        15,
-        13
-      ],
-      "positions": [
-        9,
-        11,
-        19
-      ],
-      "plugboard": "RB TU WP YC FO JD HM NE LQ XS"
-    },
-    "2026-09-25": {
-      "wheels": [
-        10,
-        11,
-        1
-      ],
-      "positions": [
-        13,
-        9,
-        24
-      ],
-      "plugboard": "ST PD XQ LW FE UG YJ VH MO IN"
-    },
-    "2026-09-26": {
-      "wheels": [
-        14,
         2,
+        20,
         9
       ],
-      "positions": [
-        14,
-        10,
-        14
-      ],
-      "plugboard": "RO WB CH QM UD YF GI XV JA LK"
+      "plugboard": "ST CG DW LN BQ ZV RA IX PO FU",
+      "prng_seed": 12425940744282902991
     },
-    "2026-09-27": {
+    "2026-09-18": {
       "wheels": [
-        15,
-        12,
-        2
-      ],
-      "positions": [
-        12,
-        22,
-        2
-      ],
-      "plugboard": "NO YT IG UH VW ZF PB QA RX SJ"
-    },
-    "2026-09-28": {
-      "wheels": [
-        15,
-        9,
-        2
-      ],
-      "positions": [
-        3,
-        1,
-        24
-      ],
-      "plugboard": "PT BC WG ZK FV JE UA RS LI HQ"
-    },
-    "2026-09-29": {
-      "wheels": [
-        5,
+        4,
         1,
         11
       ],
       "positions": [
-        1,
-        13,
-        22
+        7,
+        12,
+        10
       ],
-      "plugboard": "OF DP NG HV WT EA SX ZB QJ IU"
+      "plugboard": "HN RD YX KM AF TW LC PZ GS UJ",
+      "prng_seed": 2276920566681343413
+    },
+    "2026-09-19": {
+      "wheels": [
+        2,
+        13,
+        11
+      ],
+      "positions": [
+        24,
+        8,
+        16
+      ],
+      "plugboard": "KF ST UW OH JY CG NI XP DR AZ",
+      "prng_seed": 3139604734910008847
+    },
+    "2026-09-20": {
+      "wheels": [
+        15,
+        4,
+        10
+      ],
+      "positions": [
+        4,
+        15,
+        23
+      ],
+      "plugboard": "DX BO QC VS PN AF TI RW LJ KU",
+      "prng_seed": 8207610322908175512
+    },
+    "2026-09-21": {
+      "wheels": [
+        9,
+        14,
+        6
+      ],
+      "positions": [
+        10,
+        20,
+        12
+      ],
+      "plugboard": "SM JV DP UF LH AR OC KX QE WI",
+      "prng_seed": 14764708007737983630
+    },
+    "2026-09-22": {
+      "wheels": [
+        1,
+        12,
+        6
+      ],
+      "positions": [
+        12,
+        21,
+        21
+      ],
+      "plugboard": "HT KU AX CJ SF DY OQ EN WB RV",
+      "prng_seed": 10280206112162336596
+    },
+    "2026-09-23": {
+      "wheels": [
+        11,
+        13,
+        2
+      ],
+      "positions": [
+        23,
+        10,
+        17
+      ],
+      "plugboard": "YS KM CJ HR ZF EI OX UQ BV PA",
+      "prng_seed": 5868765820407665633
+    },
+    "2026-09-24": {
+      "wheels": [
+        5,
+        15,
+        6
+      ],
+      "positions": [
+        8,
+        6,
+        0
+      ],
+      "plugboard": "RQ EG JU IT PN DC SL ZX HW VM",
+      "prng_seed": 12861486362929606516
+    },
+    "2026-09-25": {
+      "wheels": [
+        16,
+        2,
+        14
+      ],
+      "positions": [
+        3,
+        22,
+        13
+      ],
+      "plugboard": "LW QF UK NI YM ED BH AO GJ TS",
+      "prng_seed": 12422454287488178126
+    },
+    "2026-09-26": {
+      "wheels": [
+        2,
+        7,
+        6
+      ],
+      "positions": [
+        19,
+        14,
+        8
+      ],
+      "plugboard": "VS NC DH LP TA UI RM XK JY OQ",
+      "prng_seed": 5198343377338499581
+    },
+    "2026-09-27": {
+      "wheels": [
+        4,
+        3,
+        15
+      ],
+      "positions": [
+        1,
+        9,
+        16
+      ],
+      "plugboard": "YV QJ UA PB NM TK ZL RG XH IW",
+      "prng_seed": 10694754526789982379
+    },
+    "2026-09-28": {
+      "wheels": [
+        4,
+        9,
+        8
+      ],
+      "positions": [
+        3,
+        17,
+        19
+      ],
+      "plugboard": "QO AE BX KJ ZC IS LF PV WM RN",
+      "prng_seed": 12658668196134762817
+    },
+    "2026-09-29": {
+      "wheels": [
+        1,
+        6,
+        12
+      ],
+      "positions": [
+        16,
+        5,
+        20
+      ],
+      "plugboard": "IP EY FT XS RM CZ DO VL QW JB",
+      "prng_seed": 5197563958910548896
     },
     "2026-09-30": {
       "wheels": [
-        13,
-        15,
-        10
+        7,
+        8,
+        13
       ],
       "positions": [
-        18,
-        24,
-        21
+        12,
+        2,
+        11
       ],
-      "plugboard": "MW SY GF LH RK VN BZ UP TI DC"
+      "plugboard": "UR WN YV JG IC XA ZP TB LS ME",
+      "prng_seed": 4253476823928003654
     },
     "2026-10-01": {
       "wheels": [
-        7,
-        8,
-        3
+        9,
+        5,
+        4
       ],
       "positions": [
-        1,
-        5,
-        10
+        0,
+        2,
+        19
       ],
-      "plugboard": "OW HM AB UQ SR IT EJ NX LZ FD"
+      "plugboard": "DQ GV EY NI MU PW BO HF KZ AR",
+      "prng_seed": 1201206467110080307
     },
     "2026-10-02": {
       "wheels": [
-        9,
-        12,
-        16
+        3,
+        11,
+        5
       ],
       "positions": [
-        14,
-        4,
-        7
+        18,
+        1,
+        17
       ],
-      "plugboard": "RI FQ EC XS GH ZV NT YU WL MA"
+      "plugboard": "XC HR ZK WO YS PN MQ AB JL IG",
+      "prng_seed": 14313112589698685068
     },
     "2026-10-03": {
       "wheels": [
         12,
         6,
-        8
+        15
       ],
       "positions": [
-        19,
-        21,
-        11
+        2,
+        24,
+        25
       ],
-      "plugboard": "YQ RP WF IK MO AB ZH NV XS LJ"
+      "plugboard": "EU KR VG ZF LD ON PI QW XT HJ",
+      "prng_seed": 17841734862186604143
     },
     "2026-10-04": {
       "wheels": [
-        11,
-        4,
-        2
+        3,
+        5,
+        7
       ],
       "positions": [
-        2,
-        15,
-        9
+        11,
+        10,
+        1
       ],
-      "plugboard": "HN VW ZS JR EQ CO TM BI FL DG"
+      "plugboard": "RD WT GQ FS UB OY LX CM HJ PK",
+      "prng_seed": 14421658195469860096
     },
     "2026-10-05": {
       "wheels": [
-        6,
-        10,
-        11
-      ],
-      "positions": [
-        7,
-        22,
-        12
-      ],
-      "plugboard": "UT WF MG OR NZ LV EA DH JI XY"
-    },
-    "2026-10-06": {
-      "wheels": [
-        12,
-        6,
-        5
-      ],
-      "positions": [
-        10,
-        18,
-        10
-      ],
-      "plugboard": "LS PN CT DY GM AH JK OE VZ FR"
-    },
-    "2026-10-07": {
-      "wheels": [
-        8,
-        16,
-        1
-      ],
-      "positions": [
-        24,
-        17,
-        18
-      ],
-      "plugboard": "OQ SK HW GI DF NX EU TZ VA JB"
-    },
-    "2026-10-08": {
-      "wheels": [
-        8,
-        15,
-        4
-      ],
-      "positions": [
-        6,
-        23,
-        17
-      ],
-      "plugboard": "GQ VM AJ ZB IP FS UY CX EK DR"
-    },
-    "2026-10-09": {
-      "wheels": [
-        12,
-        3,
-        4
-      ],
-      "positions": [
-        3,
-        11,
-        25
-      ],
-      "plugboard": "FN SO HZ KB IG DT CR AJ UP VE"
-    },
-    "2026-10-10": {
-      "wheels": [
-        11,
-        16,
-        10
-      ],
-      "positions": [
         4,
-        6,
-        19
-      ],
-      "plugboard": "MJ VX ND YL QA WE GH BP SF ZU"
-    },
-    "2026-10-11": {
-      "wheels": [
-        8,
-        4,
-        5
-      ],
-      "positions": [
-        10,
-        10,
-        20
-      ],
-      "plugboard": "WR XU GJ LV YB HF DA TQ EC OI"
-    },
-    "2026-10-12": {
-      "wheels": [
-        7,
-        9,
-        3
-      ],
-      "positions": [
-        1,
-        9,
-        25
-      ],
-      "plugboard": "XD AH PE OB CW TN KQ RS IZ VG"
-    },
-    "2026-10-13": {
-      "wheels": [
-        8,
-        1,
-        10
-      ],
-      "positions": [
-        23,
-        6,
-        18
-      ],
-      "plugboard": "ZE GP DC QT SK MN HI LV AJ FY"
-    },
-    "2026-10-14": {
-      "wheels": [
-        2,
-        11,
-        15
-      ],
-      "positions": [
-        10,
-        14,
-        4
-      ],
-      "plugboard": "JG QS ZO IB KA WU CV YL HN XE"
-    },
-    "2026-10-15": {
-      "wheels": [
-        12,
-        8,
-        4
-      ],
-      "positions": [
-        16,
-        24,
-        3
-      ],
-      "plugboard": "WC FJ ZI OH AB SK NV DR XY UT"
-    },
-    "2026-10-16": {
-      "wheels": [
-        4,
-        15,
-        10
-      ],
-      "positions": [
-        6,
-        6,
-        17
-      ],
-      "plugboard": "PZ IB ET QX KU AC DW GN HV RM"
-    },
-    "2026-10-17": {
-      "wheels": [
-        16,
-        5,
-        9
-      ],
-      "positions": [
-        25,
-        3,
-        15
-      ],
-      "plugboard": "EJ XQ SD UZ HN KW VR CY BG LT"
-    },
-    "2026-10-18": {
-      "wheels": [
-        11,
-        2,
-        1
-      ],
-      "positions": [
-        9,
-        22,
-        5
-      ],
-      "plugboard": "SA ZT XV CH PQ MU JB IG WE FO"
-    },
-    "2026-10-19": {
-      "wheels": [
-        4,
-        5,
-        9
-      ],
-      "positions": [
-        13,
-        24,
-        8
-      ],
-      "plugboard": "FJ SX LI WO UA ZC EG NP KV BT"
-    },
-    "2026-10-20": {
-      "wheels": [
-        16,
-        15,
-        2
-      ],
-      "positions": [
-        6,
-        1,
-        17
-      ],
-      "plugboard": "FL YO KG QX ZP JR SM AV UN TD"
-    },
-    "2026-10-21": {
-      "wheels": [
-        12,
-        2,
-        5
-      ],
-      "positions": [
-        16,
-        4,
-        17
-      ],
-      "plugboard": "LB EQ AF SD ZG CU HY RW OK MX"
-    },
-    "2026-10-22": {
-      "wheels": [
-        5,
-        13,
-        10
-      ],
-      "positions": [
-        3,
-        10,
-        19
-      ],
-      "plugboard": "NI UP QA KW JS BH XG VF ME YT"
-    },
-    "2026-10-23": {
-      "wheels": [
-        15,
-        1,
-        5
-      ],
-      "positions": [
-        13,
-        12,
-        17
-      ],
-      "plugboard": "XT GP ZU ED JV NC FB AW YI SK"
-    },
-    "2026-10-24": {
-      "wheels": [
-        14,
-        11,
-        9
-      ],
-      "positions": [
-        0,
-        1,
-        2
-      ],
-      "plugboard": "QZ SK AW VU DI EF MP LX YB RO"
-    },
-    "2026-10-25": {
-      "wheels": [
-        4,
-        13,
-        11
-      ],
-      "positions": [
-        5,
-        9,
-        24
-      ],
-      "plugboard": "HZ YE BU AK XG JN MQ DW VT RS"
-    },
-    "2026-10-26": {
-      "wheels": [
-        9,
-        15,
-        13
-      ],
-      "positions": [
-        6,
         15,
         16
       ],
-      "plugboard": "DK TI QO UZ AF BP SX HG RE WM"
-    },
-    "2026-10-27": {
-      "wheels": [
-        11,
-        14,
-        9
-      ],
       "positions": [
-        18,
         21,
-        9
-      ],
-      "plugboard": "KT GW FC RD QM VY ZH LP IA JN"
-    },
-    "2026-10-28": {
-      "wheels": [
-        3,
-        10,
-        1
-      ],
-      "positions": [
-        4,
         11,
         5
       ],
-      "plugboard": "ZU WA PE XM DV TF SY IL CB NH"
+      "plugboard": "WI BF SC EX LM NO DV AP GR YT",
+      "prng_seed": 16871315103484934950
+    },
+    "2026-10-06": {
+      "wheels": [
+        13,
+        3,
+        9
+      ],
+      "positions": [
+        10,
+        12,
+        8
+      ],
+      "plugboard": "AK BX CW QH YE UR VN DT LI FZ",
+      "prng_seed": 4037980537242360704
+    },
+    "2026-10-07": {
+      "wheels": [
+        15,
+        4,
+        7
+      ],
+      "positions": [
+        6,
+        25,
+        19
+      ],
+      "plugboard": "PC IE SF MU XG HJ WT ZR AL OD",
+      "prng_seed": 651899889609430743
+    },
+    "2026-10-08": {
+      "wheels": [
+        10,
+        15,
+        6
+      ],
+      "positions": [
+        15,
+        8,
+        18
+      ],
+      "plugboard": "VW IZ BC QM KG TF EP YA XS LU",
+      "prng_seed": 2882045480434543347
+    },
+    "2026-10-09": {
+      "wheels": [
+        10,
+        7,
+        1
+      ],
+      "positions": [
+        20,
+        22,
+        7
+      ],
+      "plugboard": "ZF WJ XK LY OQ RV PC DU GE SB",
+      "prng_seed": 2375818301793360617
+    },
+    "2026-10-10": {
+      "wheels": [
+        6,
+        15,
+        9
+      ],
+      "positions": [
+        20,
+        24,
+        3
+      ],
+      "plugboard": "WC YA ZK FJ XT MH LB SU IR OQ",
+      "prng_seed": 2245511377023871909
+    },
+    "2026-10-11": {
+      "wheels": [
+        3,
+        8,
+        7
+      ],
+      "positions": [
+        6,
+        24,
+        7
+      ],
+      "plugboard": "LW KN MJ PU ST XE GD CH BR IY",
+      "prng_seed": 12902487343752157887
+    },
+    "2026-10-12": {
+      "wheels": [
+        3,
+        8,
+        13
+      ],
+      "positions": [
+        7,
+        6,
+        19
+      ],
+      "plugboard": "XA HS MZ VT BE WY GU IK LP ON",
+      "prng_seed": 517966677599142317
+    },
+    "2026-10-13": {
+      "wheels": [
+        7,
+        2,
+        10
+      ],
+      "positions": [
+        6,
+        16,
+        8
+      ],
+      "plugboard": "AM UB GH QE DC SI XV YW KO TP",
+      "prng_seed": 13261305669571001246
+    },
+    "2026-10-14": {
+      "wheels": [
+        14,
+        1,
+        10
+      ],
+      "positions": [
+        14,
+        25,
+        9
+      ],
+      "plugboard": "BN VL KT MO EJ IW AC RF UX ZD",
+      "prng_seed": 6314643959794586327
+    },
+    "2026-10-15": {
+      "wheels": [
+        8,
+        6,
+        14
+      ],
+      "positions": [
+        0,
+        19,
+        13
+      ],
+      "plugboard": "YC JN EG SO PL KU RM IF DV BT",
+      "prng_seed": 14490286168424377972
+    },
+    "2026-10-16": {
+      "wheels": [
+        11,
+        2,
+        5
+      ],
+      "positions": [
+        19,
+        12,
+        22
+      ],
+      "plugboard": "DJ WA HG VZ PR EQ MI CF OU SL",
+      "prng_seed": 5209720566534676579
+    },
+    "2026-10-17": {
+      "wheels": [
+        6,
+        7,
+        14
+      ],
+      "positions": [
+        5,
+        2,
+        10
+      ],
+      "plugboard": "NM HT LE WX FA YJ IV ZD GR OC",
+      "prng_seed": 15762310826769075934
+    },
+    "2026-10-18": {
+      "wheels": [
+        12,
+        13,
+        8
+      ],
+      "positions": [
+        16,
+        4,
+        14
+      ],
+      "plugboard": "YJ AS KV FI OC MZ XD UR WE NG",
+      "prng_seed": 17150389082152704450
+    },
+    "2026-10-19": {
+      "wheels": [
+        1,
+        13,
+        15
+      ],
+      "positions": [
+        22,
+        24,
+        4
+      ],
+      "plugboard": "ND UZ LB MC OK YW TX FV JS PG",
+      "prng_seed": 1843562901289390046
+    },
+    "2026-10-20": {
+      "wheels": [
+        10,
+        4,
+        8
+      ],
+      "positions": [
+        16,
+        18,
+        15
+      ],
+      "plugboard": "KZ UC XT OB PI QJ FV SW RL MH",
+      "prng_seed": 16037223801282488088
+    },
+    "2026-10-21": {
+      "wheels": [
+        1,
+        3,
+        15
+      ],
+      "positions": [
+        12,
+        9,
+        19
+      ],
+      "plugboard": "NJ WY DU LC TA XM BV PQ OK RF",
+      "prng_seed": 1003281510503127150
+    },
+    "2026-10-22": {
+      "wheels": [
+        1,
+        5,
+        10
+      ],
+      "positions": [
+        17,
+        15,
+        9
+      ],
+      "plugboard": "EK GB RC YN QP XW OF VM SD LJ",
+      "prng_seed": 3340714779357721102
+    },
+    "2026-10-23": {
+      "wheels": [
+        12,
+        4,
+        14
+      ],
+      "positions": [
+        18,
+        7,
+        17
+      ],
+      "plugboard": "ZH EK JS OQ PB WD LX RY NV FU",
+      "prng_seed": 11829719325985015080
+    },
+    "2026-10-24": {
+      "wheels": [
+        10,
+        9,
+        11
+      ],
+      "positions": [
+        17,
+        16,
+        18
+      ],
+      "plugboard": "IX CM UR GV DA JE FL WH TN BP",
+      "prng_seed": 10115148254283122523
+    },
+    "2026-10-25": {
+      "wheels": [
+        5,
+        2,
+        16
+      ],
+      "positions": [
+        10,
+        14,
+        5
+      ],
+      "plugboard": "ES TA VR LW DB QZ JK CG NP UX",
+      "prng_seed": 9967395126563052767
+    },
+    "2026-10-26": {
+      "wheels": [
+        16,
+        9,
+        13
+      ],
+      "positions": [
+        8,
+        25,
+        0
+      ],
+      "plugboard": "EI NO YR MP XH VW CL BF GZ QU",
+      "prng_seed": 17229080374285279334
+    },
+    "2026-10-27": {
+      "wheels": [
+        12,
+        15,
+        7
+      ],
+      "positions": [
+        10,
+        16,
+        17
+      ],
+      "plugboard": "RM CQ UO FX VS ZW YT AG BI JE",
+      "prng_seed": 14835290275455792710
+    },
+    "2026-10-28": {
+      "wheels": [
+        16,
+        15,
+        11
+      ],
+      "positions": [
+        20,
+        11,
+        11
+      ],
+      "plugboard": "JH QC ME OD IX LG VT KY SB AU",
+      "prng_seed": 5961602084926117962
     },
     "2026-10-29": {
       "wheels": [
         8,
-        2,
+        3,
         11
       ],
       "positions": [
-        16,
+        9,
         15,
-        9
+        8
       ],
-      "plugboard": "YO RD QK NG MS IW CV LH BJ AF"
+      "plugboard": "UN HW LF AY OQ SC MG KP ET XZ",
+      "prng_seed": 9454539600859535752
     },
     "2026-10-30": {
       "wheels": [
+        13,
+        10,
+        6
+      ],
+      "positions": [
+        14,
+        8,
+        23
+      ],
+      "plugboard": "MQ CW NG FR VL XA IE ZY JO ST",
+      "prng_seed": 15261125596822358671
+    },
+    "2026-10-31": {
+      "wheels": [
+        5,
+        12,
+        1
+      ],
+      "positions": [
+        6,
+        15,
+        22
+      ],
+      "plugboard": "PY OL BE CI GJ SF TX WK HZ VN",
+      "prng_seed": 16667194101914791342
+    },
+    "2026-11-01": {
+      "wheels": [
+        14,
+        7,
+        8
+      ],
+      "positions": [
+        22,
+        13,
+        12
+      ],
+      "plugboard": "EF NS OL JU DV PW RH KB QZ IA",
+      "prng_seed": 17675034025419167261
+    },
+    "2026-11-02": {
+      "wheels": [
+        16,
+        15,
+        3
+      ],
+      "positions": [
+        0,
+        13,
+        15
+      ],
+      "plugboard": "PF US RH EM TG VI CQ DW ZX BA",
+      "prng_seed": 9382489312044041255
+    },
+    "2026-11-03": {
+      "wheels": [
+        14,
+        6,
+        15
+      ],
+      "positions": [
+        18,
+        17,
+        15
+      ],
+      "plugboard": "BY WH LE SX CM NF KT ZP DA UO",
+      "prng_seed": 169915660072681287
+    },
+    "2026-11-04": {
+      "wheels": [
+        2,
+        14,
+        6
+      ],
+      "positions": [
+        8,
+        7,
+        15
+      ],
+      "plugboard": "NW RF MQ EV ZH AY BU GO TK SI",
+      "prng_seed": 11496606221170855509
+    },
+    "2026-11-05": {
+      "wheels": [
+        16,
         4,
+        15
+      ],
+      "positions": [
+        22,
+        22,
+        1
+      ],
+      "plugboard": "SJ DT WO KC IQ ZF XL AB HR GV",
+      "prng_seed": 3326887133583857722
+    },
+    "2026-11-06": {
+      "wheels": [
+        13,
+        5,
+        11
+      ],
+      "positions": [
+        24,
+        24,
+        1
+      ],
+      "plugboard": "BM ET AK CW YU NQ IF VP ZS DL",
+      "prng_seed": 7132820424791822197
+    },
+    "2026-11-07": {
+      "wheels": [
+        1,
+        8,
+        15
+      ],
+      "positions": [
+        19,
+        0,
+        21
+      ],
+      "plugboard": "VW GD KB LQ HA EU FO CZ SY NT",
+      "prng_seed": 12686990513106486747
+    },
+    "2026-11-08": {
+      "wheels": [
+        11,
+        3,
+        6
+      ],
+      "positions": [
+        14,
+        7,
+        16
+      ],
+      "plugboard": "YH LD GZ XT JC EQ SP UW FO AB",
+      "prng_seed": 2580010388643504480
+    },
+    "2026-11-09": {
+      "wheels": [
+        12,
         3,
         2
       ],
       "positions": [
-        1,
-        20,
-        16
-      ],
-      "plugboard": "VX WD LF NB TA ZK MC OY PJ QI"
-    },
-    "2026-10-31": {
-      "wheels": [
-        16,
-        14,
-        6
-      ],
-      "positions": [
-        21,
-        24,
-        23
-      ],
-      "plugboard": "TD MI VS UH AE PG KC NQ ZF YL"
-    },
-    "2026-11-01": {
-      "wheels": [
-        16,
-        1,
-        14
-      ],
-      "positions": [
-        13,
-        10,
-        7
-      ],
-      "plugboard": "NH RA SB IW EK MF DV JO XC YZ"
-    },
-    "2026-11-02": {
-      "wheels": [
-        2,
-        3,
-        15
-      ],
-      "positions": [
-        7,
-        9,
-        17
-      ],
-      "plugboard": "MB IV TQ ON WC AR HD LZ UF XJ"
-    },
-    "2026-11-03": {
-      "wheels": [
-        15,
-        11,
-        3
-      ],
-      "positions": [
-        14,
-        10,
-        4
-      ],
-      "plugboard": "GK WB XY JO ZQ AR ES TD PH UF"
-    },
-    "2026-11-04": {
-      "wheels": [
-        13,
-        10,
-        14
-      ],
-      "positions": [
-        2,
-        18,
-        19
-      ],
-      "plugboard": "EU YJ AT HZ KO LB FC XS IQ WN"
-    },
-    "2026-11-05": {
-      "wheels": [
-        15,
-        7,
-        3
-      ],
-      "positions": [
-        14,
-        21,
-        5
-      ],
-      "plugboard": "RX ZY NK BV MG OS QU JT LC EF"
-    },
-    "2026-11-06": {
-      "wheels": [
-        11,
-        7,
-        16
-      ],
-      "positions": [
-        2,
-        5,
-        23
-      ],
-      "plugboard": "TP ZB KW MJ IN GF VQ AD YH EL"
-    },
-    "2026-11-07": {
-      "wheels": [
-        15,
         8,
+        20,
         6
       ],
-      "positions": [
-        21,
-        5,
-        19
-      ],
-      "plugboard": "KF LG YI SV DO MX JH BW TA RZ"
-    },
-    "2026-11-08": {
-      "wheels": [
-        14,
-        11,
-        9
-      ],
-      "positions": [
-        17,
-        0,
-        0
-      ],
-      "plugboard": "QD BE MH XZ FJ IU CL OS KG VT"
-    },
-    "2026-11-09": {
-      "wheels": [
-        6,
-        10,
-        11
-      ],
-      "positions": [
-        24,
-        10,
-        11
-      ],
-      "plugboard": "PJ XA MD CI YU HL EQ KS OV NB"
+      "plugboard": "TA IN HY VE PS RW KZ MB UD GF",
+      "prng_seed": 13587832483305664247
     },
     "2026-11-10": {
       "wheels": [
-        8,
-        1,
-        10
-      ],
-      "positions": [
+        6,
         14,
-        3,
-        17
-      ],
-      "plugboard": "OX YQ BI MJ RD TN KV GL ZE WF"
-    },
-    "2026-11-11": {
-      "wheels": [
-        2,
-        11,
-        14
+        15
       ],
       "positions": [
         19,
-        23,
-        21
+        14,
+        6
       ],
-      "plugboard": "YO ER BN PD QA GL KT HM IS CX"
+      "plugboard": "YF MT NQ EP LD RH JK CZ AI GW",
+      "prng_seed": 1992392585249021032
+    },
+    "2026-11-11": {
+      "wheels": [
+        9,
+        5,
+        14
+      ],
+      "positions": [
+        0,
+        10,
+        23
+      ],
+      "plugboard": "CI EF MP NH DG UB VZ SA JY XW",
+      "prng_seed": 14746275168135029295
     },
     "2026-11-12": {
       "wheels": [
-        10,
-        13,
-        4
+        8,
+        4,
+        11
       ],
       "positions": [
-        20,
-        7,
-        3
+        12,
+        25,
+        7
       ],
-      "plugboard": "PL HV BT MU CK FI WO RX AE JZ"
+      "plugboard": "AG TM LE SV NW OP KJ FZ IC RD",
+      "prng_seed": 1984572583650044906
     },
     "2026-11-13": {
       "wheels": [
-        11,
-        14,
-        3
+        15,
+        10,
+        6
       ],
       "positions": [
-        15,
-        13,
-        17
+        24,
+        6,
+        10
       ],
-      "plugboard": "LJ NK OP ET GI MF QA CW VR BU"
+      "plugboard": "HI QJ UL VG OW AK RS XD EP NZ",
+      "prng_seed": 14205736769978804058
     },
     "2026-11-14": {
       "wheels": [
-        14,
-        11,
-        4
-      ],
-      "positions": [
-        1,
-        3,
-        25
-      ],
-      "plugboard": "ID YQ WP GO XB LM EC FZ SA KJ"
-    },
-    "2026-11-15": {
-      "wheels": [
-        12,
-        4,
-        13
-      ],
-      "positions": [
-        1,
-        4,
-        20
-      ],
-      "plugboard": "WR QT JC PU VE FM SB HX IO DN"
-    },
-    "2026-11-16": {
-      "wheels": [
-        4,
-        9,
-        10
-      ],
-      "positions": [
-        13,
-        3,
-        11
-      ],
-      "plugboard": "RN DT VB EH AU JW SP IO GX KF"
-    },
-    "2026-11-17": {
-      "wheels": [
         3,
         7,
-        5
-      ],
-      "positions": [
-        4,
-        10,
-        3
-      ],
-      "plugboard": "CO LU RG IZ HB EK AV MY QW XN"
-    },
-    "2026-11-18": {
-      "wheels": [
-        4,
-        16,
-        1
-      ],
-      "positions": [
-        9,
-        22,
-        9
-      ],
-      "plugboard": "FX IS QY PC RV LG ZA NW JH TM"
-    },
-    "2026-11-19": {
-      "wheels": [
-        13,
-        10,
-        15
+        14
       ],
       "positions": [
         21,
         1,
-        19
+        25
       ],
-      "plugboard": "UX LC WO FG VI KE SQ AM TD BH"
+      "plugboard": "JQ YR HW KV IC NT SL ZA XO PG",
+      "prng_seed": 1868154286609114594
+    },
+    "2026-11-15": {
+      "wheels": [
+        2,
+        13,
+        3
+      ],
+      "positions": [
+        15,
+        0,
+        21
+      ],
+      "plugboard": "XJ QY UR TF EA LW OG BM VZ HK",
+      "prng_seed": 957158511940260280
+    },
+    "2026-11-16": {
+      "wheels": [
+        16,
+        6,
+        3
+      ],
+      "positions": [
+        17,
+        3,
+        5
+      ],
+      "plugboard": "PO VJ FM CY ZG SR TI NA LH UW",
+      "prng_seed": 2392466099777754596
+    },
+    "2026-11-17": {
+      "wheels": [
+        11,
+        3,
+        13
+      ],
+      "positions": [
+        4,
+        1,
+        8
+      ],
+      "plugboard": "ML QJ WZ VY KX NI PU BO TC SD",
+      "prng_seed": 10877974461319754253
+    },
+    "2026-11-18": {
+      "wheels": [
+        1,
+        13,
+        3
+      ],
+      "positions": [
+        11,
+        21,
+        3
+      ],
+      "plugboard": "GP AZ QD VE KW LN TO HB US RM",
+      "prng_seed": 11208637827453523053
+    },
+    "2026-11-19": {
+      "wheels": [
+        10,
+        4,
+        7
+      ],
+      "positions": [
+        25,
+        17,
+        22
+      ],
+      "plugboard": "SE MV PW TD AK NI ZX CU GJ LH",
+      "prng_seed": 13313373420304025709
     },
     "2026-11-20": {
       "wheels": [
-        8,
-        5,
+        4,
+        9,
         15
       ],
       "positions": [
         14,
-        20,
-        13
+        16,
+        1
       ],
-      "plugboard": "LE OU BN WG XD MI ZS KP RH VY"
+      "plugboard": "IV EM QR NJ SL UT XA WZ BF PH",
+      "prng_seed": 9100207518717323454
     },
     "2026-11-21": {
       "wheels": [
         1,
-        5,
-        13
+        11,
+        7
       ],
       "positions": [
-        21,
-        20,
-        19
+        23,
+        16,
+        25
       ],
-      "plugboard": "LV XI HS MK PW FT YC BO UA ND"
+      "plugboard": "WE IJ KD YU CT GF BA PH XS OL",
+      "prng_seed": 17537169082101349275
     },
     "2026-11-22": {
       "wheels": [
-        12,
-        1,
-        14
-      ],
-      "positions": [
-        21,
-        19,
+        9,
+        3,
         1
       ],
-      "plugboard": "NO AW YV XI EP FL UD HM ZR TC"
+      "positions": [
+        7,
+        0,
+        22
+      ],
+      "plugboard": "FK CE TW BG HV JI AL RY SM PN",
+      "prng_seed": 3689240358831895412
     },
     "2026-11-23": {
       "wheels": [
-        7,
-        14,
-        2
+        13,
+        15,
+        6
       ],
       "positions": [
-        24,
-        12,
-        14
+        21,
+        15,
+        10
       ],
-      "plugboard": "QD AF CW NU GB MZ PE KT SV LH"
+      "plugboard": "EC DO IZ GU SL AT KJ HR VY NF",
+      "prng_seed": 2781603744756198197
     },
     "2026-11-24": {
       "wheels": [
-        3,
-        6,
-        4
+        4,
+        11,
+        12
       ],
       "positions": [
-        25,
-        7,
-        0
+        2,
+        3,
+        22
       ],
-      "plugboard": "CE AO LD PG RU NK XF IZ YJ HV"
+      "plugboard": "DL QZ NO HS WU EC IT PK MG RY",
+      "prng_seed": 8555645891179654574
     },
     "2026-11-25": {
       "wheels": [
         14,
-        11,
-        8
-      ],
-      "positions": [
-        7,
-        0,
-        21
-      ],
-      "plugboard": "QC PL OY WU AT MB VD IR XN FZ"
-    },
-    "2026-11-26": {
-      "wheels": [
-        14,
-        13,
-        2
-      ],
-      "positions": [
-        22,
-        19,
-        9
-      ],
-      "plugboard": "NZ RK UF GY AE XL TD SC HV WB"
-    },
-    "2026-11-27": {
-      "wheels": [
-        1,
-        9,
-        16
-      ],
-      "positions": [
-        13,
-        11,
-        8
-      ],
-      "plugboard": "LH EF VO TC KM SQ WX GB JI NY"
-    },
-    "2026-11-28": {
-      "wheels": [
-        6,
-        10,
-        1
-      ],
-      "positions": [
-        10,
-        22,
-        12
-      ],
-      "plugboard": "XE FG LB SA RV HW PC IY QN MZ"
-    },
-    "2026-11-29": {
-      "wheels": [
-        13,
-        9,
-        11
-      ],
-      "positions": [
-        11,
-        0,
-        4
-      ],
-      "plugboard": "QD LM FC AJ EY PH TG ZI RN SW"
-    },
-    "2026-11-30": {
-      "wheels": [
-        10,
-        6,
-        5
-      ],
-      "positions": [
-        10,
-        15,
-        11
-      ],
-      "plugboard": "ZQ RF HJ TE GO SP AI DU BN KC"
-    },
-    "2026-12-01": {
-      "wheels": [
-        3,
-        1,
-        4
-      ],
-      "positions": [
-        24,
-        20,
-        24
-      ],
-      "plugboard": "HA WT MY OC BV IJ NE XS ZD QG"
-    },
-    "2026-12-02": {
-      "wheels": [
-        15,
-        13,
-        11
-      ],
-      "positions": [
-        20,
-        20,
-        7
-      ],
-      "plugboard": "OP TR HS IA ZX FK NJ QY DU WV"
-    },
-    "2026-12-03": {
-      "wheels": [
-        7,
-        2,
-        4
-      ],
-      "positions": [
-        9,
-        23,
-        20
-      ],
-      "plugboard": "UE QS MK IW GJ RC PO YD FT XH"
-    },
-    "2026-12-04": {
-      "wheels": [
-        3,
-        7,
+        4,
         10
       ],
       "positions": [
-        6,
-        1,
-        25
+        20,
+        18,
+        5
       ],
-      "plugboard": "MU YN LK OJ SV PI GZ TH RX CA"
+      "plugboard": "TO MP EG LI NS AX FJ RY CU DZ",
+      "prng_seed": 2822171011761581259
+    },
+    "2026-11-26": {
+      "wheels": [
+        5,
+        10,
+        3
+      ],
+      "positions": [
+        5,
+        17,
+        14
+      ],
+      "plugboard": "CY VJ OG SX AF EM DR IP ZL WQ",
+      "prng_seed": 7963478986597798083
+    },
+    "2026-11-27": {
+      "wheels": [
+        9,
+        13,
+        15
+      ],
+      "positions": [
+        16,
+        4,
+        14
+      ],
+      "plugboard": "ED HB JA CU ZV GI FY TP LX WO",
+      "prng_seed": 18043330506535844576
+    },
+    "2026-11-28": {
+      "wheels": [
+        12,
+        5,
+        2
+      ],
+      "positions": [
+        2,
+        23,
+        20
+      ],
+      "plugboard": "CX WD KP UT BO AY MR HV QE FN",
+      "prng_seed": 7434617128697902841
+    },
+    "2026-11-29": {
+      "wheels": [
+        1,
+        2,
+        12
+      ],
+      "positions": [
+        8,
+        24,
+        20
+      ],
+      "plugboard": "IT BP KE XY AG HW DJ LC VM NR",
+      "prng_seed": 7402577249944640410
+    },
+    "2026-11-30": {
+      "wheels": [
+        15,
+        3,
+        2
+      ],
+      "positions": [
+        3,
+        8,
+        17
+      ],
+      "plugboard": "DH TU MF AL XY RQ BW VZ IK SC",
+      "prng_seed": 9856010106135851921
+    },
+    "2026-12-01": {
+      "wheels": [
+        5,
+        13,
+        12
+      ],
+      "positions": [
+        3,
+        8,
+        0
+      ],
+      "plugboard": "TJ FO PG RK MH QA SV NB XZ YL",
+      "prng_seed": 5329195780987932688
+    },
+    "2026-12-02": {
+      "wheels": [
+        9,
+        4,
+        3
+      ],
+      "positions": [
+        21,
+        3,
+        11
+      ],
+      "plugboard": "DQ NI FJ CK YL MT RS HB WO UV",
+      "prng_seed": 8509848098482258355
+    },
+    "2026-12-03": {
+      "wheels": [
+        3,
+        10,
+        15
+      ],
+      "positions": [
+        8,
+        5,
+        17
+      ],
+      "plugboard": "SH NM OC AP JI ZR BL DT UX VY",
+      "prng_seed": 15315761238968082609
+    },
+    "2026-12-04": {
+      "wheels": [
+        12,
+        4,
+        3
+      ],
+      "positions": [
+        15,
+        20,
+        17
+      ],
+      "plugboard": "LV BE SH FX JM RU ID TG AO ZQ",
+      "prng_seed": 14143456377108760294
     },
     "2026-12-05": {
       "wheels": [
-        13,
-        4,
+        7,
+        16,
+        9
+      ],
+      "positions": [
+        10,
+        11,
+        22
+      ],
+      "plugboard": "YK FS JX RC WB MT AE PI LH UQ",
+      "prng_seed": 14206638963933308069
+    },
+    "2026-12-06": {
+      "wheels": [
+        14,
+        8,
         16
       ],
       "positions": [
         10,
-        5,
-        22
+        23,
+        18
       ],
-      "plugboard": "WK UC TA GE ZQ DV PO LI FN JM"
-    },
-    "2026-12-06": {
-      "wheels": [
-        10,
-        5,
-        13
-      ],
-      "positions": [
-        0,
-        14,
-        3
-      ],
-      "plugboard": "SY IL ZA RX FD MP UE QN WT VK"
+      "plugboard": "ZW XM TU HR JO PK CD VI QA LY",
+      "prng_seed": 12323101435421627676
     },
     "2026-12-07": {
       "wheels": [
-        2,
-        15,
-        12
+        16,
+        7,
+        2
       ],
       "positions": [
-        18,
-        6,
-        8
+        7,
+        13,
+        18
       ],
-      "plugboard": "YP OE NS BH KW MU GZ QV IL RJ"
+      "plugboard": "LX KO PF RW VY MQ UZ CN JT SB",
+      "prng_seed": 3374867056448711804
     },
     "2026-12-08": {
       "wheels": [
         12,
-        5,
-        2
+        16,
+        13
       ],
       "positions": [
-        18,
-        5,
-        24
+        13,
+        25,
+        17
       ],
-      "plugboard": "VJ QR BO YL DT NF HE KZ PW UI"
+      "plugboard": "VF YO SA IL BZ PE TJ MW GU RK",
+      "prng_seed": 2737715725125548507
     },
     "2026-12-09": {
       "wheels": [
-        9,
-        15,
-        8
+        8,
+        16,
+        6
       ],
       "positions": [
+        19,
         11,
-        24,
-        20
+        7
       ],
-      "plugboard": "CZ MF PY OG VI JX BL UN KH QR"
+      "plugboard": "WX LK BM VF AZ CR IS GQ PH JU",
+      "prng_seed": 14696772443107023775
     },
     "2026-12-10": {
       "wheels": [
-        5,
-        9,
-        3
-      ],
-      "positions": [
-        17,
-        22,
-        15
-      ],
-      "plugboard": "YE JL UP HB WX TK ZO FM QS GN"
-    },
-    "2026-12-11": {
-      "wheels": [
-        10,
-        5,
-        12
-      ],
-      "positions": [
-        21,
-        15,
-        24
-      ],
-      "plugboard": "LA VX OU MF ZP GY DH BT JK IS"
-    },
-    "2026-12-12": {
-      "wheels": [
-        1,
-        11,
-        6
-      ],
-      "positions": [
-        7,
         8,
-        12
-      ],
-      "plugboard": "GC YH PN FA ZJ TL UK WX EQ SO"
-    },
-    "2026-12-13": {
-      "wheels": [
-        10,
-        12,
-        4
-      ],
-      "positions": [
-        16,
-        7,
-        4
-      ],
-      "plugboard": "CQ MH EG IA SN YJ ZT RP XD WL"
-    },
-    "2026-12-14": {
-      "wheels": [
-        3,
-        5,
-        9
-      ],
-      "positions": [
         15,
-        19,
-        20
-      ],
-      "plugboard": "HI EV BC YO DG AX QJ ZW PU TL"
-    },
-    "2026-12-15": {
-      "wheels": [
-        10,
-        14,
-        11
-      ],
-      "positions": [
-        15,
-        7,
-        9
-      ],
-      "plugboard": "MI XL EH FR AJ GU SC KD QP YZ"
-    },
-    "2026-12-16": {
-      "wheels": [
-        8,
-        9,
-        3
-      ],
-      "positions": [
-        9,
-        0,
-        16
-      ],
-      "plugboard": "JN BP RZ GQ OK LA XI HT EW DU"
-    },
-    "2026-12-17": {
-      "wheels": [
-        16,
-        3,
-        5
+        14
       ],
       "positions": [
         2,
-        11,
-        6
+        14,
+        10
       ],
-      "plugboard": "LJ OE BF XV YK DG HT PN RC WA"
+      "plugboard": "OW FD SQ RN MY HA VZ XU PI BK",
+      "prng_seed": 13141747642819739992
+    },
+    "2026-12-11": {
+      "wheels": [
+        14,
+        7,
+        4
+      ],
+      "positions": [
+        3,
+        7,
+        9
+      ],
+      "plugboard": "NU LJ VF DI WA BZ EX KQ OM YH",
+      "prng_seed": 3126658562666608959
+    },
+    "2026-12-12": {
+      "wheels": [
+        14,
+        10,
+        15
+      ],
+      "positions": [
+        10,
+        4,
+        5
+      ],
+      "plugboard": "NO XP DC QY SU AZ KM TF LW BJ",
+      "prng_seed": 17037731795580883381
+    },
+    "2026-12-13": {
+      "wheels": [
+        2,
+        9,
+        11
+      ],
+      "positions": [
+        7,
+        20,
+        14
+      ],
+      "plugboard": "OJ EB UN GY PD XR WS IV QA LM",
+      "prng_seed": 7427165412540509282
+    },
+    "2026-12-14": {
+      "wheels": [
+        1,
+        7,
+        5
+      ],
+      "positions": [
+        23,
+        20,
+        4
+      ],
+      "plugboard": "JA HI RX LV ZN UO GT SC BK DF",
+      "prng_seed": 2603502477065644927
+    },
+    "2026-12-15": {
+      "wheels": [
+        8,
+        14,
+        12
+      ],
+      "positions": [
+        13,
+        0,
+        25
+      ],
+      "plugboard": "NA ZB TY CI XR GL HQ OW VK SM",
+      "prng_seed": 1941422212451918657
+    },
+    "2026-12-16": {
+      "wheels": [
+        13,
+        4,
+        3
+      ],
+      "positions": [
+        0,
+        1,
+        2
+      ],
+      "plugboard": "NA QS GO LH WY KF BE PZ MU IJ",
+      "prng_seed": 16612699652447815190
+    },
+    "2026-12-17": {
+      "wheels": [
+        3,
+        1,
+        11
+      ],
+      "positions": [
+        19,
+        23,
+        1
+      ],
+      "plugboard": "AM BU EQ NV JC GZ YS XT WL RO",
+      "prng_seed": 4886015193678115264
     },
     "2026-12-18": {
       "wheels": [
         13,
-        2,
-        16
+        16,
+        14
       ],
       "positions": [
-        15,
-        12,
-        12
+        23,
+        10,
+        21
       ],
-      "plugboard": "GM AU IP FD SH YT NC BQ WL ER"
+      "plugboard": "XU TI OL ND EV PG RS WB HF AJ",
+      "prng_seed": 16778885935707511009
     },
     "2026-12-19": {
       "wheels": [
-        7,
-        12,
-        15
+        15,
+        8,
+        2
       ],
       "positions": [
-        16,
-        15,
-        12
+        8,
+        19,
+        14
       ],
-      "plugboard": "YW IF NV OU DM ZC RP XQ SH TE"
+      "plugboard": "BT KW HZ YL JN PR DQ IV GE MU",
+      "prng_seed": 663144869860152478
     },
     "2026-12-20": {
       "wheels": [
         2,
-        1,
-        8
-      ],
-      "positions": [
-        3,
-        10,
+        12,
         1
-      ],
-      "plugboard": "WF QR PH NB JC YX EV ZL MD IO"
-    },
-    "2026-12-21": {
-      "wheels": [
-        7,
-        9,
-        3
-      ],
-      "positions": [
-        15,
-        2,
-        21
-      ],
-      "plugboard": "GF IP TD XM QK NZ JY WV RE UC"
-    },
-    "2026-12-22": {
-      "wheels": [
-        7,
-        9,
-        8
-      ],
-      "positions": [
-        8,
-        20,
-        20
-      ],
-      "plugboard": "WJ NQ DP YB ZO UM VL TK FA IR"
-    },
-    "2026-12-23": {
-      "wheels": [
-        7,
-        1,
-        4
       ],
       "positions": [
         11,
-        0,
-        20
+        10,
+        10
       ],
-      "plugboard": "UG RK MZ VN QB YX ST DA HE FJ"
+      "plugboard": "SP IH MD CW QN LY TO FU EA JR",
+      "prng_seed": 2944910965924158160
     },
-    "2026-12-24": {
+    "2026-12-21": {
       "wheels": [
-        7,
-        6,
-        13
-      ],
-      "positions": [
-        22,
-        17,
-        1
-      ],
-      "plugboard": "QV DP LH AN MF GE ZO KY BJ XI"
-    },
-    "2026-12-25": {
-      "wheels": [
-        16,
-        1,
-        4
-      ],
-      "positions": [
+        11,
         13,
-        16,
-        11
+        15
       ],
-      "plugboard": "LA IM JP RW KN FZ TD SC XO HG"
+      "positions": [
+        12,
+        15,
+        18
+      ],
+      "plugboard": "OC PS AY GK NB RF ZJ HV TL WD",
+      "prng_seed": 17193072567001635931
     },
-    "2026-12-26": {
+    "2026-12-22": {
       "wheels": [
-        1,
-        16,
+        14,
+        8,
         6
       ],
       "positions": [
-        14,
-        7,
-        11
-      ],
-      "plugboard": "HR WZ XE DB ST OI UG CL QJ PY"
-    },
-    "2026-12-27": {
-      "wheels": [
-        13,
-        10,
-        12
-      ],
-      "positions": [
-        8,
-        22,
-        18
-      ],
-      "plugboard": "VO UP HT CM WE GR SI YB ZJ QL"
-    },
-    "2026-12-28": {
-      "wheels": [
-        15,
-        5,
-        11
-      ],
-      "positions": [
         18,
-        8,
-        5
+        17,
+        6
       ],
-      "plugboard": "DT WG NA PH IR ZL JB CQ EO KS"
+      "plugboard": "XZ IW OP AM UR TN BQ DH JS LE",
+      "prng_seed": 6558487454714465615
     },
-    "2026-12-29": {
+    "2026-12-23": {
       "wheels": [
         16,
-        7,
-        13
+        14,
+        11
       ],
       "positions": [
-        0,
-        5,
+        13,
+        19,
         8
       ],
-      "plugboard": "HY DP UI AS OB JG EK NL ZC XR"
+      "plugboard": "IN HC GZ UQ YP LE SB KA OM RD",
+      "prng_seed": 3013375814047170134
     },
-    "2026-12-30": {
+    "2026-12-24": {
       "wheels": [
-        14,
+        2,
         6,
         9
       ],
       "positions": [
-        10,
-        4,
-        25
+        7,
+        12,
+        1
       ],
-      "plugboard": "EW ZB XA GV SC OD MK HP RI LY"
+      "plugboard": "MS KO IW CJ YQ GT RH LB NA ED",
+      "prng_seed": 15346123358545702223
     },
-    "2026-12-31": {
+    "2026-12-25": {
       "wheels": [
-        5,
-        4,
+        7,
+        11,
+        12
+      ],
+      "positions": [
+        6,
+        23,
+        8
+      ],
+      "plugboard": "CQ NY XA LT HE FG DZ SJ MO IV",
+      "prng_seed": 13891485319698331400
+    },
+    "2026-12-26": {
+      "wheels": [
+        7,
+        15,
+        9
+      ],
+      "positions": [
+        0,
+        7,
+        4
+      ],
+      "plugboard": "GD JN US VA LK XZ EP HO BF RQ",
+      "prng_seed": 173191622953272843
+    },
+    "2026-12-27": {
+      "wheels": [
+        2,
+        10,
         6
       ],
       "positions": [
-        17,
         1,
+        8,
         22
       ],
-      "plugboard": "FP XD LK EW GA QT SH JB IU RN"
+      "plugboard": "KF PT AJ BO HD VL IN QE ZU XR",
+      "prng_seed": 8366397326223293925
+    },
+    "2026-12-28": {
+      "wheels": [
+        6,
+        14,
+        12
+      ],
+      "positions": [
+        1,
+        19,
+        13
+      ],
+      "plugboard": "GU DF HL IQ KP ZN TA EO WB XY",
+      "prng_seed": 17966335302265036268
+    },
+    "2026-12-29": {
+      "wheels": [
+        1,
+        7,
+        9
+      ],
+      "positions": [
+        6,
+        22,
+        22
+      ],
+      "plugboard": "QF AM KD WZ SI EV NB OJ XL GY",
+      "prng_seed": 11662825979290680593
+    },
+    "2026-12-30": {
+      "wheels": [
+        2,
+        4,
+        12
+      ],
+      "positions": [
+        15,
+        7,
+        9
+      ],
+      "plugboard": "JO TB AY EV QU DX CI HN ML GF",
+      "prng_seed": 16867351703278296917
+    },
+    "2026-12-31": {
+      "wheels": [
+        4,
+        2,
+        8
+      ],
+      "positions": [
+        16,
+        14,
+        10
+      ],
+      "plugboard": "XE OA SJ GB RC TL KU HI MW QF",
+      "prng_seed": 9365309465148495699
     }
   }
 }
