@@ -18,7 +18,7 @@ def sha256_prng(seed, count):
     Deterministic from the seed — both sender and receiver produce the same stream.
     """
     values = []
-    block = struct.pack('>Q', seed)  # 8-byte big-endian seed
+    block = seed.to_bytes(32, 'big')  # 32-byte (256-bit) seed
     while len(values) < count:
         block = hashlib.sha256(block).digest()
         for byte in block:
@@ -60,16 +60,10 @@ def remove_prng_overlay(text, seed):
     return ''.join(result)
 
 
-def shuffle_seed_from_prng_seed(prng_seed):
-    """Derive a shuffle seed from prng_seed via domain separation."""
-    domain = struct.pack('>Q', prng_seed) + b"shuffle"
-    digest = hashlib.sha256(domain).digest()
-    return struct.unpack('>Q', digest[:8])[0]
-
 
 def _sha256_prng_stream(seed):
     """Infinite SHA-256 hash chain yielding raw bytes."""
-    block = struct.pack('>Q', seed)
+    block = seed.to_bytes(32, 'big')
     while True:
         block = hashlib.sha256(block).digest()
         yield from block
@@ -125,9 +119,9 @@ def remove_positional_permutation(text, seed):
     return ''.join(output)
 
 
-def _eof_marker(prng_seed):
-    """Derive an 8-char EOF marker from prng_seed via domain separation."""
-    domain = struct.pack('>Q', prng_seed) + b"eof-marker"
+def _eof_marker(seed):
+    """Derive an 8-char EOF marker from seed via domain separation."""
+    domain = seed.to_bytes(32, 'big') + b"eof-marker"
     digest = hashlib.sha256(domain).digest()
     return ''.join(chr((b % 26) + ord('A')) for b in digest[:8])
 
@@ -337,7 +331,7 @@ def _trace(msg, trace=False):
         print(f"  [TRACE] {msg}", file=sys.stderr)
 
 
-def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard_str=None, wheel_select=None, trace=False, prng_seed=None):
+def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard_str=None, wheel_select=None, trace=False, prng_seed=None, shuffle_seed=None, eof_seed=None):
     """Encode or decode text with per-message key indicator.
 
     Encode: generates a random message key, encrypts it at the daily key
@@ -383,11 +377,12 @@ def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard
         _trace(f"Full output: {full_output} ({len(enc_indicator)} indicator + {len(enc_body)} body = {len(full_output)} chars)", trace)
 
         if prng_seed is not None:
+            if shuffle_seed is None or eof_seed is None:
+                raise ValueError("shuffle_seed and eof_seed are required when prng_seed is set")
             full_output = apply_prng_overlay(full_output, prng_seed)
             _trace(f"After PRNG overlay: {full_output}", trace)
-            full_output = add_frequency_padding(full_output, prng_seed)
+            full_output = add_frequency_padding(full_output, eof_seed)
             _trace(f"After EOF+padding: {full_output} ({len(full_output)} chars)", trace)
-            shuffle_seed = shuffle_seed_from_prng_seed(prng_seed)
             full_output = apply_positional_permutation(full_output, shuffle_seed)
             _trace(f"After positional shuffle: {full_output}", trace)
 
@@ -397,10 +392,11 @@ def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard
         _trace(f"Input ciphertext: {text} ({len(text)} chars)", trace)
 
         if prng_seed is not None:
-            shuffle_seed = shuffle_seed_from_prng_seed(prng_seed)
+            if shuffle_seed is None or eof_seed is None:
+                raise ValueError("shuffle_seed and eof_seed are required when prng_seed is set")
             text = remove_positional_permutation(text, shuffle_seed)
             _trace(f"After removing positional shuffle: {text}", trace)
-            text = remove_frequency_padding(text, prng_seed)
+            text = remove_frequency_padding(text, eof_seed)
             _trace(f"After removing EOF+padding: {text} ({len(text)} chars)", trace)
             text = remove_prng_overlay(text, prng_seed)
             _trace(f"After removing PRNG overlay: {text}", trace)
@@ -446,6 +442,8 @@ def load_codebook_key(codebook_path, date_str=None):
         "plugboard": day["plugboard"],
         "wheels": day["wheels"],
         "prng_seed": day.get("prng_seed"),
+        "shuffle_seed": day.get("shuffle_seed"),
+        "eof_seed": day.get("eof_seed"),
     }, date_str
 
 
@@ -489,6 +487,8 @@ def main():
     parser.add_argument("--trace", action="store_true", help="Print detailed trace of encoding/decoding steps")
     parser.add_argument("--wf", dest="wheels_file", default="wheels.json", help="Path to wheels JSON file (default: wheels.json)")
     parser.add_argument("--prng-seed", dest="prng_seed", type=int, default=None, help="PRNG seed for stream overlay (integer)")
+    parser.add_argument("--shuffle-seed", dest="shuffle_seed", type=int, default=None, help="Shuffle seed for positional permutation (integer)")
+    parser.add_argument("--eof-seed", dest="eof_seed", type=int, default=None, help="EOF seed for frequency padding (integer)")
     args = parser.parse_args()
 
     mode = "decode" if args.d else "encode"
@@ -507,6 +507,8 @@ def main():
     plugboard_str = args.plugboard
     wheel_select = [int(x) for x in args.wheels.split()] if args.wheels else None
     prng_seed = args.prng_seed
+    shuffle_seed = args.shuffle_seed
+    eof_seed = args.eof_seed
 
     if args.codebook is not None:
         # Codebook mode
@@ -531,6 +533,10 @@ def main():
                     wheel_select = key["wheels"]
                     if prng_seed is None and key.get("prng_seed") is not None:
                         prng_seed = key["prng_seed"]
+                    if shuffle_seed is None and key.get("shuffle_seed") is not None:
+                        shuffle_seed = key["shuffle_seed"]
+                    if eof_seed is None and key.get("eof_seed") is not None:
+                        eof_seed = key["eof_seed"]
                     print(f"Using codebook key for {date_str}", file=sys.stderr)
         else:
             # Explicit codebook path
@@ -552,13 +558,23 @@ def main():
                     wheel_select = key["wheels"]
                     if prng_seed is None and key.get("prng_seed") is not None:
                         prng_seed = key["prng_seed"]
+                    if shuffle_seed is None and key.get("shuffle_seed") is not None:
+                        shuffle_seed = key["shuffle_seed"]
+                    if eof_seed is None and key.get("eof_seed") is not None:
+                        eof_seed = key["eof_seed"]
                     print(f"Using codebook key for {date_str}", file=sys.stderr)
 
     if w1 is None or w2 is None or w3 is None:
         parser.error("Provide W1 W2 W3 on command line, or use --cb for codebook mode.")
 
-    if prng_seed is not None and not (0 <= prng_seed <= 2**64 - 1):
-        parser.error("PRNG seed must be between 0 and 2^64-1")
+    if prng_seed is not None and not (0 <= prng_seed <= 2**256 - 1):
+        parser.error("PRNG seed must be between 0 and 2^256-1")
+
+    if shuffle_seed is not None and not (0 <= shuffle_seed <= 2**256 - 1):
+        parser.error("Shuffle seed must be between 0 and 2^256-1")
+
+    if eof_seed is not None and not (0 <= eof_seed <= 2**256 - 1):
+        parser.error("EOF seed must be between 0 and 2^256-1")
 
     if args.infile:
         with open(args.infile) as f:
@@ -572,7 +588,7 @@ def main():
         text = strip_ciphertext_format(text)
 
     try:
-        result = enegma(text, w1, w2, w3, wheels_path=args.wheels_file, mode=mode, plugboard_str=plugboard_str, wheel_select=wheel_select, trace=args.trace, prng_seed=prng_seed)
+        result = enegma(text, w1, w2, w3, wheels_path=args.wheels_file, mode=mode, plugboard_str=plugboard_str, wheel_select=wheel_select, trace=args.trace, prng_seed=prng_seed, shuffle_seed=shuffle_seed, eof_seed=eof_seed)
     except ValueError as e:
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)

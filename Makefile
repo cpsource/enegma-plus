@@ -140,8 +140,8 @@ print('PASS')"
 	@$(PYTHON) -c "\
 from importlib import import_module; \
 ep = import_module('enegma-plus'); \
-enc = ep.enegma('HELLO WORLD', 7, 14, 22, mode='encode', prng_seed=12345); \
-dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=12345); \
+enc = ep.enegma('HELLO WORLD', 7, 14, 22, mode='encode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111); \
+dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111); \
 assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
 print('PASS')"
 
@@ -158,14 +158,14 @@ assert body != with_prng, f'FAIL: PRNG overlay did not change ciphertext'; \
 print('PASS')"
 
 	@echo "=== Test 19: Wrong PRNG seed fails to decode ==="
-	@$(PYTHON) -c "exec(\"from importlib import import_module\nep = import_module('enegma-plus')\nenc = ep.enegma('ATTACK AT DAWN', 7, 14, 22, mode='encode', prng_seed=12345)\ntry:\n dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=99999)\n assert dec != 'ATTACK AT DAWN', 'FAIL: wrong seed decoded correctly'\nexcept ValueError:\n pass\nprint('PASS')\")"
+	@$(PYTHON) -c "exec(\"from importlib import import_module\nep = import_module('enegma-plus')\nenc = ep.enegma('ATTACK AT DAWN', 7, 14, 22, mode='encode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111)\ntry:\n dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=99999, shuffle_seed=67890, eof_seed=11111)\n assert dec != 'ATTACK AT DAWN', 'FAIL: wrong seed decoded correctly'\nexcept ValueError:\n pass\nprint('PASS')\")"
 
 	@echo "=== Test 20: PRNG overlay with plugboard and wheel selection ==="
 	@$(PYTHON) -c "\
 from importlib import import_module; \
 ep = import_module('enegma-plus'); \
-enc = ep.enegma('HELLO WORLD', 3, 18, 9, mode='encode', plugboard_str='AN BY', wheel_select=[16, 8, 11], prng_seed=42); \
-dec = ep.enegma(enc, 3, 18, 9, mode='decode', plugboard_str='AN BY', wheel_select=[16, 8, 11], prng_seed=42); \
+enc = ep.enegma('HELLO WORLD', 3, 18, 9, mode='encode', plugboard_str='AN BY', wheel_select=[16, 8, 11], prng_seed=42, shuffle_seed=43, eof_seed=44); \
+dec = ep.enegma(enc, 3, 18, 9, mode='decode', plugboard_str='AN BY', wheel_select=[16, 8, 11], prng_seed=42, shuffle_seed=43, eof_seed=44); \
 assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
 print('PASS')"
 
@@ -175,7 +175,7 @@ from importlib import import_module; \
 from collections import Counter; \
 ep = import_module('enegma-plus'); \
 text = 'A' * 100; \
-enc = ep.enegma(text, 0, 0, 0, mode='encode', prng_seed=12345); \
+enc = ep.enegma(text, 0, 0, 0, mode='encode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111); \
 counts = Counter(enc); \
 total = len(enc); \
 max_freq = max(counts.values()) / total; \
@@ -187,13 +187,15 @@ print(f'PASS (max frequency: {max_freq:.2%})')"
 import json, tempfile, os; \
 from importlib import import_module; \
 ep = import_module('enegma-plus'); \
-cb = {'year': 9999, 'days': {'9999-01-01': {'wheels': [1,2,3], 'positions': [7,14,22], 'plugboard': 'AN BY', 'prng_seed': 77777}}}; \
+cb = {'year': 9999, 'days': {'9999-01-01': {'wheels': [1,2,3], 'positions': [7,14,22], 'plugboard': 'AN BY', 'prng_seed': 77777, 'shuffle_seed': 88888, 'eof_seed': 99999}}}; \
 f = tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False); \
 json.dump(cb, f); f.close(); \
 key, _ = ep.load_codebook_key(f.name, '9999-01-01'); \
 assert key['prng_seed'] == 77777, f'FAIL: prng_seed not loaded from codebook'; \
-enc = ep.enegma('HELLO WORLD', key['w1'], key['w2'], key['w3'], mode='encode', plugboard_str=key['plugboard'], wheel_select=key['wheels'], prng_seed=key['prng_seed']); \
-dec = ep.enegma(enc, key['w1'], key['w2'], key['w3'], mode='decode', plugboard_str=key['plugboard'], wheel_select=key['wheels'], prng_seed=key['prng_seed']); \
+assert key['shuffle_seed'] == 88888, f'FAIL: shuffle_seed not loaded from codebook'; \
+assert key['eof_seed'] == 99999, f'FAIL: eof_seed not loaded from codebook'; \
+enc = ep.enegma('HELLO WORLD', key['w1'], key['w2'], key['w3'], mode='encode', plugboard_str=key['plugboard'], wheel_select=key['wheels'], prng_seed=key['prng_seed'], shuffle_seed=key['shuffle_seed'], eof_seed=key['eof_seed']); \
+dec = ep.enegma(enc, key['w1'], key['w2'], key['w3'], mode='decode', plugboard_str=key['plugboard'], wheel_select=key['wheels'], prng_seed=key['prng_seed'], shuffle_seed=key['shuffle_seed'], eof_seed=key['eof_seed']); \
 assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
 os.unlink(f.name); \
 print('PASS')"
@@ -202,8 +204,8 @@ print('PASS')"
 	@$(PYTHON) -c "\
 from importlib import import_module; \
 ep = import_module('enegma-plus'); \
-enc = ep.enegma('HELLO WORLD', 7, 14, 22, mode='encode', prng_seed=54321); \
-dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=54321); \
+enc = ep.enegma('HELLO WORLD', 7, 14, 22, mode='encode', prng_seed=54321, shuffle_seed=11111, eof_seed=22222); \
+dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=54321, shuffle_seed=11111, eof_seed=22222); \
 assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
 print('PASS')"
 
@@ -231,8 +233,8 @@ print('PASS')"
 from importlib import import_module; \
 ep = import_module('enegma-plus'); \
 text = 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG ' * 12; \
-enc = ep.enegma(text, 25, 25, 25, mode='encode', prng_seed=777); \
-dec = ep.enegma(enc, 25, 25, 25, mode='decode', prng_seed=777); \
+enc = ep.enegma(text, 25, 25, 25, mode='encode', prng_seed=777, shuffle_seed=888, eof_seed=999); \
+dec = ep.enegma(enc, 25, 25, 25, mode='decode', prng_seed=777, shuffle_seed=888, eof_seed=999); \
 assert dec == text.upper(), f'FAIL: mismatch at length {len(text)}'; \
 print(f'PASS ({len(text)} chars)')"
 
@@ -240,8 +242,8 @@ print(f'PASS ({len(text)} chars)')"
 	@$(PYTHON) -c "\
 from importlib import import_module; \
 ep = import_module('enegma-plus'); \
-enc = ep.enegma('ATTACK AT DAWN', 3, 18, 9, mode='encode', plugboard_str='AN BY CW', wheel_select=[16, 8, 11], prng_seed=31337); \
-dec = ep.enegma(enc, 3, 18, 9, mode='decode', plugboard_str='AN BY CW', wheel_select=[16, 8, 11], prng_seed=31337); \
+enc = ep.enegma('ATTACK AT DAWN', 3, 18, 9, mode='encode', plugboard_str='AN BY CW', wheel_select=[16, 8, 11], prng_seed=31337, shuffle_seed=31338, eof_seed=31339); \
+dec = ep.enegma(enc, 3, 18, 9, mode='decode', plugboard_str='AN BY CW', wheel_select=[16, 8, 11], prng_seed=31337, shuffle_seed=31338, eof_seed=31339); \
 assert dec == 'ATTACK AT DAWN', f'FAIL: got {dec}'; \
 print('PASS')"
 
@@ -249,8 +251,8 @@ print('PASS')"
 	@$(PYTHON) -c "\
 from importlib import import_module; \
 ep = import_module('enegma-plus'); \
-enc = ep.enegma('HELLO WORLD', 7, 14, 22, mode='encode', prng_seed=12345); \
-dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=12345); \
+enc = ep.enegma('HELLO WORLD', 7, 14, 22, mode='encode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111); \
+dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111); \
 assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
 print('PASS')"
 
@@ -259,7 +261,7 @@ print('PASS')"
 from importlib import import_module; \
 from collections import Counter; \
 ep = import_module('enegma-plus'); \
-enc = ep.enegma('HELLO WORLD', 0, 0, 0, mode='encode', prng_seed=12345); \
+enc = ep.enegma('HELLO WORLD', 0, 0, 0, mode='encode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111); \
 counts = Counter(enc); \
 freqs = [counts.get(chr(i + ord('A')), 0) for i in range(26)]; \
 assert len(set(freqs)) == 1, f'FAIL: frequencies not uniform: {freqs}'; \
@@ -272,20 +274,20 @@ ep = import_module('enegma-plus'); \
 text = 'HELLO'; \
 body = ep._enegma_raw(ep.prepare_text(text), [0,0,0], *ep._load_args(), mode='encode'); \
 unpadded_len = len(body) + 3; \
-enc = ep.enegma(text, 0, 0, 0, mode='encode', prng_seed=12345); \
+enc = ep.enegma(text, 0, 0, 0, mode='encode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111); \
 assert len(enc) > unpadded_len, f'FAIL: padded ({len(enc)}) not longer than unpadded ({unpadded_len})'; \
 print(f'PASS (padded={len(enc)}, unpadded={unpadded_len})')"
 
 	@echo "=== Test 31: Wrong seed fails to strip padding ==="
-	@$(PYTHON) -c "exec(\"from importlib import import_module\nep = import_module('enegma-plus')\nenc = ep.enegma('HELLO WORLD', 7, 14, 22, mode='encode', prng_seed=12345)\ntry:\n dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=99999)\n print('FAIL: should have raised ValueError')\nexcept ValueError:\n print('PASS')\")"
+	@$(PYTHON) -c "exec(\"from importlib import import_module\nep = import_module('enegma-plus')\nenc = ep.enegma('HELLO WORLD', 7, 14, 22, mode='encode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111)\ntry:\n dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=12345, shuffle_seed=67890, eof_seed=99999)\n print('FAIL: should have raised ValueError')\nexcept ValueError:\n print('PASS')\")"
 
 	@echo "=== Test 32: Long message round-trip with padding + shuffle ==="
 	@$(PYTHON) -c "\
 from importlib import import_module; \
 ep = import_module('enegma-plus'); \
 text = 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG ' * 12; \
-enc = ep.enegma(text, 25, 25, 25, mode='encode', prng_seed=777); \
-dec = ep.enegma(enc, 25, 25, 25, mode='decode', prng_seed=777); \
+enc = ep.enegma(text, 25, 25, 25, mode='encode', prng_seed=777, shuffle_seed=888, eof_seed=999); \
+dec = ep.enegma(enc, 25, 25, 25, mode='decode', prng_seed=777, shuffle_seed=888, eof_seed=999); \
 assert dec == text.upper(), f'FAIL: mismatch at length {len(text)}'; \
 print(f'PASS ({len(text)} chars)')"
 
@@ -322,6 +324,28 @@ actual = open('/tmp/enegma_test35_dec.txt').read(); \
 assert actual == expected, f'FAIL: got {repr(actual)}'; \
 print('PASS')"
 	@rm -f /tmp/enegma_test35_in.txt /tmp/enegma_test35_enc.txt /tmp/enegma_test35_dec.txt
+
+	@echo "=== Test 36: Different shuffle_seed produces different shuffle ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+enc1 = ep.enegma('HELLO WORLD', 7, 14, 22, mode='encode', prng_seed=12345, shuffle_seed=11111, eof_seed=33333); \
+enc2 = ep.enegma('HELLO WORLD', 7, 14, 22, mode='encode', prng_seed=12345, shuffle_seed=22222, eof_seed=33333); \
+assert enc1 != enc2, 'FAIL: different shuffle_seed produced same output'; \
+print('PASS')"
+
+	@echo "=== Test 37: Different eof_seed fails to decode ==="
+	@$(PYTHON) -c "exec(\"from importlib import import_module\nep = import_module('enegma-plus')\nenc = ep.enegma('HELLO WORLD', 7, 14, 22, mode='encode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111)\ntry:\n dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=12345, shuffle_seed=67890, eof_seed=22222)\n print('FAIL: should have raised ValueError')\nexcept ValueError:\n print('PASS')\")"
+
+	@echo "=== Test 38: 256-bit seed round-trip ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+seed = (1 << 200) + 12345; \
+enc = ep.enegma('HELLO WORLD', 0, 0, 0, mode='encode', prng_seed=seed, shuffle_seed=seed+1, eof_seed=seed+2); \
+dec = ep.enegma(enc, 0, 0, 0, mode='decode', prng_seed=seed, shuffle_seed=seed+1, eof_seed=seed+2); \
+assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
+print('PASS')"
 
 	@echo ""
 	@echo "All tests passed."

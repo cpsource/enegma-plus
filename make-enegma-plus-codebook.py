@@ -37,7 +37,9 @@ def generate_daily_key():
         "wheels": wheel_select,
         "positions": positions,
         "plugboard": plugboard,
-        "prng_seed": secrets.randbits(64) | (1 << 63),
+        "prng_seed": secrets.randbits(256) | (1 << 255),
+        "shuffle_seed": secrets.randbits(256) | (1 << 255),
+        "eof_seed": secrets.randbits(256) | (1 << 255),
     }
 
 
