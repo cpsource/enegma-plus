@@ -77,6 +77,55 @@ A practical attack against Enegma-Plus would proceed in phases:
 5. **~~Encrypt the EOF marker.~~** Done. The EOF marker is now encrypted under `inner_seed` before embedding, eliminating the fast rejection oracle (see §5 above).
 6. **~~Add authentication.~~** Done. An HMAC-SHA256 tag (derived from all seeds via HKDF with `b"enegma-hmac-auth"` domain separation) is appended to every ciphertext when seeds are present. Tampered ciphertext is rejected before any decryption occurs.
 
+## State-Level Adversary Analysis
+
+The following considers how a well-resourced state adversary (nation-state intelligence agency) would approach breaking Enegma-Plus.
+
+### Don't Attack the Math — Attack the Implementation
+
+The 256-bit seeds are NOT the weak point. Brute-forcing 2^256 is infeasible even for nation-states. A state adversary would target:
+
+- **Key distribution.** How do the codebook seeds get from sender to receiver? If transmitted electronically, intercept them. If stored on disk, steal the file. The `enegma-plus-codebook-2026.json` file sitting on the filesystem contains every seed for the entire year in plaintext.
+- **Endpoint compromise.** Install malware on the sender's or receiver's machine. Read plaintext before encryption or after decryption. Game over.
+- **Side channels.** Python is not constant-time. The `hmac.compare_digest` call is, but the Enigma rotor lookups, HKDF computations, and string operations all leak timing information. On a shared server, cache-timing or power analysis could recover key material.
+
+### If Forced to Cryptanalyze
+
+If the adversary only has ciphertext and must break the crypto:
+
+- **The Enigma core is the weakest link structurally.** It's a polyalphabetic substitution cipher. Even with `inner_seed` wheel offsets, the algebraic structure hasn't changed — each character maps through a fixed permutation pipeline. The `inner_seed` offsets are additive mod 26 to wheel positions, which just selects a different starting substitution — it doesn't create a fundamentally new cipher.
+- **The layers are still separable in principle.** If you know/guess `prng_seed`, `shuffle_seed`, and `eof_seed`, you strip everything down to Enigma + `inner_seed`. The `inner_seed` makes each character use different wheel positions, but if you have enough ciphertext, you can treat each character position as an independent substitution cipher problem and look for statistical patterns across many messages encrypted with the same daily key.
+- **Crib dragging with known structure.** The `prepare_text` function converts plaintext deterministically — spaces become `QQX`, periods become `QQJ`, digits become words like `EINS`, `ZWO`. An attacker who knows the message is English text knows these patterns appear frequently. Even through the PRNG overlay and shuffle, with enough messages on the same daily key, statistical attacks accumulate.
+- **The HMAC tag leaks metadata.** It's unencrypted and derived from all seeds. While it doesn't reveal the seeds, it confirms whether two messages use the same key material. An adversary collecting traffic can group messages by day without any decryption.
+
+### Vulnerability Summary
+
+| Weakness | Severity |
+|---|---|
+| Codebook stored as plaintext JSON | Critical |
+| Python — no constant-time guarantees | High |
+| Same daily key for all messages that day | High |
+| No forward secrecy — one key compromises all traffic for that day | High |
+| Deterministic `prepare_text` creates predictable cribs | Medium |
+| Message length leaks information (padding only flattens frequency, doesn't hide length class) | Medium |
+| No replay protection — valid ciphertext can be re-sent | Medium |
+| HMAC tag groups messages by key without decryption | Low |
+
+### What Modern Ciphers Do Differently
+
+The fundamental issue isn't any single bug — it's that Enegma-Plus layers historical techniques rather than using proven modern primitives:
+
+- **AES-256-GCM** provides authenticated encryption in one pass with provable security bounds
+- **Per-message nonces** give forward secrecy (Enegma reuses the daily key)
+- **Key exchange protocols** (Diffie-Hellman, X25519) eliminate the codebook distribution problem entirely
+- **Constant-time implementations** in C/assembly resist side channels
+
+A state adversary wouldn't spend a dollar attacking AES-256-GCM mathematically. They'd spend it all on endpoint compromise. With Enegma-Plus, they have many more mathematical options available to them too.
+
+### Bottom Line
+
+The system is strong enough that casual attackers can't break it. But a state adversary with access to multiple ciphertexts encrypted under the same daily key, combined with knowledge of message structure (English text, `prepare_text` encoding), could plausibly recover plaintext without ever touching the 256-bit seeds — by exploiting the Enigma core's algebraic weaknesses across multiple messages.
+
 ## Context
 
 Enegma-Plus is an educational and recreational cipher system. It is not designed for protecting classified or sensitive data. The analysis above is provided to inform users of the system's limitations and to guide future improvements.
