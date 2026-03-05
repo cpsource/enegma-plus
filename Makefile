@@ -158,13 +158,7 @@ assert body != with_prng, f'FAIL: PRNG overlay did not change ciphertext'; \
 print('PASS')"
 
 	@echo "=== Test 19: Wrong PRNG seed fails to decode ==="
-	@$(PYTHON) -c "\
-from importlib import import_module; \
-ep = import_module('enegma-plus'); \
-enc = ep.enegma('ATTACK AT DAWN', 7, 14, 22, mode='encode', prng_seed=12345); \
-dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=99999); \
-assert dec != 'ATTACK AT DAWN', f'FAIL: wrong seed decoded correctly'; \
-print('PASS')"
+	@$(PYTHON) -c "exec(\"from importlib import import_module\nep = import_module('enegma-plus')\nenc = ep.enegma('ATTACK AT DAWN', 7, 14, 22, mode='encode', prng_seed=12345)\ntry:\n dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=99999)\n assert dec != 'ATTACK AT DAWN', 'FAIL: wrong seed decoded correctly'\nexcept ValueError:\n pass\nprint('PASS')\")"
 
 	@echo "=== Test 20: PRNG overlay with plugboard and wheel selection ==="
 	@$(PYTHON) -c "\
@@ -203,6 +197,131 @@ dec = ep.enegma(enc, key['w1'], key['w2'], key['w3'], mode='decode', plugboard_s
 assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
 os.unlink(f.name); \
 print('PASS')"
+
+	@echo "=== Test 23: Shuffle round-trip ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+enc = ep.enegma('HELLO WORLD', 7, 14, 22, mode='encode', prng_seed=54321); \
+dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=54321); \
+assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
+print('PASS')"
+
+	@echo "=== Test 24: Shuffle changes character positions ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+text = 'ABCDEFGHIJ'; \
+shuffled = ep.apply_positional_permutation(text, 12345); \
+assert shuffled != text, f'FAIL: shuffle did not change positions'; \
+assert len(shuffled) == len(text), f'FAIL: length changed'; \
+print(f'PASS (original={text}, shuffled={shuffled})')"
+
+	@echo "=== Test 25: Shuffle preserves character set ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+text = 'THEQUICKBROWNFOXJUMPSOVERTHELAZYDOG'; \
+shuffled = ep.apply_positional_permutation(text, 99999); \
+assert sorted(shuffled) == sorted(text), f'FAIL: character set not preserved'; \
+print('PASS')"
+
+	@echo "=== Test 26: Long message round-trip with shuffle ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+text = 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG ' * 12; \
+enc = ep.enegma(text, 25, 25, 25, mode='encode', prng_seed=777); \
+dec = ep.enegma(enc, 25, 25, 25, mode='decode', prng_seed=777); \
+assert dec == text.upper(), f'FAIL: mismatch at length {len(text)}'; \
+print(f'PASS ({len(text)} chars)')"
+
+	@echo "=== Test 27: Shuffle + plugboard + wheel selection combined ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+enc = ep.enegma('ATTACK AT DAWN', 3, 18, 9, mode='encode', plugboard_str='AN BY CW', wheel_select=[16, 8, 11], prng_seed=31337); \
+dec = ep.enegma(enc, 3, 18, 9, mode='decode', plugboard_str='AN BY CW', wheel_select=[16, 8, 11], prng_seed=31337); \
+assert dec == 'ATTACK AT DAWN', f'FAIL: got {dec}'; \
+print('PASS')"
+
+	@echo "=== Test 28: Padding round-trip ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+enc = ep.enegma('HELLO WORLD', 7, 14, 22, mode='encode', prng_seed=12345); \
+dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=12345); \
+assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
+print('PASS')"
+
+	@echo "=== Test 29: Padded output has perfectly flat frequency ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+from collections import Counter; \
+ep = import_module('enegma-plus'); \
+enc = ep.enegma('HELLO WORLD', 0, 0, 0, mode='encode', prng_seed=12345); \
+counts = Counter(enc); \
+freqs = [counts.get(chr(i + ord('A')), 0) for i in range(26)]; \
+assert len(set(freqs)) == 1, f'FAIL: frequencies not uniform: {freqs}'; \
+print(f'PASS (all 26 letters appear {freqs[0]} times)')"
+
+	@echo "=== Test 30: Padded output is longer than unpadded ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+text = 'HELLO'; \
+body = ep._enegma_raw(ep.prepare_text(text), [0,0,0], *ep._load_args(), mode='encode'); \
+unpadded_len = len(body) + 3; \
+enc = ep.enegma(text, 0, 0, 0, mode='encode', prng_seed=12345); \
+assert len(enc) > unpadded_len, f'FAIL: padded ({len(enc)}) not longer than unpadded ({unpadded_len})'; \
+print(f'PASS (padded={len(enc)}, unpadded={unpadded_len})')"
+
+	@echo "=== Test 31: Wrong seed fails to strip padding ==="
+	@$(PYTHON) -c "exec(\"from importlib import import_module\nep = import_module('enegma-plus')\nenc = ep.enegma('HELLO WORLD', 7, 14, 22, mode='encode', prng_seed=12345)\ntry:\n dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=99999)\n print('FAIL: should have raised ValueError')\nexcept ValueError:\n print('PASS')\")"
+
+	@echo "=== Test 32: Long message round-trip with padding + shuffle ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+text = 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG ' * 12; \
+enc = ep.enegma(text, 25, 25, 25, mode='encode', prng_seed=777); \
+dec = ep.enegma(enc, 25, 25, 25, mode='decode', prng_seed=777); \
+assert dec == text.upper(), f'FAIL: mismatch at length {len(text)}'; \
+print(f'PASS ({len(text)} chars)')"
+
+	@echo "=== Test 33: Formatted output has correct block structure ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+ct = ep.format_ciphertext('ABCDEFGHIJKLMNOPQRSTUVWXYZ'); \
+blocks = ct.split('\n')[0].split(' '); \
+assert all(len(b) == 5 for b in blocks[:-1]), f'FAIL: blocks not 5 chars: {blocks}'; \
+assert len(blocks) <= 10, f'FAIL: more than 10 blocks per line'; \
+print(f'PASS (first line: {ct.split(chr(10))[0]})')"
+
+	@echo "=== Test 34: Round-trip through formatted output ==="
+	@$(PYTHON) -c "\
+import subprocess, sys; \
+enc = subprocess.run([sys.executable, 'enegma-plus.py', 'HELLO WORLD', '0', '0', '0'], capture_output=True, text=True).stdout.strip(); \
+assert ' ' in enc, f'FAIL: output not block-formatted: {enc}'; \
+dec = subprocess.run([sys.executable, 'enegma-plus.py', enc, '0', '0', '0', '-d'], capture_output=True, text=True).stdout.strip(); \
+assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
+print('PASS')"
+
+	@echo "=== Test 35: File I/O round-trip with formatted ciphertext ==="
+	@echo "Testing file round-trip with blocks." > /tmp/enegma_test35_in.txt
+	@$(PYTHON) enegma-plus.py --in /tmp/enegma_test35_in.txt --out /tmp/enegma_test35_enc.txt 5 10 15
+	@$(PYTHON) -c "\
+ct = open('/tmp/enegma_test35_enc.txt').read(); \
+assert ' ' in ct, f'FAIL: file output not block-formatted'; \
+print(f'PASS (formatted output verified)')"
+	@$(PYTHON) enegma-plus.py --in /tmp/enegma_test35_enc.txt --out /tmp/enegma_test35_dec.txt 5 10 15 -d
+	@$(PYTHON) -c "\
+expected = 'TESTING FILE ROUND-TRIP WITH BLOCKS.'; \
+actual = open('/tmp/enegma_test35_dec.txt').read(); \
+assert actual == expected, f'FAIL: got {repr(actual)}'; \
+print('PASS')"
+	@rm -f /tmp/enegma_test35_in.txt /tmp/enegma_test35_enc.txt /tmp/enegma_test35_dec.txt
 
 	@echo ""
 	@echo "All tests passed."

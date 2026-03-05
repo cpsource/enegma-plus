@@ -11,7 +11,7 @@ import struct
 import sys
 
 
-def chacha20_prng(seed, count):
+def sha256_prng(seed, count):
     """Generate `count` values (0-25) from a SHA-256 hash chain CSPRNG.
 
     Uses HKDF-like expansion: each 32-byte hash block yields 32 values mod 26.
@@ -30,7 +30,7 @@ def chacha20_prng(seed, count):
 
 def apply_prng_overlay(text, seed):
     """Add PRNG stream mod 26 to each alphabetic character."""
-    stream = chacha20_prng(seed, sum(1 for c in text if c.isalpha()))
+    stream = sha256_prng(seed, sum(1 for c in text if c.isalpha()))
     result = []
     idx = 0
     for c in text:
@@ -46,7 +46,7 @@ def apply_prng_overlay(text, seed):
 
 def remove_prng_overlay(text, seed):
     """Subtract PRNG stream mod 26 from each alphabetic character."""
-    stream = chacha20_prng(seed, sum(1 for c in text if c.isalpha()))
+    stream = sha256_prng(seed, sum(1 for c in text if c.isalpha()))
     result = []
     idx = 0
     for c in text:
@@ -58,6 +58,102 @@ def remove_prng_overlay(text, seed):
         else:
             result.append(c)
     return ''.join(result)
+
+
+def shuffle_seed_from_prng_seed(prng_seed):
+    """Derive a shuffle seed from prng_seed via domain separation."""
+    domain = struct.pack('>Q', prng_seed) + b"shuffle"
+    digest = hashlib.sha256(domain).digest()
+    return struct.unpack('>Q', digest[:8])[0]
+
+
+def _sha256_prng_stream(seed):
+    """Infinite SHA-256 hash chain yielding raw bytes."""
+    block = struct.pack('>Q', seed)
+    while True:
+        block = hashlib.sha256(block).digest()
+        yield from block
+
+
+def _randbelow_from_stream(n, stream):
+    """Rejection-sampled uniform random integer in [0, n) from byte stream."""
+    if n <= 1:
+        return 0
+    if n <= 256:
+        limit = 256 - (256 % n)
+        while True:
+            b = next(stream)
+            if b < limit:
+                return b % n
+    else:
+        limit = 65536 - (65536 % n)
+        while True:
+            val = (next(stream) << 8) | next(stream)
+            if val < limit:
+                return val % n
+
+
+def apply_positional_permutation(text, seed):
+    """Fisher-Yates shuffle: move each character to a pseudorandom position."""
+    n = len(text)
+    if n <= 1:
+        return text
+    stream = _sha256_prng_stream(seed)
+    perm = list(range(n))
+    for i in range(n - 1, 0, -1):
+        j = _randbelow_from_stream(i + 1, stream)
+        perm[i], perm[j] = perm[j], perm[i]
+    output = [''] * n
+    for i, c in enumerate(text):
+        output[perm[i]] = c
+    return ''.join(output)
+
+
+def remove_positional_permutation(text, seed):
+    """Inverse Fisher-Yates: restore each character to its original position."""
+    n = len(text)
+    if n <= 1:
+        return text
+    stream = _sha256_prng_stream(seed)
+    perm = list(range(n))
+    for i in range(n - 1, 0, -1):
+        j = _randbelow_from_stream(i + 1, stream)
+        perm[i], perm[j] = perm[j], perm[i]
+    output = [''] * n
+    for i in range(n):
+        output[i] = text[perm[i]]
+    return ''.join(output)
+
+
+def _eof_marker(prng_seed):
+    """Derive an 8-char EOF marker from prng_seed via domain separation."""
+    domain = struct.pack('>Q', prng_seed) + b"eof-marker"
+    digest = hashlib.sha256(domain).digest()
+    return ''.join(chr((b % 26) + ord('A')) for b in digest[:8])
+
+
+def add_frequency_padding(text, prng_seed):
+    """Append EOF marker and pad to perfectly uniform letter frequency."""
+    from collections import Counter
+    marker = _eof_marker(prng_seed)
+    data = text + marker
+    counts = Counter(data)
+    max_count = max(counts.get(chr(i + ord('A')), 0) for i in range(26))
+    padding = []
+    for i in range(26):
+        letter = chr(i + ord('A'))
+        need = max_count - counts.get(letter, 0)
+        padding.extend([letter] * need)
+    return data + ''.join(padding)
+
+
+def remove_frequency_padding(text, prng_seed):
+    """Find EOF marker and strip it plus all padding after it."""
+    marker = _eof_marker(prng_seed)
+    idx = text.rfind(marker)
+    if idx == -1:
+        raise ValueError("EOF marker not found — wrong seed or corrupted ciphertext")
+    return text[:idx]
 
 
 DIGITS = {
@@ -289,6 +385,11 @@ def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard
         if prng_seed is not None:
             full_output = apply_prng_overlay(full_output, prng_seed)
             _trace(f"After PRNG overlay: {full_output}", trace)
+            full_output = add_frequency_padding(full_output, prng_seed)
+            _trace(f"After EOF+padding: {full_output} ({len(full_output)} chars)", trace)
+            shuffle_seed = shuffle_seed_from_prng_seed(prng_seed)
+            full_output = apply_positional_permutation(full_output, shuffle_seed)
+            _trace(f"After positional shuffle: {full_output}", trace)
 
         return full_output
 
@@ -296,6 +397,11 @@ def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard
         _trace(f"Input ciphertext: {text} ({len(text)} chars)", trace)
 
         if prng_seed is not None:
+            shuffle_seed = shuffle_seed_from_prng_seed(prng_seed)
+            text = remove_positional_permutation(text, shuffle_seed)
+            _trace(f"After removing positional shuffle: {text}", trace)
+            text = remove_frequency_padding(text, prng_seed)
+            _trace(f"After removing EOF+padding: {text} ({len(text)} chars)", trace)
             text = remove_prng_overlay(text, prng_seed)
             _trace(f"After removing PRNG overlay: {text}", trace)
 
@@ -350,6 +456,20 @@ def find_codebook():
     if os.path.exists(filename):
         return filename
     return None
+
+
+def format_ciphertext(text):
+    """Format ciphertext into 5-char blocks, 10 blocks per line."""
+    blocks = [text[i:i+5] for i in range(0, len(text), 5)]
+    lines = []
+    for i in range(0, len(blocks), 10):
+        lines.append(' '.join(blocks[i:i+10]))
+    return '\n'.join(lines)
+
+
+def strip_ciphertext_format(text):
+    """Remove whitespace from formatted ciphertext."""
+    return ''.join(text.split())
 
 
 def main():
@@ -445,7 +565,13 @@ def main():
     else:
         parser.error("Provide text as argument or use --in <infile>")
 
+    if mode == "decode":
+        text = strip_ciphertext_format(text)
+
     result = enegma(text, w1, w2, w3, wheels_path=args.wheels_file, mode=mode, plugboard_str=plugboard_str, wheel_select=wheel_select, trace=args.trace, prng_seed=prng_seed)
+
+    if mode == "encode":
+        result = format_ciphertext(result)
 
     if args.outfile:
         with open(args.outfile, "w") as f:
