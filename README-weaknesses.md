@@ -34,9 +34,9 @@ If an attacker knows even a few characters of plaintext and their positions, the
 
 Common cribs for this system include document headers, repeated phrases ("ARTICLE", "SECTION"), dates, and military conventions.
 
-### 5. EOF Marker as an Oracle
+### 5. ~~EOF Marker as an Oracle~~
 
-The 8-character EOF marker derived from the seed exists inside every encrypted message. For each candidate seed, the attacker can undo the shuffle and check whether the marker appears at the expected boundary. This turns seed cracking into a fast rejection test without needing any known plaintext.
+**Mitigated.** The EOF marker is now encrypted under `inner_seed` before being embedded in the ciphertext. An attacker who guesses `shuffle_seed` and `eof_seed` but not `inner_seed` computes the wrong encrypted marker and `rfind` fails. Since `inner_seed` is 256-bit and independent, this eliminates the fast rejection oracle.
 
 ### 6. Layers are Separable
 
@@ -63,7 +63,7 @@ A practical attack against Enegma-Plus would proceed in phases:
 
 1. **Crack the PRNG seed.** Use Grover's search (quantum) or GPU brute force (classical) over 2^256 candidate seeds. For each candidate:
    - Undo the positional shuffle
-   - Check for the EOF marker at the padding boundary
+   - Check for the EOF marker at the padding boundary (requires `inner_seed` to compute the encrypted marker; without it, this rejection test no longer works)
    - If found, the seed is recovered
 2. **Strip the outer layers.** Remove the positional shuffle, frequency padding, and PRNG overlay to expose bare Enigma ciphertext.
 3. **Break the Enigma core.** The inner seed (`inner_seed`) adds per-character PRNG-derived wheel offsets directly into the Enigma core. Even after stripping outer layers, the attacker must jointly brute-force the inner seed (~255 bits) and the Enigma key settings (~63 bits).
@@ -74,7 +74,8 @@ A practical attack against Enegma-Plus would proceed in phases:
 2. **~~Use a proper KDF.~~** Done. All PRNG functions now use HKDF (RFC 5869) with a fixed application salt and domain-separated `info` parameters, replacing the ad-hoc SHA-256 hash chain.
 3. **~~Derive independent keys per layer.~~** Done. Four independent 256-bit seeds (`prng_seed`, `shuffle_seed`, `eof_seed`, `inner_seed`) plus HKDF `info`-level domain separation per function.
 4. **~~Integrate the seed into the cipher.~~** Done. A 4th independent seed (`inner_seed`) now generates per-character wheel position offsets via `_generate_wheel_offsets()`, weaving PRNG values directly into the Enigma core. Even with outer layers stripped, the Enigma ciphertext is entangled with the inner seed.
-5. **Add authentication.** An HMAC or similar construct would detect tampering and prevent an attacker from using decryption attempts as an oracle.
+5. **~~Encrypt the EOF marker.~~** Done. The EOF marker is now encrypted under `inner_seed` before embedding, eliminating the fast rejection oracle (see §5 above).
+6. **~~Add authentication.~~** Done. An HMAC-SHA256 tag (derived from all seeds via HKDF with `b"enegma-hmac-auth"` domain separation) is appended to every ciphertext when seeds are present. Tampered ciphertext is rejected before any decryption occurs.
 
 ## Context
 

@@ -158,10 +158,23 @@ def _eof_marker(seed):
     return ''.join(chr((b % 26) + ord('A')) for b in okm)
 
 
-def add_frequency_padding(text, prng_seed):
+def _encrypt_marker(marker, inner_seed):
+    """Encrypt EOF marker with inner_seed-derived offsets (mod 26)."""
+    ikm = inner_seed.to_bytes(32, 'big')
+    prk = _hkdf_extract(ikm)
+    okm = _hkdf_expand(prk, b"enegma-marker-encrypt", 8)
+    return ''.join(
+        chr(((ord(c) - ord('A')) + (b % 26)) % 26 + ord('A'))
+        for c, b in zip(marker, okm)
+    )
+
+
+def add_frequency_padding(text, prng_seed, inner_seed=None):
     """Append EOF marker and pad to perfectly uniform letter frequency."""
     from collections import Counter
     marker = _eof_marker(prng_seed)
+    if inner_seed is not None:
+        marker = _encrypt_marker(marker, inner_seed)
     data = text + marker
     counts = Counter(data)
     max_count = max(counts.get(chr(i + ord('A')), 0) for i in range(26))
@@ -173,9 +186,11 @@ def add_frequency_padding(text, prng_seed):
     return data + ''.join(padding)
 
 
-def remove_frequency_padding(text, prng_seed):
+def remove_frequency_padding(text, prng_seed, inner_seed=None):
     """Find EOF marker and strip it plus all padding after it."""
     marker = _eof_marker(prng_seed)
+    if inner_seed is not None:
+        marker = _encrypt_marker(marker, inner_seed)
     idx = text.rfind(marker)
     if idx == -1:
         raise ValueError("Wrong seed or corrupted ciphertext, can't decrypt")
@@ -431,7 +446,7 @@ def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard
                 raise ValueError("shuffle_seed and eof_seed are required when prng_seed is set")
             full_output = apply_prng_overlay(full_output, prng_seed)
             _trace(f"After PRNG overlay: {full_output}", trace)
-            full_output = add_frequency_padding(full_output, eof_seed)
+            full_output = add_frequency_padding(full_output, eof_seed, inner_seed=inner_seed)
             _trace(f"After EOF+padding: {full_output} ({len(full_output)} chars)", trace)
             full_output = apply_positional_permutation(full_output, shuffle_seed)
             _trace(f"After positional shuffle: {full_output}", trace)
@@ -446,7 +461,7 @@ def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard
                 raise ValueError("shuffle_seed and eof_seed are required when prng_seed is set")
             text = remove_positional_permutation(text, shuffle_seed)
             _trace(f"After removing positional shuffle: {text}", trace)
-            text = remove_frequency_padding(text, eof_seed)
+            text = remove_frequency_padding(text, eof_seed, inner_seed=inner_seed)
             _trace(f"After removing EOF+padding: {text} ({len(text)} chars)", trace)
             text = remove_prng_overlay(text, prng_seed)
             _trace(f"After removing PRNG overlay: {text}", trace)
@@ -505,6 +520,48 @@ def find_codebook():
     if os.path.exists(filename):
         return filename
     return None
+
+
+_HMAC_TAG_LEN = 64  # 32 bytes × 2 base-26 digits per byte
+
+
+def _hmac_key(prng_seed, shuffle_seed, eof_seed, inner_seed):
+    """Derive HMAC authentication key from all available seeds."""
+    parts = []
+    for seed in [prng_seed, shuffle_seed, eof_seed, inner_seed]:
+        if seed is not None:
+            parts.append(seed.to_bytes(32, 'big'))
+    ikm = b''.join(parts)
+    prk = _hkdf_extract(ikm)
+    return _hkdf_expand(prk, b"enegma-hmac-auth", 32)
+
+
+def _encode_hmac_tag(tag_bytes):
+    """Encode 32-byte HMAC tag as 64 uppercase letters."""
+    letters = []
+    for b in tag_bytes:
+        letters.append(chr(b // 26 + ord('A')))
+        letters.append(chr(b % 26 + ord('A')))
+    return ''.join(letters)
+
+
+def compute_hmac_tag(text, prng_seed, shuffle_seed, eof_seed, inner_seed):
+    """Compute HMAC-SHA256 over ciphertext, return as 64-letter tag."""
+    key = _hmac_key(prng_seed, shuffle_seed, eof_seed, inner_seed)
+    tag = hmac.new(key, text.encode('ascii'), hashlib.sha256).digest()
+    return _encode_hmac_tag(tag)
+
+
+def verify_hmac_tag(text, prng_seed, shuffle_seed, eof_seed, inner_seed):
+    """Strip and verify HMAC tag. Returns ciphertext without tag, or raises ValueError."""
+    if len(text) < _HMAC_TAG_LEN:
+        raise ValueError("Ciphertext too short to contain HMAC tag")
+    body = text[:-_HMAC_TAG_LEN]
+    received_tag = text[-_HMAC_TAG_LEN:]
+    expected_tag = compute_hmac_tag(body, prng_seed, shuffle_seed, eof_seed, inner_seed)
+    if not hmac.compare_digest(received_tag, expected_tag):
+        raise ValueError("HMAC verification failed: ciphertext has been tampered with or wrong key")
+    return body
 
 
 def format_ciphertext(text):
@@ -645,7 +702,18 @@ def main():
         parser.error("Provide text as argument or use --in <infile>")
 
     if mode == "decode":
-        text = strip_ciphertext_format(text)
+        if prng_seed is not None:
+            # HMAC tag is the last line (64 chars, no spaces)
+            raw = text.rstrip()
+            tag_line = raw[-_HMAC_TAG_LEN:]
+            formatted_body = raw[:-_HMAC_TAG_LEN].rstrip()
+            expected_tag = compute_hmac_tag(formatted_body, prng_seed, shuffle_seed, eof_seed, inner_seed)
+            if not hmac.compare_digest(tag_line, expected_tag):
+                print("Error: HMAC verification failed: ciphertext has been tampered with or wrong key", file=sys.stderr)
+                sys.exit(1)
+            text = strip_ciphertext_format(formatted_body)
+        else:
+            text = strip_ciphertext_format(text)
 
     try:
         result = enegma(text, w1, w2, w3, wheels_path=args.wheels_file, mode=mode, plugboard_str=plugboard_str, wheel_select=wheel_select, trace=args.trace, prng_seed=prng_seed, shuffle_seed=shuffle_seed, eof_seed=eof_seed, inner_seed=inner_seed)
@@ -655,6 +723,10 @@ def main():
 
     if mode == "encode":
         result = format_ciphertext(result)
+        # Append HMAC tag over formatted ciphertext
+        if prng_seed is not None:
+            tag = compute_hmac_tag(result, prng_seed, shuffle_seed, eof_seed, inner_seed)
+            result = result + '\n' + tag
 
     if args.outfile:
         with open(args.outfile, "w") as f:

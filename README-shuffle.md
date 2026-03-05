@@ -11,8 +11,8 @@ A pseudorandom permutation is applied as the **outermost encryption layer**, mov
 ### Encryption Stack Order
 
 ```
-ENCODE:  prepare_text → message key → rotor encrypt → PRNG overlay → EOF+padding → SHUFFLE
-DECODE:  UNSHUFFLE → strip padding (find EOF) → remove PRNG overlay → split indicator → rotor decrypt → restore_text
+ENCODE:  prepare_text → message key → rotor encrypt → PRNG overlay → EOF+padding → SHUFFLE → HMAC tag
+DECODE:  verify HMAC tag → UNSHUFFLE → strip padding (find EOF) → remove PRNG overlay → split indicator → rotor decrypt → restore_text
 ```
 
 ## Seed
@@ -46,7 +46,7 @@ Before the shuffle is applied, the ciphertext is padded to achieve **perfectly u
 
 ### How It Works
 
-1. **EOF marker**: An 8-character marker is derived from `eof_seed` via domain separation: `SHA-256(big_endian_256bit(eof_seed) || b"eof-marker")`. The first 8 bytes mod 26 produce the marker letters. This marker is appended to the PRNG-overlaid ciphertext.
+1. **EOF marker**: An 8-character marker is derived from `eof_seed` via domain separation: `SHA-256(big_endian_256bit(eof_seed) || b"eof-marker")`. The first 8 bytes mod 26 produce the marker letters. When `inner_seed` is present, the marker is further encrypted using `inner_seed`-derived offsets (mod 26 per character via HKDF), so an attacker must know both `eof_seed` and `inner_seed` to identify the marker. This marker is appended to the PRNG-overlaid ciphertext.
 
 2. **Frequency padding**: After appending the marker, each of the 26 letters is counted. Letters below the maximum count are padded up to match. The result has every letter appearing the same number of times.
 
@@ -61,6 +61,7 @@ On decode, the inverse shuffle is applied first, then the EOF marker is located 
 - **Flat frequency**: Every letter appears with identical count — no statistical signal
 - **Length hiding**: All messages of similar length pad to the same total size
 - **Marker integrity**: Wrong seed produces wrong marker, causing decode to fail with an explicit error
+- **HMAC authentication**: A 64-character HMAC-SHA256 tag (32 bytes, base-26 encoded) is appended after the shuffle. The HMAC key is derived from all seeds via HKDF with domain separation (`b"enegma-hmac-auth"`). Tampered or corrupted ciphertext is rejected before any decryption occurs
 
 ## Activation
 

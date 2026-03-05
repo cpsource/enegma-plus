@@ -366,13 +366,7 @@ assert enc1 != enc2, 'FAIL: different inner_seed produced same output'; \
 print('PASS')"
 
 	@echo "=== Test 41: Wrong inner seed fails to decode ==="
-	@$(PYTHON) -c "\
-from importlib import import_module; \
-ep = import_module('enegma-plus'); \
-enc = ep.enegma('ATTACK AT DAWN', 7, 14, 22, mode='encode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111, inner_seed=99999); \
-dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111, inner_seed=88888); \
-assert dec != 'ATTACK AT DAWN', f'FAIL: wrong inner_seed decoded correctly'; \
-print('PASS')"
+	@$(PYTHON) -c "exec(\"from importlib import import_module\nep = import_module('enegma-plus')\nenc = ep.enegma('ATTACK AT DAWN', 7, 14, 22, mode='encode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111, inner_seed=99999)\ntry:\n dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111, inner_seed=88888)\n assert dec != 'ATTACK AT DAWN', 'FAIL: wrong inner_seed decoded correctly'\nexcept ValueError:\n pass\nprint('PASS')\")"
 
 	@echo "=== Test 42: 256-bit inner seed round-trip ==="
 	@$(PYTHON) -c "\
@@ -382,6 +376,49 @@ seed = (1 << 200) + 54321; \
 enc = ep.enegma('HELLO WORLD', 0, 0, 0, mode='encode', prng_seed=seed, shuffle_seed=seed+1, eof_seed=seed+2, inner_seed=seed+3); \
 dec = ep.enegma(enc, 0, 0, 0, mode='decode', prng_seed=seed, shuffle_seed=seed+1, eof_seed=seed+2, inner_seed=seed+3); \
 assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
+print('PASS')"
+
+	@echo "=== Test 43: Wrong inner_seed raises ValueError from encrypted marker ==="
+	@$(PYTHON) -c "exec(\"from importlib import import_module\nep = import_module('enegma-plus')\nenc = ep.enegma('HELLO WORLD', 0, 0, 0, mode='encode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111, inner_seed=99999)\ntry:\n ep.enegma(enc, 0, 0, 0, mode='decode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111, inner_seed=77777)\n print('FAIL: should have raised ValueError')\nexcept ValueError:\n print('PASS')\")"
+
+	@echo "=== Test 44: HMAC detects tampered ciphertext ==="
+	@$(PYTHON) -c "\
+import subprocess, sys; \
+enc = subprocess.run([sys.executable, 'enegma-plus.py', 'HELLO WORLD', '0', '0', '0', \
+    '--prng-seed', '12345', '--shuffle-seed', '67890', '--eof-seed', '11111', '--inner-seed', '99999'], \
+    capture_output=True, text=True).stdout.strip(); \
+lines = enc.split('\n'); \
+first = lines[0]; \
+tampered_char = 'B' if first[0] != 'B' else 'A'; \
+lines[0] = tampered_char + first[1:]; \
+tampered = '\n'.join(lines); \
+r = subprocess.run([sys.executable, 'enegma-plus.py', tampered, '0', '0', '0', '-d', \
+    '--prng-seed', '12345', '--shuffle-seed', '67890', '--eof-seed', '11111', '--inner-seed', '99999'], \
+    capture_output=True, text=True); \
+assert r.returncode != 0 and 'HMAC' in r.stderr, f'FAIL: tampered not detected: {r.stderr}'; \
+print('PASS')"
+
+	@echo "=== Test 45: HMAC tag present in CLI output ==="
+	@$(PYTHON) -c "\
+import subprocess, sys; \
+r = subprocess.run([sys.executable, 'enegma-plus.py', 'HELLO', '0', '0', '0', \
+    '--prng-seed', '12345', '--shuffle-seed', '67890', '--eof-seed', '11111'], \
+    capture_output=True, text=True); \
+lines = r.stdout.strip().split('\n'); \
+tag_line = lines[-1]; \
+assert len(tag_line) == 64 and tag_line.isalpha(), f'FAIL: last line is not 64-char HMAC tag: {repr(tag_line)}'; \
+print('PASS')"
+
+	@echo "=== Test 46: Wrong seed fails HMAC verification ==="
+	@$(PYTHON) -c "\
+import subprocess, sys; \
+enc = subprocess.run([sys.executable, 'enegma-plus.py', 'HELLO WORLD', '0', '0', '0', \
+    '--prng-seed', '12345', '--shuffle-seed', '67890', '--eof-seed', '11111'], \
+    capture_output=True, text=True).stdout.strip(); \
+r = subprocess.run([sys.executable, 'enegma-plus.py', enc, '0', '0', '0', '-d', \
+    '--prng-seed', '99999', '--shuffle-seed', '67890', '--eof-seed', '11111'], \
+    capture_output=True, text=True); \
+assert r.returncode != 0 and 'HMAC' in r.stderr, f'FAIL: wrong seed not detected: {r.stderr}'; \
 print('PASS')"
 
 	@echo ""
