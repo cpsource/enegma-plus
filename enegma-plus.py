@@ -4,28 +4,52 @@
 import argparse
 import datetime
 import hashlib
+import hmac
 import json
 import os
 import secrets
-import struct
 import sys
 
 
-def sha256_prng(seed, count):
-    """Generate `count` values (0-25) from a SHA-256 hash chain CSPRNG.
+_HKDF_SALT = b"enegma-plus-v2-hkdf"
 
-    Uses HKDF-like expansion: each 32-byte hash block yields 32 values mod 26.
-    Deterministic from the seed — both sender and receiver produce the same stream.
+
+def _hkdf_extract(ikm_bytes):
+    """HKDF-Extract (RFC 5869 S2.2): PRK = HMAC-SHA256(salt, IKM)."""
+    return hmac.new(_HKDF_SALT, ikm_bytes, hashlib.sha256).digest()
+
+
+def _hkdf_expand(prk, info, length):
+    """HKDF-Expand (RFC 5869 S2.3): produce `length` bytes of OKM."""
+    n = (length + 31) // 32
+    okm = b""
+    prev = b""
+    for i in range(1, n + 1):
+        prev = hmac.new(prk, prev + info + bytes([i]), hashlib.sha256).digest()
+        okm += prev
+    return okm[:length]
+
+
+def _hkdf_expand_stream(prk, info):
+    """Streaming HKDF-Expand with 4-byte counter for unlimited output."""
+    counter = 1
+    prev = b""
+    while True:
+        prev = hmac.new(prk, prev + info + counter.to_bytes(4, 'big'), hashlib.sha256).digest()
+        yield from prev
+        counter += 1
+
+
+def sha256_prng(seed, count):
+    """Generate `count` values (0-25) from HKDF (RFC 5869).
+
+    Uses HKDF-Extract to derive a PRK from the seed, then HKDF-Expand
+    to produce deterministic output bytes. Each byte mod 26 gives one value.
     """
-    values = []
-    block = seed.to_bytes(32, 'big')  # 32-byte (256-bit) seed
-    while len(values) < count:
-        block = hashlib.sha256(block).digest()
-        for byte in block:
-            values.append(byte % 26)
-            if len(values) >= count:
-                break
-    return values
+    ikm = seed.to_bytes(32, 'big')
+    prk = _hkdf_extract(ikm)
+    stream = _hkdf_expand_stream(prk, b"enegma-prng-stream")
+    return [next(stream) % 26 for _ in range(count)]
 
 
 def _generate_wheel_offsets(seed, count):
@@ -70,11 +94,10 @@ def remove_prng_overlay(text, seed):
 
 
 def _sha256_prng_stream(seed):
-    """Infinite SHA-256 hash chain yielding raw bytes."""
-    block = seed.to_bytes(32, 'big')
-    while True:
-        block = hashlib.sha256(block).digest()
-        yield from block
+    """Infinite HKDF-based byte stream for positional permutation."""
+    ikm = seed.to_bytes(32, 'big')
+    prk = _hkdf_extract(ikm)
+    return _hkdf_expand_stream(prk, b"enegma-shuffle-stream")
 
 
 def _randbelow_from_stream(n, stream):
@@ -128,10 +151,11 @@ def remove_positional_permutation(text, seed):
 
 
 def _eof_marker(seed):
-    """Derive an 8-char EOF marker from seed via domain separation."""
-    domain = seed.to_bytes(32, 'big') + b"eof-marker"
-    digest = hashlib.sha256(domain).digest()
-    return ''.join(chr((b % 26) + ord('A')) for b in digest[:8])
+    """Derive an 8-char EOF marker from seed via HKDF domain separation."""
+    ikm = seed.to_bytes(32, 'big')
+    prk = _hkdf_extract(ikm)
+    okm = _hkdf_expand(prk, b"enegma-eof-marker", 8)
+    return ''.join(chr((b % 26) + ord('A')) for b in okm)
 
 
 def add_frequency_padding(text, prng_seed):

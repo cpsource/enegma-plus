@@ -79,26 +79,31 @@ ChaCha20 is ideal for this:
 
 ## What enegma-plus Actually Uses
 
-Instead of ChaCha20, enegma-plus uses a **SHA-256 hash chain** as its
-PRNG (`sha256_prng` in `enegma-plus.py`). The 256-bit daily seed is
-packed into 32 bytes, then repeatedly hashed with SHA-256. Each 32-byte
-hash block yields 32 values (each byte mod 26).
+Instead of ChaCha20, enegma-plus uses **HKDF (RFC 5869)** with
+HMAC-SHA256 as its PRNG (`sha256_prng` in `enegma-plus.py`). Each
+256-bit seed is passed through HKDF-Extract (with a fixed application
+salt) to derive a pseudorandom key, then HKDF-Expand generates output
+bytes using domain-specific `info` parameters. Each byte mod 26 gives
+one value.
 
 This achieves the same goal — a deterministic, cryptographically strong
-stream from a seed — without requiring external dependencies.
+stream from a seed — using a standards-compliant construction without
+external dependencies.
 
 ### Comparison
 
-| | ChaCha20 | SHA-256 hash chain |
+| | ChaCha20 | HKDF (HMAC-SHA256) |
 |---|---|---|
-| Speed | ~3x faster | Slower (SHA-256 is heavier per block) |
-| Dependencies | Needs `cryptography` library | Pure Python stdlib |
+| Speed | ~3x faster | Slower (HMAC does 2 SHA-256 per block) |
+| Dependencies | Needs `cryptography` library | Pure Python stdlib (`hmac` + `hashlib`) |
 | Output per block | 64 bytes | 32 bytes |
-| Security | Purpose-built stream cipher | Hash-based; secure but not designed for this |
+| Security | Purpose-built stream cipher | Standards-compliant KDF (RFC 5869) |
+| Domain separation | Manual (different nonces) | Built-in via `info` parameter |
 | Constant-time | Yes (by design) | Depends on implementation |
 
 Both are cryptographically strong and deterministic from a seed. The
-SHA-256 approach was chosen to keep enegma-plus dependency-free.
+HKDF approach was chosen to keep enegma-plus dependency-free while
+using a well-analyzed, standards-compliant construction.
 
 ### Switching to ChaCha20
 

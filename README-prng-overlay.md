@@ -29,23 +29,25 @@ cipher.
 ### Encryption
 
 1. Encrypt the message normally through the Enigma rotors
-2. Generate a PRNG stream from the daily seed (SHA-256 hash chain)
+2. Generate a PRNG stream from the daily seed (HKDF, RFC 5869)
 3. For each ciphertext character, add the corresponding PRNG value mod 26
 
 ```python
-import hashlib
+import hashlib, hmac
+
+_HKDF_SALT = b"enegma-plus-v2-hkdf"
 
 def sha256_prng(seed, count):
-    """Generate count values (0-25) via SHA-256 hash chain."""
-    values = []
-    block = seed.to_bytes(32, 'big')  # 32-byte (256-bit) seed
-    while len(values) < count:
-        block = hashlib.sha256(block).digest()
-        for byte in block:
-            values.append(byte % 26)
-            if len(values) >= count:
-                break
-    return values
+    """Generate count values (0-25) via HKDF (RFC 5869)."""
+    ikm = seed.to_bytes(32, 'big')
+    prk = hmac.new(_HKDF_SALT, ikm, hashlib.sha256).digest()  # Extract
+    # Expand: produce `count` bytes with domain-specific info
+    n = (count + 31) // 32
+    okm, prev = b"", b""
+    for i in range(1, n + 1):
+        prev = hmac.new(prk, prev + b"enegma-prng-stream" + bytes([i]), hashlib.sha256).digest()
+        okm += prev
+    return [b % 26 for b in okm[:count]]
 
 # After Enigma encryption produces ciphertext
 stream = sha256_prng(daily_seed, len(enigma_ciphertext))
@@ -226,11 +228,12 @@ enegma-plus.py "HELLO WORLD" --cb
 
 ## Implementation Notes
 
-- The PRNG uses a **SHA-256 hash chain** seeded from a 256-bit daily
-  seed. The seed is packed as a 32-byte big-endian integer, then
-  repeatedly hashed with SHA-256. Each 32-byte hash block yields 32
-  values (each byte mod 26). This is deterministic and cryptographically
-  strong — pure Python, no external dependencies.
+- The PRNG uses **HKDF (RFC 5869)** with HMAC-SHA256. Each seed is
+  passed through HKDF-Extract (with a fixed application salt) to derive
+  a pseudorandom key (PRK), then HKDF-Expand generates output bytes
+  using domain-specific `info` parameters. Each output byte mod 26
+  gives one value. This is deterministic, standards-compliant, and
+  pure Python (stdlib `hmac` + `hashlib`, no external dependencies).
 - The daily seeds are generated via `secrets.randbits(256) | (1 << 255)`
   in the codebook generator, ensuring all seeds are in the range
   [2^255, 2^256). Four seeds are stored per daily entry: `prng_seed`,
@@ -254,7 +257,7 @@ per-character wheel positions.
 ### How it works
 
 For each alphabetic character, `_generate_wheel_offsets()` produces a
-3-tuple of offsets (0-25) from the inner seed's SHA-256 hash chain.
+3-tuple of offsets (0-25) from the inner seed's HKDF-derived stream.
 These offsets are added to the current wheel positions before passing
 them to `encode_char()`:
 

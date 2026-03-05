@@ -22,11 +22,11 @@ The underlying cipher is a 3-wheel Enigma variant with chaining. Without the PRN
 
 The shuffle, frequency padding, PRNG overlay, and EOF marker all derive from three 256-bit seeds. Cracking the seed collapses three protective layers at once, reducing the problem to bare Enigma.
 
-### 3. SHA-256 Hash Chain is Fast
+### 3. HKDF is Fast
 
-The PRNG uses iterated `sha256(previous_block)` with no key stretching. An attacker can evaluate candidate seeds at hardware speed. There is no equivalent of PBKDF2 or Argon2 to impose a cost floor per guess.
+The PRNG uses HKDF (RFC 5869) with HMAC-SHA256. While this is a standards-compliant construction, it imposes no deliberate cost per evaluation (unlike PBKDF2 or Argon2). An attacker can evaluate candidate seeds at hardware speed.
 
-At approximately 1 billion SHA-256 evaluations per second per GPU, the 2^256 seed space is computationally infeasible to brute-force classically.
+At approximately 1 billion SHA-256 evaluations per second per GPU, the 2^256 seed space is computationally infeasible to brute-force classically. The seeds are already high-entropy, so key stretching would add cost to legitimate users without meaningful security benefit.
 
 ### 4. Known-Plaintext Exposure
 
@@ -71,8 +71,8 @@ A practical attack against Enegma-Plus would proceed in phases:
 ## Recommendations to Harden
 
 1. **~~Increase seed to 256 bits.~~** Done. Seeds are now 256 bits, giving 128 effective bits under Grover's algorithm.
-2. **Use a proper KDF.** Replace the raw hash chain with HKDF or iterate many rounds to impose a cost floor on brute-force evaluation.
-3. **Derive independent keys per layer.** Do not use one seed for shuffle, overlay, and EOF marker. Use domain-separated derivations from a master key.
+2. **~~Use a proper KDF.~~** Done. All PRNG functions now use HKDF (RFC 5869) with a fixed application salt and domain-separated `info` parameters, replacing the ad-hoc SHA-256 hash chain.
+3. **~~Derive independent keys per layer.~~** Done. Four independent 256-bit seeds (`prng_seed`, `shuffle_seed`, `eof_seed`, `inner_seed`) plus HKDF `info`-level domain separation per function.
 4. **~~Integrate the seed into the cipher.~~** Done. A 4th independent seed (`inner_seed`) now generates per-character wheel position offsets via `_generate_wheel_offsets()`, weaving PRNG values directly into the Enigma core. Even with outer layers stripped, the Enigma ciphertext is entangled with the inner seed.
 5. **Add authentication.** An HMAC or similar construct would detect tampering and prevent an attacker from using decryption attempts as an oracle.
 
