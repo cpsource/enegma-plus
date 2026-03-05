@@ -40,6 +40,7 @@ def generate_daily_key():
         "prng_seed": secrets.randbits(256) | (1 << 255),
         "shuffle_seed": secrets.randbits(256) | (1 << 255),
         "eof_seed": secrets.randbits(256) | (1 << 255),
+        "inner_seed": secrets.randbits(256) | (1 << 255),
     }
 
 

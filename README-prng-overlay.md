@@ -19,7 +19,10 @@ cipher.
   "wheels": [12, 5, 10],
   "positions": [8, 11, 20],
   "plugboard": "SP HC XU IB NG RJ FK DZ QV AL",
-  "prng_seed": 839274610583
+  "prng_seed": 57896044618658097...,
+  "shuffle_seed": 57896044618658097...,
+  "eof_seed": 57896044618658097...,
+  "inner_seed": 57896044618658097...
 }
 ```
 
@@ -30,12 +33,12 @@ cipher.
 3. For each ciphertext character, add the corresponding PRNG value mod 26
 
 ```python
-import hashlib, struct
+import hashlib
 
 def sha256_prng(seed, count):
     """Generate count values (0-25) via SHA-256 hash chain."""
     values = []
-    block = struct.pack('>Q', seed)  # 8-byte big-endian seed
+    block = seed.to_bytes(32, 'big')  # 32-byte (256-bit) seed
     while len(values) < count:
         block = hashlib.sha256(block).digest()
         for byte in block:
@@ -223,19 +226,58 @@ enegma-plus.py "HELLO WORLD" --cb
 
 ## Implementation Notes
 
-- The PRNG uses a **SHA-256 hash chain** seeded from a 64-bit daily
-  seed. The seed is packed as an 8-byte big-endian integer, then
+- The PRNG uses a **SHA-256 hash chain** seeded from a 256-bit daily
+  seed. The seed is packed as a 32-byte big-endian integer, then
   repeatedly hashed with SHA-256. Each 32-byte hash block yields 32
   values (each byte mod 26). This is deterministic and cryptographically
   strong — pure Python, no external dependencies.
-- The daily seed is generated via `secrets.randbits(64)` in the codebook
-  generator and stored as the `prng_seed` field in each daily entry.
+- The daily seeds are generated via `secrets.randbits(256) | (1 << 255)`
+  in the codebook generator, ensuring all seeds are in the range
+  [2^255, 2^256). Four seeds are stored per daily entry: `prng_seed`,
+  `shuffle_seed`, `eof_seed`, and `inner_seed`.
 - The overlay is applied after Enigma encryption (including the 3-char
   message key indicator) and removed before Enigma decryption (outermost
   layer).
-- CLI flag: `--prng-seed <integer>` to provide a seed directly. When
-  using `--cb` (codebook mode), the seed is loaded automatically from
-  the daily entry if present. A CLI `--prng-seed` overrides the codebook
-  seed.
+- CLI flags: `--prng-seed`, `--shuffle-seed`, `--eof-seed`, and
+  `--inner-seed` to provide seeds directly. When using `--cb` (codebook
+  mode), seeds are loaded automatically from the daily entry if present.
+  CLI flags override codebook seeds.
 - The PRNG stream is deterministic — both sender and receiver produce
   identical streams from the same seed.
+
+## Inner PRNG-Wheel Integration
+
+In addition to the outer PRNG overlay, an independent 4th seed
+(`inner_seed`) integrates PRNG values directly into the Enigma core's
+per-character wheel positions.
+
+### How it works
+
+For each alphabetic character, `_generate_wheel_offsets()` produces a
+3-tuple of offsets (0-25) from the inner seed's SHA-256 hash chain.
+These offsets are added to the current wheel positions before passing
+them to `encode_char()`:
+
+```python
+eff_pos = [(positions[j] + w_off[j]) % 26 for j in range(3)]
+```
+
+The actual wheel positions continue to be mutated by `step_wheels()`
+normally — the PRNG offsets are purely additive. Since both encode and
+decode use the same deterministic PRNG stream, the Enigma involution
+property is preserved.
+
+### Why a separate seed
+
+The inner seed is independent of the three outer-layer seeds
+(`prng_seed`, `shuffle_seed`, `eof_seed`). This means even if an
+attacker cracks the EOF seed via the EOF marker oracle and strips all
+outer layers, the Enigma ciphertext is still entangled with the inner
+seed. The attacker must jointly brute-force `inner_seed` (~255 bits)
+and the Enigma key settings (~63 bits).
+
+### PRNG stream alignment
+
+The indicator (3 alpha chars) uses PRNG offsets starting at index 0.
+The message body uses offsets starting at index 3. This ensures the
+streams align identically for encode and decode.

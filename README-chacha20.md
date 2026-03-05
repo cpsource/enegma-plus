@@ -80,8 +80,8 @@ ChaCha20 is ideal for this:
 ## What enegma-plus Actually Uses
 
 Instead of ChaCha20, enegma-plus uses a **SHA-256 hash chain** as its
-PRNG (`sha256_prng` in `enegma-plus.py`). The 64-bit daily seed is
-packed into 8 bytes, then repeatedly hashed with SHA-256. Each 32-byte
+PRNG (`sha256_prng` in `enegma-plus.py`). The 256-bit daily seed is
+packed into 32 bytes, then repeatedly hashed with SHA-256. Each 32-byte
 hash block yields 32 values (each byte mod 26).
 
 This achieves the same goal — a deterministic, cryptographically strong
@@ -110,8 +110,8 @@ import struct
 
 def chacha20_prng(seed, count):
     """Generate count values (0-25) from a ChaCha20 stream."""
-    # Derive a 256-bit key from the 64-bit seed (pad with zeros)
-    key = struct.pack('>Q', seed).ljust(32, b'\x00')
+    # Derive a 256-bit key from the 256-bit seed
+    key = seed.to_bytes(32, 'big')
     nonce = b'\x00' * 16  # fixed nonce (one stream per seed)
     cipher = Cipher(algorithms.ChaCha20(key, nonce))
     encryptor = cipher.encryptor()

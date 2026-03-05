@@ -28,6 +28,14 @@ def sha256_prng(seed, count):
     return values
 
 
+def _generate_wheel_offsets(seed, count):
+    """Generate per-character wheel position offsets from inner seed.
+    Returns list of count 3-tuples: [(w1_off, w2_off, w3_off), ...]
+    """
+    raw = sha256_prng(seed, count * 3)
+    return [(raw[i*3], raw[i*3+1], raw[i*3+2]) for i in range(count)]
+
+
 def apply_prng_overlay(text, seed):
     """Add PRNG stream mod 26 to each alphabetic character."""
     stream = sha256_prng(seed, sum(1 for c in text if c.isalpha()))
@@ -307,21 +315,39 @@ def _load_args(wheels_path="wheels.json", plugboard_str=None, wheel_select=None)
     return wheels, reverses, reflector, plugboard
 
 
-def _enegma_raw(text, positions, wheels, reverses, reflector, plugboard, mode="encode"):
+def _enegma_raw(text, positions, wheels, reverses, reflector, plugboard,
+                mode="encode", inner_seed=None, prng_char_offset=0):
     """Low-level encrypt/decrypt without text preparation or message key handling."""
     wheel_sizes = [len(w) for w in wheels]
     output = []
     chain_offset = 0
+
+    # Pre-generate wheel offsets if inner seed is set
+    if inner_seed is not None:
+        alpha_count = sum(1 for c in text if c.isalpha())
+        wheel_offsets = _generate_wheel_offsets(inner_seed, prng_char_offset + alpha_count)
+    else:
+        wheel_offsets = None
+
+    alpha_idx = 0
     for c in text:
         if c.isalpha():
             step_wheels(positions, wheel_sizes)
-        out_c = encode_char(c, wheels, reverses, reflector, positions, plugboard, chain_offset, decoding=(mode == "decode"))
-        output.append(out_c)
-        if c.isalpha():
+            if wheel_offsets is not None:
+                w_off = wheel_offsets[prng_char_offset + alpha_idx]
+                eff_pos = [(positions[j] + w_off[j]) % 26 for j in range(3)]
+            else:
+                eff_pos = positions
+            out_c = encode_char(c, wheels, reverses, reflector, eff_pos, plugboard, chain_offset, decoding=(mode == "decode"))
+            output.append(out_c)
             if mode == "encode":
                 chain_offset = ord(out_c.upper()) - ord('A')
             else:
                 chain_offset = ord(c.upper()) - ord('A')
+            alpha_idx += 1
+        else:
+            out_c = encode_char(c, wheels, reverses, reflector, positions, plugboard, chain_offset, decoding=(mode == "decode"))
+            output.append(out_c)
     return "".join(output)
 
 
@@ -331,7 +357,7 @@ def _trace(msg, trace=False):
         print(f"  [TRACE] {msg}", file=sys.stderr)
 
 
-def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard_str=None, wheel_select=None, trace=False, prng_seed=None, shuffle_seed=None, eof_seed=None):
+def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard_str=None, wheel_select=None, trace=False, prng_seed=None, shuffle_seed=None, eof_seed=None, inner_seed=None):
     """Encode or decode text with per-message key indicator.
 
     Encode: generates a random message key, encrypts it at the daily key
@@ -366,12 +392,12 @@ def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard
 
         # Encrypt the message key at daily key positions (no chaining for indicator)
         indicator_pos = [w1, w2, w3]
-        enc_indicator = _enegma_raw(mk_letters, indicator_pos, wheels, reverses, reflector, plugboard, mode="encode")
+        enc_indicator = _enegma_raw(mk_letters, indicator_pos, wheels, reverses, reflector, plugboard, mode="encode", inner_seed=inner_seed, prng_char_offset=0)
         _trace(f"Message key (encrypted): {enc_indicator}", trace)
 
         # Encrypt the message body at the message key positions
         body_pos = list(mk)
-        enc_body = _enegma_raw(text, body_pos, wheels, reverses, reflector, plugboard, mode="encode")
+        enc_body = _enegma_raw(text, body_pos, wheels, reverses, reflector, plugboard, mode="encode", inner_seed=inner_seed, prng_char_offset=3)
         _trace(f"Encrypted body: {enc_body}", trace)
         full_output = enc_indicator + enc_body
         _trace(f"Full output: {full_output} ({len(enc_indicator)} indicator + {len(enc_body)} body = {len(full_output)} chars)", trace)
@@ -409,7 +435,7 @@ def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard
 
         # Decrypt indicator at daily key positions to recover message key
         indicator_pos = [w1, w2, w3]
-        mk_letters = _enegma_raw(enc_indicator, indicator_pos, wheels, reverses, reflector, plugboard, mode="decode")
+        mk_letters = _enegma_raw(enc_indicator, indicator_pos, wheels, reverses, reflector, plugboard, mode="decode", inner_seed=inner_seed, prng_char_offset=0)
 
         # Convert message key letters to positions
         mk = [ord(c) - ord('A') for c in mk_letters.upper()]
@@ -417,7 +443,7 @@ def enegma(text, w1, w2, w3, wheels_path="wheels.json", mode="encode", plugboard
 
         # Decrypt body at message key positions
         body_pos = list(mk)
-        plaintext = _enegma_raw(enc_body, body_pos, wheels, reverses, reflector, plugboard, mode="decode")
+        plaintext = _enegma_raw(enc_body, body_pos, wheels, reverses, reflector, plugboard, mode="decode", inner_seed=inner_seed, prng_char_offset=3)
         _trace(f"Decrypted (raw): {plaintext}", trace)
 
         result = restore_text(plaintext)
@@ -444,6 +470,7 @@ def load_codebook_key(codebook_path, date_str=None):
         "prng_seed": day.get("prng_seed"),
         "shuffle_seed": day.get("shuffle_seed"),
         "eof_seed": day.get("eof_seed"),
+        "inner_seed": day.get("inner_seed"),
     }, date_str
 
 
@@ -489,6 +516,7 @@ def main():
     parser.add_argument("--prng-seed", dest="prng_seed", type=int, default=None, help="PRNG seed for stream overlay (integer)")
     parser.add_argument("--shuffle-seed", dest="shuffle_seed", type=int, default=None, help="Shuffle seed for positional permutation (integer)")
     parser.add_argument("--eof-seed", dest="eof_seed", type=int, default=None, help="EOF seed for frequency padding (integer)")
+    parser.add_argument("--inner-seed", dest="inner_seed", type=int, default=None, help="Inner seed for PRNG-cipher integration (integer)")
     args = parser.parse_args()
 
     mode = "decode" if args.d else "encode"
@@ -509,6 +537,7 @@ def main():
     prng_seed = args.prng_seed
     shuffle_seed = args.shuffle_seed
     eof_seed = args.eof_seed
+    inner_seed = args.inner_seed
 
     if args.codebook is not None:
         # Codebook mode
@@ -537,6 +566,8 @@ def main():
                         shuffle_seed = key["shuffle_seed"]
                     if eof_seed is None and key.get("eof_seed") is not None:
                         eof_seed = key["eof_seed"]
+                    if inner_seed is None and key.get("inner_seed") is not None:
+                        inner_seed = key["inner_seed"]
                     print(f"Using codebook key for {date_str}", file=sys.stderr)
         else:
             # Explicit codebook path
@@ -562,6 +593,8 @@ def main():
                         shuffle_seed = key["shuffle_seed"]
                     if eof_seed is None and key.get("eof_seed") is not None:
                         eof_seed = key["eof_seed"]
+                    if inner_seed is None and key.get("inner_seed") is not None:
+                        inner_seed = key["inner_seed"]
                     print(f"Using codebook key for {date_str}", file=sys.stderr)
 
     if w1 is None or w2 is None or w3 is None:
@@ -576,6 +609,9 @@ def main():
     if eof_seed is not None and not (0 <= eof_seed <= 2**256 - 1):
         parser.error("EOF seed must be between 0 and 2^256-1")
 
+    if inner_seed is not None and not (0 <= inner_seed <= 2**256 - 1):
+        parser.error("Inner seed must be between 0 and 2^256-1")
+
     if args.infile:
         with open(args.infile) as f:
             text = f.read()
@@ -588,7 +624,7 @@ def main():
         text = strip_ciphertext_format(text)
 
     try:
-        result = enegma(text, w1, w2, w3, wheels_path=args.wheels_file, mode=mode, plugboard_str=plugboard_str, wheel_select=wheel_select, trace=args.trace, prng_seed=prng_seed, shuffle_seed=shuffle_seed, eof_seed=eof_seed)
+        result = enegma(text, w1, w2, w3, wheels_path=args.wheels_file, mode=mode, plugboard_str=plugboard_str, wheel_select=wheel_select, trace=args.trace, prng_seed=prng_seed, shuffle_seed=shuffle_seed, eof_seed=eof_seed, inner_seed=inner_seed)
     except ValueError as e:
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)

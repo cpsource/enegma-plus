@@ -118,13 +118,21 @@ one per day. Each daily key is generated via CSPRNG and contains:
 - **wheels** — 3 wheels selected from the kit of 16 (no repeats)
 - **positions** — 3 starting positions (0-25)
 - **plugboard** — 10 letter pairs
+- **prng_seed** — 256-bit seed for PRNG stream overlay
+- **shuffle_seed** — 256-bit seed for positional permutation
+- **eof_seed** — 256-bit seed for EOF marker and frequency padding
+- **inner_seed** — 256-bit seed for inner PRNG-wheel integration
 
 Example entry:
 ```json
 "2026-01-01": {
   "wheels": [12, 5, 10],
   "positions": [8, 11, 20],
-  "plugboard": "SP HC XU IB NG RJ FK DZ QV AL"
+  "plugboard": "SP HC XU IB NG RJ FK DZ QV AL",
+  "prng_seed": 57896...,
+  "shuffle_seed": 57896...,
+  "eof_seed": 57896...,
+  "inner_seed": 57896...
 }
 ```
 
@@ -192,11 +200,12 @@ python3 bombe.py "JRDWWKROOD" "WORLD" 5
 make test
 ```
 
-Runs 16 tests covering: round-trip encode/decode, random message keys,
+Runs 42 tests covering: round-trip encode/decode, random message keys,
 plugboard, German text preparation, chaining avalanche, long messages,
 file I/O, input validation, message key format, wheel selection,
-wheel ordering, wrong-wheel rejection, invalid wheel errors, and
-verification that all 16 wheels are functional.
+wheel ordering, wrong-wheel rejection, invalid wheel errors, all 16
+wheels, PRNG overlay, frequency flattening, positional shuffle, EOF
+padding, codebook round-trip, 256-bit seeds, and inner seed integration.
 
 ## Differences: Standard vs Plus
 
@@ -320,6 +329,9 @@ using distinct wheels is stronger.
 - [README-frequency.md](README-frequency.md) — Frequency-aware plugboard pairing to resist statistical analysis
 - [README-prng-overlay.md](README-prng-overlay.md) — PRNG stream overlay to flatten ciphertext frequency distribution
 - [README-chacha20.md](README-chacha20.md) — ChaCha20 stream cipher: how it works and comparison with our SHA-256 hash chain
+- [README-shuffle.md](README-shuffle.md) — Positional permutation (Fisher-Yates shuffle) and frequency-flattening padding
+- [README-weaknesses.md](README-weaknesses.md) — Known weaknesses, attack vectors, and recommendations
+- [README-crib.md](README-crib.md) — Crib-based known-plaintext attacks
 
 ## Wheel Configuration
 

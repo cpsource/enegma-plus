@@ -347,5 +347,42 @@ dec = ep.enegma(enc, 0, 0, 0, mode='decode', prng_seed=seed, shuffle_seed=seed+1
 assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
 print('PASS')"
 
+	@echo "=== Test 39: Inner seed round-trip ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+enc = ep.enegma('HELLO WORLD', 0, 0, 0, mode='encode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111, inner_seed=99999); \
+dec = ep.enegma(enc, 0, 0, 0, mode='decode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111, inner_seed=99999); \
+assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
+print('PASS')"
+
+	@echo "=== Test 40: Inner seed changes ciphertext ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+enc1 = ep.enegma('HELLO', 0, 0, 0, mode='encode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111, inner_seed=100); \
+enc2 = ep.enegma('HELLO', 0, 0, 0, mode='encode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111, inner_seed=200); \
+assert enc1 != enc2, 'FAIL: different inner_seed produced same output'; \
+print('PASS')"
+
+	@echo "=== Test 41: Wrong inner seed fails to decode ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+enc = ep.enegma('ATTACK AT DAWN', 7, 14, 22, mode='encode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111, inner_seed=99999); \
+dec = ep.enegma(enc, 7, 14, 22, mode='decode', prng_seed=12345, shuffle_seed=67890, eof_seed=11111, inner_seed=88888); \
+assert dec != 'ATTACK AT DAWN', f'FAIL: wrong inner_seed decoded correctly'; \
+print('PASS')"
+
+	@echo "=== Test 42: 256-bit inner seed round-trip ==="
+	@$(PYTHON) -c "\
+from importlib import import_module; \
+ep = import_module('enegma-plus'); \
+seed = (1 << 200) + 54321; \
+enc = ep.enegma('HELLO WORLD', 0, 0, 0, mode='encode', prng_seed=seed, shuffle_seed=seed+1, eof_seed=seed+2, inner_seed=seed+3); \
+dec = ep.enegma(enc, 0, 0, 0, mode='decode', prng_seed=seed, shuffle_seed=seed+1, eof_seed=seed+2, inner_seed=seed+3); \
+assert dec == 'HELLO WORLD', f'FAIL: got {dec}'; \
+print('PASS')"
+
 	@echo ""
 	@echo "All tests passed."

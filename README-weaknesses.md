@@ -8,8 +8,9 @@
 | Wheel positions (26^3) | 17,576 | ~14.1 |
 | Plugboard (10 pairs) | ~150 billion | ~37.2 |
 | PRNG seed (2^255 to 2^256) | ~2^256 | ~255 |
+| Inner seed (2^255 to 2^256) | ~2^256 | ~255 |
 | Per-message key (26^3) | 17,576 | ~14.1 |
-| **Combined** | | **~332** |
+| **Combined** | | **~587** |
 
 ## Classical Attacks
 
@@ -49,7 +50,7 @@ Grover's algorithm provides a quadratic speedup on unstructured search:
 
 - The 256-bit PRNG seed becomes effectively **128 bits** under Grover's algorithm
 - This is considered **quantum-resistant** (comparable to AES-128 post-quantum security)
-- The full ~332-bit combined keyspace reduces to ~166 effective bits
+- The full ~587-bit combined keyspace reduces to ~293 effective bits
 - The seed is no longer the weakest link; other components (wheel selection, positions) are now cheaper targets
 
 ### Shor's Algorithm
@@ -65,14 +66,14 @@ A practical attack against Enegma-Plus would proceed in phases:
    - Check for the EOF marker at the padding boundary
    - If found, the seed is recovered
 2. **Strip the outer layers.** Remove the positional shuffle, frequency padding, and PRNG overlay to expose bare Enigma ciphertext.
-3. **Break the Enigma core.** Apply known-plaintext bombe-style attacks against the remaining ~63 bits of wheel selection, positions, and plugboard (this step is unchanged). With cribs, much of this space collapses quickly.
+3. **Break the Enigma core.** The inner seed (`inner_seed`) adds per-character PRNG-derived wheel offsets directly into the Enigma core. Even after stripping outer layers, the attacker must jointly brute-force the inner seed (~255 bits) and the Enigma key settings (~63 bits).
 
 ## Recommendations to Harden
 
 1. **~~Increase seed to 256 bits.~~** Done. Seeds are now 256 bits, giving 128 effective bits under Grover's algorithm.
 2. **Use a proper KDF.** Replace the raw hash chain with HKDF or iterate many rounds to impose a cost floor on brute-force evaluation.
 3. **Derive independent keys per layer.** Do not use one seed for shuffle, overlay, and EOF marker. Use domain-separated derivations from a master key.
-4. **Integrate the seed into the cipher.** The PRNG overlay is layered on top of Enigma and can be attacked separately. A tighter integration would force an attacker to solve both simultaneously.
+4. **~~Integrate the seed into the cipher.~~** Done. A 4th independent seed (`inner_seed`) now generates per-character wheel position offsets via `_generate_wheel_offsets()`, weaving PRNG values directly into the Enigma core. Even with outer layers stripped, the Enigma ciphertext is entangled with the inner seed.
 5. **Add authentication.** An HMAC or similar construct would detect tampering and prevent an attacker from using decryption attempts as an oracle.
 
 ## Context
