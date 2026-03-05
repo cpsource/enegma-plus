@@ -557,6 +557,9 @@ def main():
     if w1 is None or w2 is None or w3 is None:
         parser.error("Provide W1 W2 W3 on command line, or use --cb for codebook mode.")
 
+    if prng_seed is not None and not (0 <= prng_seed <= 2**64 - 1):
+        parser.error("PRNG seed must be between 0 and 2^64-1")
+
     if args.infile:
         with open(args.infile) as f:
             text = f.read()
