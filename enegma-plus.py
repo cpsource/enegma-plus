@@ -152,7 +152,7 @@ def remove_frequency_padding(text, prng_seed):
     marker = _eof_marker(prng_seed)
     idx = text.rfind(marker)
     if idx == -1:
-        raise ValueError("EOF marker not found — wrong seed or corrupted ciphertext")
+        raise ValueError("Wrong seed or corrupted ciphertext, can't decrypt")
     return text[:idx]
 
 
@@ -568,7 +568,11 @@ def main():
     if mode == "decode":
         text = strip_ciphertext_format(text)
 
-    result = enegma(text, w1, w2, w3, wheels_path=args.wheels_file, mode=mode, plugboard_str=plugboard_str, wheel_select=wheel_select, trace=args.trace, prng_seed=prng_seed)
+    try:
+        result = enegma(text, w1, w2, w3, wheels_path=args.wheels_file, mode=mode, plugboard_str=plugboard_str, wheel_select=wheel_select, trace=args.trace, prng_seed=prng_seed)
+    except ValueError as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(1)
 
     if mode == "encode":
         result = format_ciphertext(result)
