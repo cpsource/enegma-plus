@@ -26,20 +26,31 @@ cipher.
 ### Encryption
 
 1. Encrypt the message normally through the Enigma rotors
-2. Initialize the PRNG with the daily seed
-3. For each ciphertext character, generate one PRNG value and add mod 26
+2. Generate a PRNG stream from the daily seed (SHA-256 hash chain)
+3. For each ciphertext character, add the corresponding PRNG value mod 26
 
 ```python
-import secrets
+import hashlib, struct
+
+def sha256_prng(seed, count):
+    """Generate count values (0-25) via SHA-256 hash chain."""
+    values = []
+    block = struct.pack('>Q', seed)  # 8-byte big-endian seed
+    while len(values) < count:
+        block = hashlib.sha256(block).digest()
+        for byte in block:
+            values.append(byte % 26)
+            if len(values) >= count:
+                break
+    return values
 
 # After Enigma encryption produces ciphertext
-prng = seeded_generator(daily_seed)
+stream = sha256_prng(daily_seed, len(enigma_ciphertext))
 
 output = ""
-for c in enigma_ciphertext:
+for i, c in enumerate(enigma_ciphertext):
     val = ord(c) - ord('A')
-    noise = next(prng) % 26
-    fuzzed = (val + noise) % 26
+    fuzzed = (val + stream[i]) % 26
     output += chr(fuzzed + ord('A'))
 ```
 
@@ -49,13 +60,12 @@ The recipient has the same seed, so they generate the same PRNG stream
 and subtract:
 
 ```python
-prng = seeded_generator(daily_seed)
+stream = sha256_prng(daily_seed, len(received_text))
 
 enigma_ciphertext = ""
-for c in received_text:
+for i, c in enumerate(received_text):
     val = ord(c) - ord('A')
-    noise = next(prng) % 26
-    unfuzzed = (val - noise) % 26
+    unfuzzed = (val - stream[i]) % 26
     enigma_ciphertext += chr(unfuzzed + ord('A'))
 
 # Then decrypt through Enigma rotors as normal
@@ -198,7 +208,7 @@ in depth — an inner layer that adds complexity but is not relied upon.
 A weak PRNG can be broken, but the attacker must then also break the
 Enigma cipher. The two layers multiply the attacker's work.
 
-## Proposed CLI
+## CLI Usage
 
 ```bash
 # Encrypt with PRNG overlay (seed provided directly)
@@ -209,10 +219,6 @@ enegma-plus.py -d "CIPHERTEXT" 7 14 22 --prng-seed 839274610583
 
 # With codebook (seed loaded automatically from daily entry)
 enegma-plus.py "HELLO WORLD" --cb
-
-# Choose PRNG type (default: chacha20)
-enegma-plus.py "HELLO WORLD" 7 14 22 --prng-seed 839274610583 --prng-type poly
-enegma-plus.py "HELLO WORLD" 7 14 22 --prng-seed 839274610583 --prng-type chacha20
 ```
 
 ## Implementation Notes

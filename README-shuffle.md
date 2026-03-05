@@ -1,0 +1,73 @@
+# Positional Permutation (Locality Destruction)
+
+## Problem: Positional Locality
+
+After Enigma rotor encryption and PRNG overlay, each character remains at its original index — character 0 is still at position 0, character 1 at position 1, etc. An attacker who knows the message structure (e.g., standard headers) can exploit this positional information even if individual character values are well-encrypted.
+
+## Solution: Fisher-Yates Shuffle
+
+A pseudorandom permutation is applied as the **outermost encryption layer**, moving every character to a new position. This destroys positional locality — an attacker cannot tell which ciphertext position corresponds to which plaintext position.
+
+### Encryption Stack Order
+
+```
+ENCODE:  prepare_text → message key → rotor encrypt → PRNG overlay → EOF+padding → SHUFFLE
+DECODE:  UNSHUFFLE → strip padding (find EOF) → remove PRNG overlay → split indicator → rotor decrypt → restore_text
+```
+
+## Seed Derivation
+
+The shuffle seed is derived from the existing `prng_seed` via **domain separation**:
+
+```
+shuffle_seed = SHA-256(big_endian_64bit(prng_seed) || b"shuffle")[:8]
+```
+
+This ensures the shuffle stream is cryptographically independent from the PRNG overlay stream, even though both derive from the same seed. No new codebook field or CLI flag is needed.
+
+## Fisher-Yates Algorithm
+
+The [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) generates a uniformly random permutation:
+
+```
+for i from n-1 down to 1:
+    j = random integer in [0, i]
+    swap perm[i] and perm[j]
+```
+
+Random integers are drawn from a SHA-256 hash chain with **rejection sampling** to eliminate modulo bias.
+
+## Inverse Permutation
+
+Decoding applies the **inverse** of the same permutation. Since the permutation is deterministic (same seed → same swap sequence), the inverse is computed by:
+
+1. Regenerating the identical permutation array
+2. Reading characters from shuffled positions back to original positions
+
+If `apply` maps `original[i] → output[perm[i]]`, then `remove` maps `output[perm[i]] → original[i]`.
+
+## EOF Marker and Frequency-Flattening Padding
+
+Before the shuffle is applied, the ciphertext is padded to achieve **perfectly uniform letter frequency** across all 26 letters. This defeats frequency analysis completely.
+
+### How It Works
+
+1. **EOF marker**: An 8-character marker is derived from `prng_seed` via domain separation: `SHA-256(big_endian_64bit(prng_seed) || b"eof-marker")`. The first 8 bytes mod 26 produce the marker letters. This marker is appended to the PRNG-overlaid ciphertext.
+
+2. **Frequency padding**: After appending the marker, each of the 26 letters is counted. Letters below the maximum count are padded up to match. The result has every letter appearing the same number of times.
+
+3. **Shuffle**: The padded text is then shuffled, mixing real characters and padding together so their positions are indistinguishable.
+
+### Decoding
+
+On decode, the inverse shuffle is applied first, then the EOF marker is located (via `rfind`) and everything from the marker onward is stripped, recovering the original PRNG-overlaid ciphertext.
+
+### Security Properties
+
+- **Flat frequency**: Every letter appears with identical count — no statistical signal
+- **Length hiding**: All messages of similar length pad to the same total size
+- **Marker integrity**: Wrong seed produces wrong marker, causing decode to fail with an explicit error
+
+## Activation
+
+The shuffle and frequency padding are automatically applied whenever `prng_seed` is present. Existing codebooks with `prng_seed` fields will gain these protections with no configuration changes.

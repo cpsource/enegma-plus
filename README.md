@@ -319,6 +319,7 @@ using distinct wheels is stronger.
 - [README-crypto.md](README-crypto.md) — Additional cryptographic concepts: key derivation, padding, authenticated encryption, and more
 - [README-frequency.md](README-frequency.md) — Frequency-aware plugboard pairing to resist statistical analysis
 - [README-prng-overlay.md](README-prng-overlay.md) — PRNG stream overlay to flatten ciphertext frequency distribution
+- [README-chacha20.md](README-chacha20.md) — ChaCha20 stream cipher: how it works and comparison with our SHA-256 hash chain
 
 ## Wheel Configuration
 
